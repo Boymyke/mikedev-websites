@@ -1,0 +1,17 @@
+Local image assets used by index.html
+
+favicon.webp - generated favicon/logo image
+hero-before.webp - generated messy-hair before state
+hero-after.webp - cropped local hero after image
+about-brad.webp - uploaded Brad portrait for About section
+ladies-style.webp - generated ladies result image
+ladies-process.webp - generated ladies in-chair process image
+ladies-pixie.webp - generated ladies short-style image
+child-smile.webp - generated children result image
+child-cutting.webp - generated child haircut-in-progress image
+child-side-fade.webp - generated child side-profile result image
+
+Men services and Gallery
+- Men service cards now use 9 different BradTheBarber haircut photos rather than repeating one source image.
+- Gallery now uses 10 distinct BradTheBarber business photos.
+- These are loaded from BradTheBarber's public business-photo CDN URLs, so the HTML does not duplicate the same local crop.

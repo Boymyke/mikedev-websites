@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="BRAD.THE.BARBER — modern grooming in Burnley for ladies, gents and children.">
+  <title>BRAD.THE.BARBER — Burnley</title>
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+  <link rel="apple-touch-icon" href="images/favicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#090909;--surface:#111;--surface-2:#171717;--surface-3:#202020;
+      --gold:#d69419;--gold-2:#f0ad2e;--gold-dark:#634714;--cream:#ffe7ba;
+      --text:#f7f7f7;--muted:#9a9a9a;--line:#292929;--max:1240px;
+      --radius:8px;--header:92px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+      radial-gradient(circle at 12% 8%,rgba(214,148,25,.055),transparent 24%),
+      radial-gradient(circle at 88% 42%,rgba(255,255,255,.022),transparent 27%),var(--bg);color:var(--text);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+    img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}.section{padding:92px 0;position:relative}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}.section-title{font-size:clamp(34px,4vw,54px);line-height:1.03;letter-spacing:-.045em;margin:0 0 48px;font-weight:500}.section-title span,.gold{color:var(--gold)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border:1px solid var(--gold);border-radius:5px;transition:.25s ease;cursor:pointer;font-weight:600;font-size:14px}.btn:hover{transform:translateY(-2px)}.btn-gold{background:var(--gold-dark);color:var(--cream);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}.btn-gold:hover{background:#745318}.btn-outline{color:var(--gold);background:rgba(214,148,25,.03)}
+    .site-header{height:var(--header);position:sticky;top:0;z-index:60;display:flex;align-items:center;background:rgba(9,9,9,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.04)}.nav{display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{font-weight:800;font-size:24px;letter-spacing:-.06em;color:var(--gold);line-height:.8}.brand small{display:block;font-size:8px;color:#817b72;letter-spacing:.18em;margin-top:7px;font-weight:600}.desktop-nav{display:flex;gap:38px;align-items:center}.desktop-nav a{font-size:13px;color:#a3a3a3;transition:.2s}.desktop-nav a:hover,.desktop-nav a.active{color:var(--gold)}.header-cta{min-height:40px;padding:0 16px;font-size:12px}.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#111;border-radius:5px;color:#fff}.mobile-nav{display:none}
+    .hero{padding:64px 0 94px}.hero-top{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:end;margin-bottom:44px}.hero h1{font-size:clamp(48px,6.5vw,86px);letter-spacing:-.055em;line-height:.98;margin:0;font-weight:650;max-width:1000px}.hero-intro{color:#a9a9a9;font-weight:300;font-size:16px;line-height:1.75;max-width:380px;margin:0 0 4px}.compare{position:relative;height:min(560px,43vw);min-height:360px;border-radius:10px;overflow:hidden;background:#161616;border:1px solid #242424;isolation:isolate}.compare-layer{position:absolute;inset:0}.compare-layer img{width:100%;height:100%;object-fit:cover}.compare-after{clip-path:inset(0 50% 0 0)}.compare::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.38),transparent 34%);pointer-events:none}.compare-range{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:ew-resize;z-index:8}.compare-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:white;z-index:6;box-shadow:0 0 0 1px rgba(0,0,0,.15)}.compare-handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(8,8,8,.82);border:2px solid #fff;display:grid;place-items:center;z-index:7;box-shadow:0 10px 30px rgba(0,0,0,.35)}.compare-handle::before{content:"↔";font-size:22px}.compare-label{position:absolute;bottom:18px;z-index:7;background:rgba(0,0,0,.68);backdrop-filter:blur(8px);padding:9px 13px;border-radius:4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.compare-label.before{left:18px}.compare-label.after{right:18px}.hero-bottom{display:flex;justify-content:space-between;align-items:center;gap:32px;margin-top:28px}.hero-note{font-size:18px;color:#a4a4a4;line-height:1.55;max-width:620px;margin:0}.actions{display:flex;gap:14px;flex-wrap:wrap}
+    .story{display:grid;grid-template-columns:380px 1fr;gap:42px}.story-image{height:520px;border-radius:8px;overflow:hidden;position:relative}.story-image img{width:100%;height:100%;object-fit:cover}.story-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 40%)}.story-copy h3{font-size:29px;letter-spacing:-.03em;margin:4px 0 28px}.story-copy p{color:#a0a0a0;line-height:1.8;font-size:16px;margin:0 0 18px;font-weight:300}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}.stat{min-height:170px;border:1px solid #343434;background:radial-gradient(circle at 50% 42%,#2a2a2a 0,#171717 47%,#101010 100%);border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}.stat strong{font-size:34px;color:var(--gold);letter-spacing:-.04em;text-shadow:0 0 28px rgba(214,148,25,.18)}.stat span{font-size:12px;color:#8f8f8f;line-height:1.5;max-width:150px;margin-top:8px}
+    .service-tabs{display:grid;grid-template-columns:repeat(3,1fr);background:#101010;border:1px solid #1d1d1d;margin-bottom:30px;border-radius:6px;overflow:hidden}.service-tab{height:58px;border:0;background:transparent;color:#555;cursor:pointer;transition:.25s;font-weight:600}.service-tab.active{color:var(--gold);background:#1b1b1b}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.service-card{background:#101010;border:1px solid #1d1d1d;border-radius:8px;padding:14px;overflow:hidden;transition:.3s;min-width:0}.service-card:hover{border-color:#3e321c;transform:translateY(-4px)}.service-media{height:250px;border-radius:6px;overflow:hidden;position:relative}.service-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}.service-card:hover img{transform:scale(1.045)}.service-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.3),transparent 45%)}.service-body{padding:22px 2px 3px}.service-body h3{margin:0 0 10px;font-size:20px}.service-body p{margin:0 0 22px;color:#8d8d8d;line-height:1.65;font-size:13px;min-height:64px}.service-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.pill{font-size:10px;padding:7px 10px;border-radius:100px;background:#2c1f07;color:#dcb057}.service-card .btn{width:100%;min-height:46px}.service-foot{text-align:center;margin-top:24px;color:#777;font-size:12px}.service-foot a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+    .testimonial-shell{display:grid;grid-template-columns:420px 1fr;min-height:480px;border:1px solid #1d1d1d;border-radius:8px;overflow:hidden;background:#101010}.testimonial-photo{position:relative;overflow:hidden;background:#161616}.testimonial-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.testimonial-photo::after{content:"Client result image";position:absolute;left:22px;bottom:22px;padding:8px 10px;background:rgba(0,0,0,.66);font-size:10px;color:#ccc;border-radius:4px;letter-spacing:.08em;text-transform:uppercase}.testimonial-panel{padding:62px;display:flex;flex-direction:column;justify-content:center;position:relative}.quote-symbol{position:absolute;right:42px;bottom:36px;color:#202020;font-size:190px;line-height:.8;font-family:Georgia,serif;pointer-events:none}.testimonial-panel h3{font-size:35px;margin:0 0 26px;letter-spacing:-.04em;max-width:620px}.testimonial-quote{font-size:21px;line-height:1.6;color:#949494;font-weight:300;margin:0 0 30px;max-width:690px;min-height:102px}.stars{color:var(--gold);letter-spacing:.2em;margin-bottom:12px;font-size:16px}.review-name{font-weight:600}.review-date{font-size:11px;color:#686868;margin-top:7px}.testimonial-controls{display:flex;justify-content:space-between;align-items:center;margin-top:42px;padding-top:20px;border-top:1px solid #222;position:relative;z-index:3}.count{font-size:12px;color:#666}.count b{color:#c7c7c7}.arrows{display:flex;gap:10px}.arrow{width:42px;height:42px;border:1px solid #2a2a2a;background:#151515;color:var(--gold);border-radius:50%;cursor:pointer;transition:.2s}.arrow:hover{border-color:var(--gold);transform:translateY(-2px)}
+     .gallery-grid{columns:3;column-gap:24px;width:100%}.gallery-item{position:relative;overflow:hidden;border-radius:7px;border:1px solid #252525;break-inside:avoid;margin:0 0 24px;display:block}.gallery-item img{display:block;width:100%;height:auto;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);will-change:transform}.gallery-item:hover img{transform:scale(1.04)}.gallery-item:nth-child(3n+1) img{aspect-ratio:4/3}.gallery-item:nth-child(3n+2) img{aspect-ratio:3/4}.gallery-item:nth-child(3n) img{aspect-ratio:1/1}.gallery-caption{margin-top:16px;color:#6f6f6f;font-size:11px}
+    .contact-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px}.info-card{background:#101010;border:1px solid #1f1f1f;border-radius:8px;padding:28px}.info-card h3{font-size:22px;margin:0 0 24px}.address{font-size:14px;color:#9c9c9c;line-height:1.6;padding:16px;background:#151515;border-radius:5px;margin-bottom:22px}.hours{display:grid;gap:2px}.hour{display:flex;justify-content:space-between;gap:18px;padding:11px 8px;border-bottom:1px solid #1d1d1d;font-size:12px;color:#aaa}.hour span:first-child{display:flex;align-items:center;gap:10px}.dot{width:4px;height:10px;background:#45da45;border-radius:1px}.dot.closed{background:#ef3737}.contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.map{min-height:570px;overflow:hidden;border-radius:8px;border:1px solid #252525;background:#111}.map iframe{width:100%;height:100%;min-height:570px;border:0;filter:grayscale(.3) invert(.86) hue-rotate(180deg) contrast(.9)}
+    .social-bar{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.social-link{border:1px solid #242424;background:#111;padding:16px;border-radius:6px;color:#9c9c9c;font-size:12px;text-align:center;transition:.2s}.social-link:hover{color:var(--gold);border-color:#4b3816}.footer{border-top:1px solid #1f1f1f;background:#111;padding:70px 0 28px;overflow:hidden}.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}.footer-brand{font-size:52px;color:var(--gold);font-weight:800;letter-spacing:-.08em;line-height:.8}.footer-copy{color:#717171;line-height:1.8;font-size:12px;max-width:390px;margin-top:24px}.footer-book{text-align:right}.footer-book p{font-size:12px;color:#777;max-width:360px;margin:0 0 18px}.mega{font-size:clamp(54px,10vw,136px);font-weight:800;letter-spacing:-.07em;color:#1d1d1d;white-space:nowrap;line-height:.9;margin:70px 0 42px}.footer-bottom{border-top:1px solid #202020;padding-top:24px;display:flex;justify-content:space-between;gap:20px;color:#666;font-size:10px}
+    .reveal{visibility:visible}.js .reveal{visibility:hidden}
+    @media (max-width:1000px){.desktop-nav,.header-cta{display:none}.menu-btn{display:block}.mobile-nav{position:absolute;top:calc(100% + 1px);left:0;right:0;background:#0d0d0d;border-bottom:1px solid #242424;padding:20px 24px;display:grid;gap:4px;transform:translateY(-10px);opacity:0;visibility:hidden;transition:.25s}.mobile-nav.open{opacity:1;visibility:visible;transform:none}.mobile-nav a{padding:13px 8px;color:#aaa}.hero-top{grid-template-columns:1fr}.hero-intro{max-width:620px}.compare{height:56vw}.story{grid-template-columns:1fr}.story-image{height:460px}.service-grid{grid-template-columns:repeat(2,1fr)}.testimonial-shell{grid-template-columns:330px 1fr}.testimonial-panel{padding:44px}.contact-grid{grid-template-columns:1fr}.map,.map iframe{min-height:450px}.gallery-grid{grid-auto-rows:160px}}
+    @media (max-width:720px){:root{--header:76px}.container{width:min(100% - 28px,var(--max))}.section{padding:70px 0}.hero{padding:44px 0 70px}.hero h1{font-size:clamp(44px,13vw,64px)}.hero-bottom{align-items:flex-start;flex-direction:column}.compare{height:96vw;min-height:390px}.compare-handle{width:48px;height:48px}.story-image{height:430px}.stats{grid-template-columns:1fr}.stat{min-height:130px}.service-tabs{grid-template-columns:repeat(3,1fr)}.service-grid{grid-template-columns:1fr}.service-media{height:280px}.testimonial-shell{grid-template-columns:1fr}.testimonial-photo{height:390px}.testimonial-panel{padding:32px 24px}.testimonial-panel h3{font-size:28px}.testimonial-quote{font-size:17px;min-height:135px}.quote-symbol{font-size:130px}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.gallery-item,.gallery-item:nth-child(n){grid-column:span 1;grid-row:span 1}.gallery-item:nth-child(1),.gallery-item:nth-child(5){grid-column:span 2}.contact-actions{grid-template-columns:1fr}.social-bar{grid-template-columns:1fr}.footer-top,.footer-bottom{flex-direction:column}.footer-book{text-align:left}.mega{white-space:normal;font-size:18vw}.section-title{margin-bottom:34px}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  
+    @media (max-width:900px){.gallery-grid{columns:2}}
+    @media (max-width:600px){.gallery-grid{columns:1}.gallery-item{margin-bottom:24px}}
+</style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="BRAD.THE.BARBER home">BRAD.<small>THE BARBER</small></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#testimonials">Testimonials</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-gold header-cta" href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">Book Appointment</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="mobile-nav" id="mobileNav">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#testimonials">Testimonials</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">Book Appointment ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-top">
+          <h1 class="hero-title reveal">MORE THAN A<br>HAIRCUT. IT’S YOUR <span class="gold">IMAGE.</span></h1>
+          <p class="hero-intro reveal">Modern grooming in Burnley with a relaxed, personal experience for ladies, gents and children. Sharp work, careful detail and a finish that feels like you.</p>
+        </div>
+
+        <div class="compare reveal" id="compare">
+          <div class="compare-layer"><img src="images/hero-before.webp" alt="Brad The Barber gallery before view"></div>
+          <div class="compare-layer compare-after" id="compareAfter"><img src="images/hero-after.webp" alt="Brad The Barber gallery after view"></div>
+          <div class="compare-line" id="compareLine"></div><div class="compare-handle" id="compareHandle"></div>
+          <span class="compare-label before">Before</span><span class="compare-label after">After</span>
+          <input class="compare-range" id="compareRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after images">
+        </div>
+
+        <div class="hero-bottom">
+          <p class="hero-note reveal">A haircut can change how you carry yourself. The aim is simple: leave the chair looking cleaner, sharper and more confident.</p>
+          <div class="actions reveal"><a class="btn btn-outline" href="#contact">Find The Shop</a><a class="btn btn-gold" href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">Book Appointment ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="eyebrow reveal">About Brad</div><h2 class="section-title reveal">The Story Behind <span>The Chair</span></h2>
+        <div class="story">
+          <div class="story-image reveal"><img src="images/brad-about-latest.webp" alt="Brad The Barber inside his Burnley barbershop"></div>
+          <div class="story-copy">
+            <h3 class="reveal">Sharp style. Personal service.</h3>
+            <p class="reveal">BRAD.THE.BARBER is based in Burnley and focuses on a one-to-one grooming experience rather than rushing clients through the chair. The public Nearcut site welcomes ladies, gents and children.</p>
+            <p class="reveal">Whether you are tidying up your current look or changing it completely, the experience is built around attention to detail, a clean finish and a result that suits the person wearing it.</p>
+            <div class="stats">
+              <article class="stat reveal"><strong data-count="20" data-suffix="+">0</strong><span>Years represented in the original design story</span></article>
+              <article class="stat reveal"><strong data-count="5000" data-suffix="+">0</strong><span>Cuts represented in the original design story</span></article>
+              <article class="stat reveal"><strong data-count="100" data-suffix="%">0</strong><span>Focus on precision and detail</span></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="eyebrow reveal">Appointments</div><h2 class="section-title reveal">Signature <span>Grooming</span> Services</h2>
+        <div class="service-tabs reveal" role="tablist" aria-label="Grooming categories">
+          <button class="service-tab active" data-category="gents" role="tab" aria-selected="true">Men</button>
+          <button class="service-tab" data-category="ladies" role="tab" aria-selected="false">Ladies</button>
+          <button class="service-tab" data-category="children" role="tab" aria-selected="false">Children</button>
+        </div>
+        <div class="service-grid" id="serviceGrid"></div>
+        <p class="service-foot reveal">For the current live service list, duration and price, <a href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">open Brad’s Nearcut booking page ↗</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="eyebrow reveal">Real feedback</div><h2 class="section-title reveal">What Our <span>Clients</span> Say</h2>
+        <div class="testimonial-shell reveal">
+          <div class="testimonial-photo"><img id="testimonialImage" src="images/hero-after.webp" alt="Client result from Brad The Barber gallery"></div>
+          <div class="testimonial-panel">
+            <span class="quote-symbol">”</span>
+            <h3 id="testimonialTitle">Five-star service</h3>
+            <p class="testimonial-quote" id="testimonialQuote">Great service! Would highly recommend!</p>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <div class="review-name" id="testimonialName">Jason C</div><div class="review-date" id="testimonialDate">27 February</div>
+            <div class="testimonial-controls"><div class="count"><b id="testimonialIndex">01</b> / <span id="testimonialTotal">06</span></div><div class="arrows"><button class="arrow" id="prevTestimonial" aria-label="Previous review">←</button><button class="arrow" id="nextTestimonial" aria-label="Next review">→</button></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="eyebrow reveal">Nearcut gallery</div><h2 class="section-title reveal">Fresh <span>Cuts.</span> Real Results.</h2>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <p class="gallery-caption reveal">Selected BRAD.THE.BARBER cuts and finishes, shown across a varied set of client results.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="eyebrow reveal">Burnley</div><h2 class="section-title reveal">Find The <span>Shop</span></h2>
+        <div class="contact-grid">
+          <div class="info-card reveal">
+            <h3>BRAD.THE.BARBER, Burnley</h3>
+            <div class="address">16 Hargreaves St<br>Burnley, Lancashire<br>BB11 1DZ</div>
+            <div class="hours">
+              <div class="hour"><span><i class="dot closed"></i>Monday</span><b>Closed</b></div>
+              <div class="hour"><span><i class="dot"></i>Tuesday</span><b>10:00am – 6:00pm</b></div>
+              <div class="hour"><span><i class="dot"></i>Wednesday</span><b>10:00am – 6:00pm</b></div>
+              <div class="hour"><span><i class="dot"></i>Thursday</span><b>10:00am – 8:00pm</b></div>
+              <div class="hour"><span><i class="dot"></i>Friday</span><b>10:00am – 6:00pm</b></div>
+              <div class="hour"><span><i class="dot"></i>Saturday</span><b>8:30am – 2:00pm</b></div>
+              <div class="hour"><span><i class="dot closed"></i>Sunday</span><b>Closed</b></div>
+            </div>
+            <div class="contact-actions"><a class="btn btn-gold" href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">Book Appointment ↗</a><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=16%20Hargreaves%20St%20Burnley%20Lancashire%20BB11%201DZ" target="_blank" rel="noopener">Open in Maps ↗</a></div>
+            <div class="social-bar"><a class="social-link" href="https://www.facebook.com/brad.the.barber" target="_blank" rel="noopener">Facebook · brad.the.barber</a><a class="social-link" href="https://www.instagram.com/brad_the_barber1" target="_blank" rel="noopener">Instagram · brad_the_barber1</a><span class="social-link">TikTok · brad_the_barber1</span></div>
+          </div>
+          <div class="map reveal"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=16%20Hargreaves%20St%20Burnley%20Lancashire%20BB11%201DZ&output=embed" title="Map to BRAD.THE.BARBER in Burnley"></iframe></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div><div class="footer-brand">BRAD.</div><p class="footer-copy">Modern grooming in Burnley for ladies, gents and children. Book current services and availability directly through Nearcut.</p></div>
+        <div class="footer-book"><p>Ready for your next appointment?</p><a class="btn btn-gold" href="https://bradthebarber.nearcut.com/book/shops/3FUUA0/services" target="_blank" rel="noopener">Book on Nearcut ↗</a></div>
+      </div>
+      <div class="mega">BRAD THE BARBER</div>
+      <div class="footer-bottom"><span>16 Hargreaves St, Burnley, Lancashire, BB11 1DZ</span><span>Website concept build · 2026</span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // Image delivery fix: proxied Brad photos + bundled local fallbacks.
+    const BOOKING_URL = 'https://bradthebarber.nearcut.com/book/shops/3FUUA0/services';
+    const bradMenImages = [
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2Fa805d207-a2dc-4022-8c38-6d76fea2c5ba_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gents-1.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F1601bbac-bef1-4af9-8447-1a43e4199e81_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gents-2.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F24d67e12-a26e-495c-bc6c-e32589f6fa65_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gents-3.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F489d6877-df26-42a5-8361-29569c3dbf01_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-1.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2Fe537f3e7-3b56-4208-8c7e-d014eb56eb96_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-2.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F9cbf1fa7-2d94-4bfb-8bb4-99e40afd6819_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-3.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F37f5bdb3-7f4b-48ed-8c0b-2cff6c72b380_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-4.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F69654a13-30d4-4f05-8292-72252e867523_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-5.webp'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F0ef98921-8b0f-4f23-9c4a-99b3eed203c1_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gallery-6.webp'}
+    ];
+    const imageSets = {
+      gents: bradMenImages,
+      ladies: [
+        'images/ladies-style.webp','images/ladies-process.webp','images/ladies-pixie.webp',
+        'images/gallery-3.webp','images/gallery-4.webp','images/gallery-5.webp'
+      ],
+      children: [
+        'images/child-smile.webp','images/child-cutting.webp','images/child-side-fade.webp',
+        'images/gallery-6.webp','images/hero-after.webp','images/gents-1.webp'
+      ]
+    };
+    const reviewImages = [
+      'images/hero-after.webp',
+      'images/story-feature.webp',
+      'images/ladies-style.webp',
+      'images/child-smile.webp',
+      'images/child-cutting.webp',
+      'images/ladies-pixie.webp'
+    ];
+    const galleryItems = [
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2Fa805d207-a2dc-4022-8c38-6d76fea2c5ba_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/hero-after.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F1601bbac-bef1-4af9-8447-1a43e4199e81_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/hero-before.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F24d67e12-a26e-495c-bc6c-e32589f6fa65_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/story-feature.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F10663a26-7da3-477d-99a0-4caf974f642c_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/ladies-style.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F489d6877-df26-42a5-8361-29569c3dbf01_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/child-cutting.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2Fe537f3e7-3b56-4208-8c7e-d014eb56eb96_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/child-side-fade.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F9cbf1fa7-2d94-4bfb-8bb4-99e40afd6819_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/child-smile.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F37f5bdb3-7f4b-48ed-8c0b-2cff6c72b380_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/ladies-pixie.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F69654a13-30d4-4f05-8292-72252e867523_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/ladies-process.webp', pos:'50% 50%'},
+      {src:'https://wsrv.nl/?url=https%3A%2F%2Fc.yell.com%2Ft_bigSquare%252Cf_auto%2F0ef98921-8b0f-4f23-9c4a-99b3eed203c1_image_jpeg.jpg&w=1200&h=1200&fit=cover&output=webp&q=90', fallback:'images/gents-1.webp', pos:'50% 50%'}
+    ];
+
+    const services = {
+      gents: [
+        {name:"Men's Haircut",note:'A clean, modern cut built around your hair type, face shape and preferred finish.',tag:'Men',img:0,pos:'50% 50%'},
+        {name:'Skin Fade',note:'A sharper fade-focused appointment with clean graduation and a polished finish.',tag:'Men',img:1,pos:'50% 50%'},
+        {name:'Taper Fade',note:'A softer, versatile taper around the sides and neckline while keeping more length through the cut.',tag:'Men',img:2,pos:'50% 50%'},
+        {name:'Haircut & Beard',note:'A coordinated haircut and beard tidy-up for a balanced, complete grooming finish.',tag:'Men',img:3,pos:'50% 50%'},
+        {name:'Beard Trim & Shape',note:'Beard shaping, cleanup and definition designed to keep the overall look sharp.',tag:'Men',img:4,pos:'50% 50%'},
+        {name:'Buzz Cut & Finish',note:'A low-maintenance clipper cut finished cleanly around the hairline and neckline.',tag:'Men',img:5,pos:'50% 50%'},
+        {name:'Restyle',note:'For a bigger change in length or shape, with the new direction discussed before the cut starts.',tag:'Men',img:6,pos:'50% 50%'},
+        {name:'Line Up / Shape Up',note:'A detail appointment focused on sharpening the hairline, edges and overall outline.',tag:'Men',img:7,pos:'50% 50%'},
+        {name:'Classic Cut',note:'A timeless, tidy cut with a natural finish for clients who prefer a cleaner traditional look.',tag:'Men',img:8,pos:'50% 50%'}
+      ],
+      ladies: [
+        {name:'Ladies Short Cut',note:'A clean short-hair appointment designed around your preferred shape and finish.',tag:'Ladies',img:0,pos:'50% 40%'},
+        {name:'Pixie / Crop',note:'A short, detailed style with texture and shape tailored to how you want to wear it.',tag:'Ladies',img:2,pos:'50% 38%'},
+        {name:'Bob Refresh',note:'A shape-focused refresh to restore structure, movement and a clean outline.',tag:'Ladies',img:0,pos:'56% 38%'},
+        {name:'Restyle',note:'A larger change in length or silhouette, with the final look discussed during the appointment.',tag:'Ladies',img:1,pos:'58% 36%'},
+        {name:'Fringe & Shape',note:'A maintenance appointment focused on fringe, face-framing and keeping the cut balanced.',tag:'Ladies',img:2,pos:'46% 38%'},
+        {name:'Tapered Short Cut',note:'A precise tapered finish for shorter styles that need clean structure around the sides and back.',tag:'Ladies',img:3,pos:'50% 38%'},
+        {name:'Maintenance Cut',note:'Keep an existing short style looking neat, balanced and easy to manage.',tag:'Ladies',img:4,pos:'54% 38%'},
+        {name:'Cut & Finish',note:'A complete cut and finishing appointment focused on shape, detail and a polished result.',tag:'Ladies',img:5,pos:'50% 40%'},
+        {name:'Consultation & Refresh',note:'Choose the best current booking option, then discuss the exact direction in the chair.',tag:'Ladies',img:0,pos:'60% 40%'}
+      ],
+      children: [
+        {name:"Children's Haircut",note:'A straightforward child-friendly cut with a calm, comfortable appointment experience.',tag:'Children',img:0,pos:'50% 36%'},
+        {name:'Kids Skin Fade',note:'A clean fade-focused cut for younger clients who want a sharper modern style.',tag:'Children',img:2,pos:'50% 34%'},
+        {name:'School-Ready Cut',note:'A tidy, practical haircut designed to stay neat and easy to manage.',tag:'Children',img:0,pos:'48% 36%'},
+        {name:'Kids Taper',note:'A softer taper around the sides and back while keeping a natural amount of length.',tag:'Children',img:1,pos:'52% 34%'},
+        {name:'First Haircut',note:'A gentle first-cut experience with extra time to help younger children settle into the chair.',tag:'Children',img:0,pos:'54% 36%'},
+        {name:'Texture & Shape',note:'A shape-focused appointment for curls, texture or longer children’s styles.',tag:'Children',img:2,pos:'50% 34%'},
+        {name:'Tidy-Up',note:'A quick refresh for edges, shape and overall neatness between larger haircut changes.',tag:'Children',img:3,pos:'52% 38%'},
+        {name:'Kids Restyle',note:'For a bigger change in shape or length while keeping the experience simple and comfortable.',tag:'Children',img:4,pos:'56% 38%'},
+        {name:'Sibling Booking',note:'Choose the current live booking options for multiple children and keep the appointments together.',tag:'Children',img:5,pos:'52% 36%'}
+      ]
+    };
+
+    const reviews = [
+      {title:'Great service',name:'Jason C',date:'27 February',quote:'Great service! Would highly recommend!',img:0},
+      {title:'Detailed from start to finish',name:'Jack T',date:'26 February',quote:'Bailey was attentive and detailed with the cut and made sure I was happy throughout, will 100% be coming back',img:1},
+      {title:'Left feeling great',name:'Jay R',date:'09 March',quote:'Looked and felt great after my appointment 😊',img:2},
+      {title:'Spot on',name:'Calum J',date:'19 February',quote:'First haircut with Bailey was spot on',img:3},
+      {title:'Brilliant service',name:'Reece J',date:'06 March',quote:'Brilliant service',img:4},
+      {title:'Always five-star',name:'Elaine J',date:'11 March',quote:'Always 5🌟🌟🌟🌟🌟 at Brad.the. Barbers. Always accommodates besides perfect hair. Thanks Brad',img:5}
+    ];
+
+    function renderServices(category='gents'){
+      const grid=document.getElementById('serviceGrid');
+      const sourceSet=imageSets[category];
+      grid.innerHTML=services[category].map((s,i)=>{
+        const imageEntry=sourceSet[s.img];
+        const imageSrc=typeof imageEntry==='string'?imageEntry:imageEntry.src;
+        const fallback=typeof imageEntry==='string'?imageEntry:imageEntry.fallback;
+        return `<article class="service-card service-card-js">
+        <div class="service-media"><img src="${imageSrc}" data-fallback="${fallback}" style="object-position:${s.pos}" alt="BRAD.THE.BARBER image for ${s.name}" loading="lazy" decoding="async"></div>
+        <div class="service-body"><div class="service-meta"><h3>${s.name}</h3><span class="pill">${s.tag}</span></div><p>${s.note}</p><a class="btn ${i===0?'btn-gold':'btn-outline'}" href="${BOOKING_URL}" target="_blank" rel="noopener">View live service & book ↗</a></div>
+      </article>`}).join('');
+      grid.querySelectorAll('img[data-fallback]').forEach(img=>img.addEventListener('error',()=>{
+        if(img.dataset.fallback && img.src!==new URL(img.dataset.fallback,location.href).href){img.src=img.dataset.fallback;}
+      },{once:true}));
+      if(window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+        gsap.fromTo('.service-card-js',{y:24,opacity:0},{y:0,opacity:1,duration:.55,stagger:.07,ease:'power2.out'});
+      }
+    }
+    renderServices();
+    document.querySelectorAll('.service-tab').forEach(btn=>btn.addEventListener('click',()=>{
+      document.querySelectorAll('.service-tab').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
+      btn.classList.add('active');btn.setAttribute('aria-selected','true');renderServices(btn.dataset.category);
+    }));
+
+    const galleryGrid=document.getElementById('galleryGrid');
+    galleryGrid.innerHTML=galleryItems.map((item,i)=>`<figure class="gallery-item reveal"><img src="${item.src}" data-fallback="${item.fallback}" style="object-position:${item.pos}" alt="BRAD.THE.BARBER gallery image ${i+1}" loading="lazy" decoding="async"></figure>`).join('');
+    galleryGrid.querySelectorAll('img[data-fallback]').forEach(img=>img.addEventListener('error',()=>{
+      if(img.dataset.fallback && img.src!==new URL(img.dataset.fallback,location.href).href){img.src=img.dataset.fallback;}
+    },{once:true}));
+
+    const range=document.getElementById('compareRange'),after=document.getElementById('compareAfter'),line=document.getElementById('compareLine'),handle=document.getElementById('compareHandle');
+    function setCompare(v){after.style.clipPath=`inset(0 ${100-v}% 0 0)`;line.style.left=v+'%';handle.style.left=v+'%'}
+    range.addEventListener('input',e=>setCompare(+e.target.value));
+
+    const menuBtn=document.getElementById('menuBtn'),mobileNav=document.getElementById('mobileNav');
+    menuBtn.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open);menuBtn.textContent=open?'×':'☰'});
+    mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
+
+    let reviewIndex=0,reviewTimer;
+    const reviewEls={img:document.getElementById('testimonialImage'),title:document.getElementById('testimonialTitle'),quote:document.getElementById('testimonialQuote'),name:document.getElementById('testimonialName'),date:document.getElementById('testimonialDate'),index:document.getElementById('testimonialIndex')};
+    function showReview(next,dir=1){reviewIndex=(next+reviews.length)%reviews.length;const r=reviews[reviewIndex];
+      if(window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+        const tl=gsap.timeline();
+        tl.to([reviewEls.title,reviewEls.quote,reviewEls.name,reviewEls.date],{opacity:0,y:-8*dir,duration:.18,stagger:.025,ease:'power1.in'})
+          .to(reviewEls.img,{opacity:.2,scale:1.035,duration:.18},0)
+          .add(()=>{reviewEls.title.textContent=r.title;reviewEls.quote.textContent=r.quote;reviewEls.name.textContent=r.name;reviewEls.date.textContent=r.date;reviewEls.index.textContent=String(reviewIndex+1).padStart(2,'0');reviewEls.img.src=reviewImages[r.img] || reviewEls.img.src})
+          .fromTo(reviewEls.img,{x:18*dir,opacity:.2,scale:1.035},{x:0,opacity:1,scale:1,duration:.42,ease:'power2.out'})
+          .to([reviewEls.title,reviewEls.quote,reviewEls.name,reviewEls.date],{opacity:1,y:0,duration:.34,stagger:.035,ease:'power2.out'},'<.05');
+      } else {reviewEls.title.textContent=r.title;reviewEls.quote.textContent=r.quote;reviewEls.name.textContent=r.name;reviewEls.date.textContent=r.date;reviewEls.index.textContent=String(reviewIndex+1).padStart(2,'0');reviewEls.img.src=reviewImages[r.img] || reviewEls.img.src}
+      resetReviewTimer();
+    }
+    function resetReviewTimer(){clearInterval(reviewTimer);reviewTimer=setInterval(()=>showReview(reviewIndex+1,1),6500)}
+    document.getElementById('prevTestimonial').addEventListener('click',()=>showReview(reviewIndex-1,-1));
+    document.getElementById('nextTestimonial').addEventListener('click',()=>showReview(reviewIndex+1,1));resetReviewTimer();
+
+    function initGSAP(){
+      document.body.classList.remove('no-js');
+      if(!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.reveal').forEach(el=>el.style.visibility='visible');return}
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.set('.reveal',{visibility:'visible'});
+      gsap.from('.site-header .nav',{y:-24,opacity:0,duration:.75,ease:'power3.out'});
+      gsap.from('.hero-title',{y:42,opacity:0,duration:.9,ease:'power3.out',delay:.1});
+      gsap.from('.hero-intro',{y:24,opacity:0,duration:.75,ease:'power2.out',delay:.24});
+      gsap.from('.compare',{y:44,opacity:0,scale:.985,duration:1,ease:'power3.out',delay:.28});
+      gsap.from('.hero-bottom .reveal',{y:20,opacity:0,duration:.7,stagger:.08,ease:'power2.out',delay:.5});
+
+      document.querySelectorAll('main .section .reveal').forEach(el=>{
+        if(el.closest('.stats') || el.classList.contains('gallery-item')) return;
+        gsap.from(el,{y:34,opacity:0,duration:.75,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+      });
+      gsap.from('.stat',{y:30,opacity:0,stagger:.12,duration:.65,ease:'power3.out',scrollTrigger:{trigger:'.stats',start:'top 84%',once:true}});
+      document.querySelectorAll('[data-count]').forEach(el=>{
+        const end=Number(el.dataset.count),suffix=el.dataset.suffix||'',obj={v:0};
+        gsap.to(obj,{v:end,duration:1.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},onUpdate(){const n=Math.round(obj.v);el.textContent=(end>=1000?n.toLocaleString():n)+suffix}});
+      });
+      gsap.from('.gallery-item',{y:42,opacity:0,scale:.97,stagger:.055,duration:.75,ease:'power3.out',scrollTrigger:{trigger:'#galleryGrid',start:'top 82%',once:true}});
+      gsap.utils.toArray('.gallery-item img').forEach((img,i)=>gsap.to(img,{yPercent:i%2?6:-6,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:.5}}));
+      gsap.from('.mega',{xPercent:-8,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.mega',start:'top 95%',once:true}});
+    }
+    window.addEventListener('load',initGSAP);
+
+    const sections=[...document.querySelectorAll('main section[id]')],navLinks=[...document.querySelectorAll('.desktop-nav a')];
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}}),{rootMargin:'-42% 0px -50% 0px'});sections.forEach(s=>observer.observe(s));
+  </script>
+</body>
+</html>
