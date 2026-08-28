@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A directory of websites designed and built by Mike."
+    />
+    <title>Mike Website Directory</title>
+
+    <style>
+      :root {
+        --bg: #f6f6f4;
+        --surface: #ffffff;
+        --text: #111111;
+        --muted: #6f6f6f;
+        --line: #e7e7e2;
+        --accent: #ff4100;
+        --accent-dark: #d93600;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 32px 18px 64px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .brand-mark {
+        width: 12px;
+        height: 12px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+
+      .count {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 48px;
+        align-items: end;
+        margin-bottom: 36px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        max-width: 800px;
+        font-size: clamp(42px, 7vw, 82px);
+        line-height: 0.95;
+        letter-spacing: -0.065em;
+        font-weight: 800;
+      }
+
+      .hero-copy {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.65;
+        max-width: 480px;
+        padding-bottom: 6px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        margin: 42px 0 18px;
+      }
+
+      .search-wrap {
+        position: relative;
+        flex: 1;
+      }
+
+      .search {
+        width: 100%;
+        height: 52px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 0 18px;
+        font: inherit;
+        outline: none;
+        transition:
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .search:focus {
+        border-color: #b8b8b1;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.03);
+      }
+
+      .table-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 760px;
+      }
+
+      th {
+        padding: 18px 22px;
+        text-align: left;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #8b8b84;
+        background: #fafaf8;
+        border-bottom: 1px solid var(--line);
+      }
+
+      td {
+        padding: 22px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+
+      tbody tr {
+        transition: background 140ms ease;
+      }
+
+      tbody tr:hover {
+        background: #fcfcfa;
+      }
+
+      .niche {
+        font-weight: 700;
+      }
+
+      .url-cell {
+        min-width: 240px;
+      }
+
+      .site-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .site-link:hover {
+        color: var(--accent-dark);
+      }
+
+      .impact {
+        color: var(--muted);
+        line-height: 1.55;
+        max-width: 560px;
+      }
+
+      .empty {
+        text-align: center;
+        padding: 52px 24px;
+        color: var(--muted);
+      }
+
+      .status {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: #8c8c86;
+        font-size: 13px;
+        margin-top: 24px;
+        padding: 0 4px;
+      }
+
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .pagination button {
+        min-width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 0 12px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 140ms ease,
+          color 140ms ease,
+          border-color 140ms ease;
+      }
+
+      .pagination button:hover:not(:disabled) {
+        border-color: #c8c8c1;
+        background: #fafaf8;
+      }
+
+      .pagination button.active {
+        background: var(--text);
+        color: #ffffff;
+        border-color: var(--text);
+      }
+
+      .pagination button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding-top: 22px;
+        }
+
+        .topbar {
+          margin-bottom: 38px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+
+        h1 {
+          font-size: clamp(46px, 15vw, 68px);
+        }
+
+        .hero-copy {
+          font-size: 16px;
+        }
+
+        .toolbar {
+          margin-top: 30px;
+        }
+
+        .table-card {
+          border-radius: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>Mike / DIRECTORY</span>
+        </div>
+        <div class="count" id="siteCount">0 websites</div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Selected website concepts</div>
+          <h1>Websites built to solve real business problems.</h1>
+        </div>
+
+        <p class="hero-copy">
+          A growing directory of website concepts across different industries,
+          showing the niche, live website and the business impact each
+          experience is designed to create.
+        </p>
+      </section>
+
+      <section class="toolbar">
+        <div class="search-wrap">
+          <input
+            id="searchInput"
+            class="search"
+            type="search"
+            placeholder="Search by niche, URL or impact..."
+            aria-label="Search websites"
+          />
+        </div>
+      </section>
+
+      <section class="table-card">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Niche</th>
+                <th>Website link</th>
+                <th>Impact</th>
+              </tr>
+            </thead>
+            <tbody id="websiteTableBody"></tbody>
+          </table>
+
+          <div class="empty" id="emptyState" hidden>
+            No websites match your search.
+          </div>
+        </div>
+      </section>
+
+      <div class="pagination" id="pagination"></div>
+
+      <div class="status" id="statusText">Loading websites...</div>
+
+      <footer class="footer">
+        <span>Mike Website Directory</span>
+        <span id="year"></span>
+      </footer>
+    </main>
+
+    <script>
+      const tableBody = document.getElementById("websiteTableBody");
+      const searchInput = document.getElementById("searchInput");
+      const siteCount = document.getElementById("siteCount");
+      const statusText = document.getElementById("statusText");
+      const emptyState = document.getElementById("emptyState");
+      const pagination = document.getElementById("pagination");
+      const year = document.getElementById("year");
+
+      let websites = [];
+      let filteredWebsites = [];
+      let currentPage = 1;
+      const itemsPerPage = 6;
+
+      year.textContent = `© ${new Date().getFullYear()}`;
+
+      function getDisplayUrl(url) {
+        return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      }
+
+      function renderWebsites(items) {
+        tableBody.innerHTML = "";
+
+        if (!items.length) {
+          emptyState.hidden = false;
+          pagination.innerHTML = "";
+          siteCount.textContent = `0 websites`;
+          return;
+        }
+
+        emptyState.hidden = true;
+
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+
+        if (currentPage > totalPages) {
+          currentPage = totalPages;
+        }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const pageItems = items.slice(startIndex, startIndex + itemsPerPage);
+
+        pageItems.forEach((website) => {
+          const row = document.createElement("tr");
+
+          const nicheCell = document.createElement("td");
+          nicheCell.className = "niche";
+          nicheCell.textContent = website.niche;
+
+          const urlCell = document.createElement("td");
+          urlCell.className = "url-cell";
+
+          const link = document.createElement("a");
+          link.className = "site-link";
+          link.href = website.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.innerHTML = `${getDisplayUrl(website.url)} <span aria-hidden="true">↗</span>`;
+
+          urlCell.appendChild(link);
+
+          const impactCell = document.createElement("td");
+          impactCell.className = "impact";
+          impactCell.textContent = website.impact;
+
+          row.appendChild(nicheCell);
+          row.appendChild(urlCell);
+          row.appendChild(impactCell);
+          tableBody.appendChild(row);
+        });
+
+        siteCount.textContent = `${items.length} website${items.length === 1 ? "" : "s"}`;
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(totalPages) {
+        pagination.innerHTML = "";
+
+        if (totalPages <= 1) {
+          return;
+        }
+
+        const previousButton = document.createElement("button");
+        previousButton.textContent = "Previous";
+        previousButton.disabled = currentPage === 1;
+        previousButton.addEventListener("click", () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderWebsites(filteredWebsites);
+            window.scrollTo({
+              top: document.querySelector(".table-card").offsetTop - 24,
+              behavior: "smooth",
+            });
+          }
+        });
+        pagination.appendChild(previousButton);
+
+        for (let page = 1; page <= totalPages; page++) {
+          const pageButton = document.createElement("button");
+          pageButton.textContent = page;
+          pageButton.classList.toggle("active", page === currentPage);
+          pageButton.setAttribute("aria-label", `Go to page ${page}`);
+
+          pageButton.addEventListener("click", () => {
+            currentPage = page;
+            renderWebsites(filteredWebsites);
+            window.scrollTo({
+              top: document.querySelector(".table-card").offsetTop - 24,
+              behavior: "smooth",
+            });
+          });
+
+          pagination.appendChild(pageButton);
+        }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "Next";
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener("click", () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderWebsites(filteredWebsites);
+            window.scrollTo({
+              top: document.querySelector(".table-card").offsetTop - 24,
+              behavior: "smooth",
+            });
+          }
+        });
+        pagination.appendChild(nextButton);
+      }
+
+      function filterWebsites() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        filteredWebsites = websites.filter((website) => {
+          return (
+            website.niche.toLowerCase().includes(query) ||
+            website.url.toLowerCase().includes(query) ||
+            website.impact.toLowerCase().includes(query)
+          );
+        });
+
+        currentPage = 1;
+        renderWebsites(filteredWebsites);
+      }
+
+      async function loadWebsites() {
+        try {
+          const response = await fetch("./websites.json");
+
+          if (!response.ok) {
+            throw new Error(
+              `Could not load websites.json (${response.status})`,
+            );
+          }
+
+          websites = await response.json();
+
+          if (!Array.isArray(websites)) {
+            throw new Error("websites.json must contain an array.");
+          }
+
+          filteredWebsites = [...websites];
+          renderWebsites(filteredWebsites);
+          statusText.textContent = "Directory loaded successfully.";
+        } catch (error) {
+          console.error(error);
+          statusText.textContent =
+            "Could not load websites.json. Make sure index.html and websites.json are in the same folder and open the site through a local/server deployment rather than directly from your file system.";
+        }
+      }
+
+      searchInput.addEventListener("input", filterWebsites);
+
+      loadWebsites();
+    </script>
+  </body>
+</html>

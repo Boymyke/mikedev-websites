@@ -1,0 +1,17 @@
+[
+  {
+    "niche": "Assisted Living",
+    "url": "https://your-assisted-living-site.netlify.app",
+    "impact": "Builds trust with families and turns website visitors into care enquiries."
+  },
+  {
+    "niche": "Freight Brokerage",
+    "url": "https://your-freight-site.netlify.app",
+    "impact": "Positions the business around operational efficiency and creates a clear path to demo requests."
+  },
+  {
+    "niche": "Commercial Roofing",
+    "url": "https://your-roofing-site.netlify.app",
+    "impact": "Turns local and referral traffic into inspection and estimate requests."
+  }
+]
