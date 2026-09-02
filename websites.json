@@ -1,17 +1,17 @@
 [
   {
-    "niche": "Assisted Living",
-    "url": "https://your-assisted-living-site.netlify.app",
-    "impact": "Builds trust with families and turns website visitors into care enquiries."
+    "niche": "Electrical Power Testing",
+    "url": "https://mike-websites.netlify.app/sms-website/",
+    "impact": "Builds trust with facility teams, contractors and engineering firms and turns technical website traffic into qualified project and testing enquiries."
+  },
+  {
+    "niche": "Dental Clinic",
+    "url": "https://mike-websites.netlify.app/avi-dental-website/",
+    "impact": "Builds trust with prospective patients, showcases dental treatments and expertise, and turns website visitors into appointment bookings and qualified patient enquiries."
   },
   {
     "niche": "Barber",
     "url": "https://mike-websites.netlify.app/brad-barber/",
     "impact": "Showcases the barber’s work and services professionally, builds trust with potential clients, and creates a clear path from browsing styles to booking an appointment."
-  },
-  {
-    "niche": "Commercial Roofing",
-    "url": "https://your-roofing-site.netlify.app",
-    "impact": "Turns local and referral traffic into inspection and estimate requests."
   }
 ]

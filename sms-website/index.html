@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Switchgear Maintenance Services — electrical testing, commissioning, maintenance and medium-voltage support for industrial facilities, contractors, campuses and engineering teams." />
+  <title>SMS Power Testing | Electrical Testing & Maintenance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#07192c;
+      --navy-2:#0b223c;
+      --navy-3:#122f50;
+      --ink:#101c2b;
+      --muted:#607086;
+      --line:#dbe2ea;
+      --soft:#f4f6f8;
+      --cream:#fbfaf7;
+      --white:#ffffff;
+      --orange:#f36c21;
+      --orange-2:#ff8a42;
+      --orange-soft:#fff0e6;
+      --shadow:0 20px 60px rgba(6,25,44,.12);
+      --shadow-sm:0 12px 32px rgba(6,25,44,.08);
+      --radius:22px;
+      --max:1520px;
+      --page-gutter:clamp(44px,5vw,84px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--cream);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    .container{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--page-gutter)}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--orange);
+    }
+    .eyebrow::before{content:"";width:28px;height:2px;background:currentColor;border-radius:999px}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.05;letter-spacing:-.035em}
+    h1{font-size:clamp(3.1rem,6vw,6rem);max-width:830px}
+    h2{font-size:clamp(2.25rem,4.2vw,4.25rem)}
+    h3{font-size:1.32rem}
+    p{color:var(--muted)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:50px;padding:0 20px;border-radius:10px;border:1px solid transparent;
+      font-weight:800;font-size:.92rem;transition:.25s ease;
+    }
+    .btn svg{width:18px;height:18px}
+    .btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 24px rgba(243,108,33,.28)}
+    .btn-primary:hover{background:#dc5c17;transform:translateY(-2px)}
+    .btn-dark{background:var(--navy);color:#fff}
+    .btn-dark:hover{background:var(--navy-3);transform:translateY(-2px)}
+    .btn-outline{border-color:#cdd5de;background:#fff;color:var(--ink)}
+    .btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+
+    /* Top utility bar */
+    .topbar{background:var(--navy);color:#d8e1eb;font-size:.78rem}
+    .topbar .container{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .topbar-left,.topbar-right{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+    .topbar strong{color:#fff}
+    .topbar a:hover{color:#fff}
+    .status-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(243,108,33,.12)}
+
+    /* Header */
+    .site-header{
+      position:sticky;top:0;z-index:80;background:rgba(251,250,247,.93);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(10,30,50,.08);transition:.25s ease;
+    }
+    .site-header.scrolled{box-shadow:0 8px 28px rgba(6,25,44,.08)}
+    .nav-wrap{height:96px;display:grid;grid-template-columns:320px 1fr auto;align-items:center;gap:28px}
+    .brand{display:flex;align-items:center;gap:13px;min-width:0}
+    .brand img{width:72px;height:64px;object-fit:contain;flex:0 0 auto;background:#020202;border-radius:10px;padding:3px}
+    .brand-lockup{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+    .brand-lockup strong{font-family:"Space Grotesk",sans-serif;font-size:1rem;letter-spacing:-.025em;color:var(--navy);white-space:nowrap}
+    .brand-lockup span{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#6e7d8d;margin-top:5px;white-space:nowrap}
+    .nav-links{display:flex;justify-content:center;align-items:center;gap:30px;list-style:none}
+    .nav-links a{font-size:.88rem;font-weight:700;color:#27384b;position:relative;padding:30px 0}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:21px;width:0;height:2px;background:var(--orange);transition:.25s ease}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{display:flex;align-items:center;gap:10px}
+    .menu-btn{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:10px;background:#fff;align-items:center;justify-content:center}
+    .menu-btn span,.menu-btn span::before,.menu-btn span::after{content:"";display:block;width:20px;height:2px;background:var(--ink);position:relative;transition:.25s}
+    .menu-btn span::before{position:absolute;top:-6px}.menu-btn span::after{position:absolute;top:6px}
+    .menu-btn.open span{background:transparent}.menu-btn.open span::before{top:0;transform:rotate(45deg)}.menu-btn.open span::after{top:0;transform:rotate(-45deg)}
+
+    /* Hero */
+    .hero{background:var(--cream);padding:38px 0 0;overflow:hidden}
+    .hero-shell{
+      position:relative;min-height:720px;border-radius:30px;overflow:hidden;background:var(--navy);box-shadow:var(--shadow);
+    }
+    .hero-media{position:absolute;inset:0;z-index:0}
+    .hero-media::before{
+      content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+      background:linear-gradient(90deg,rgba(5,22,40,.98) 0%,rgba(5,22,40,.94) 39%,rgba(5,22,40,.68) 62%,rgba(5,22,40,.38) 100%),linear-gradient(0deg,rgba(5,22,40,.56),transparent 50%);
+    }
+    .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 37%;filter:saturate(.86) contrast(1.03)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(370px,.72fr);min-height:720px;width:100%}
+    .hero-copy{position:relative;z-index:3;padding:96px 52px 88px 74px;color:#fff;align-self:center}
+    .hero-copy .eyebrow{color:#ff9b5e;margin-bottom:26px}
+    .hero-copy h1{color:#fff}
+    .hero-copy h1 span{color:#ff8b43}
+    .hero-copy>p{font-size:1.05rem;color:#c8d4e1;max-width:675px;margin:24px 0 32px}
+    .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .hero-secondary{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.04)}
+    .hero-secondary:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+    .hero-proof{display:flex;gap:26px;flex-wrap:wrap;margin-top:38px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+    .proof-item{display:flex;align-items:center;gap:10px;color:#e9eff6;font-size:.83rem;font-weight:700}
+    .proof-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(243,108,33,.14);color:#ff9b5e}
+
+
+    /* Hero visibility safeguard: content must always sit above the media overlay. */
+    .hero-copy,.hero-copy *, .quote-card,.quote-card *{visibility:visible}
+    .hero-copy,.quote-card{opacity:1}
+    .quote-card{
+      position:relative;z-index:3;align-self:center;justify-self:end;width:min(430px,calc(100% - 42px));margin-right:56px;
+      background:#fff;border-radius:20px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.24);border-top:5px solid var(--orange);
+    }
+    .quote-card .kicker{display:inline-flex;padding:6px 9px;border-radius:999px;background:var(--orange-soft);color:#d45d1b;font-weight:800;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+    .quote-card h3{font-size:1.8rem;margin:12px 0 6px}
+    .quote-card>p{font-size:.86rem;margin-bottom:18px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.72rem;font-weight:800;color:#34485d}
+    .field input,.field select,.field textarea{
+      width:100%;border:1px solid #d7dee6;border-radius:9px;background:#fafbfc;color:#0e1d2c;
+      padding:12px 13px;outline:none;transition:.2s ease;font-size:.83rem;
+    }
+    .field textarea{min-height:78px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,108,33,.12);background:#fff}
+    .quote-card button{width:100%;margin-top:12px}
+    .form-note{text-align:center;font-size:.67rem;margin-top:10px;color:#8190a2}
+    .form-success{display:none;margin-top:10px;padding:10px 12px;border-radius:9px;background:#eef8f1;color:#267345;font-size:.78rem;font-weight:700}
+    .form-success.show{display:block}
+
+    /* Authority strip */
+    .authority{padding:30px 0 94px}
+    .authority-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff;border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden}
+    .authority-item{padding:26px 30px;border-right:1px solid var(--line)}
+    .authority-item:last-child{border-right:0}
+    .authority-item span{font-family:"Space Grotesk";display:block;color:var(--navy);font-size:1.22rem;font-weight:700;margin-bottom:2px}
+    .authority-item small{font-size:.72rem;color:#7a899a;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+
+    /* Generic sections */
+    section{scroll-margin-top:95px}
+    .section{padding:124px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:48px;margin-bottom:58px}
+    .section-head h2{max-width:760px;margin-top:12px}
+    .section-head p{max-width:430px;font-size:.94rem}
+
+    /* Services */
+    .services{background:#fff}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{position:relative;min-height:360px;border-radius:18px;overflow:hidden;background:var(--navy);isolation:isolate;box-shadow:var(--shadow-sm)}
+    .service-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s ease;filter:saturate(.82)}
+    .service-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,20,36,.07) 10%,rgba(4,20,36,.92) 82%)}
+    .service-card:hover img{transform:scale(1.05)}
+    .service-content{position:absolute;left:24px;right:24px;bottom:24px;color:#fff}
+    .service-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(255,255,255,.35);border-radius:50%;font-size:.72rem;font-weight:800;margin-bottom:14px}
+    .service-content h3{font-size:1.42rem;margin-bottom:8px}
+    .service-content p{color:#d4deea;font-size:.82rem;line-height:1.52}
+    .service-link{display:inline-flex;align-items:center;gap:8px;color:#ff9b5e;font-size:.8rem;font-weight:800;margin-top:14px}
+
+    /* Split value section */
+    .value{background:var(--soft)}
+    .value-grid{display:grid;grid-template-columns:.96fr 1.04fr;gap:92px;align-items:center}
+    .value-media{position:relative;min-height:570px}
+    .value-main{position:absolute;inset:0 90px 58px 0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .value-main img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+    .value-float{position:absolute;right:0;bottom:0;width:245px;height:270px;border:8px solid var(--soft);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm)}
+    .value-float img{width:100%;height:100%;object-fit:cover}
+    .value-badge{position:absolute;left:28px;bottom:88px;background:var(--orange);color:#fff;border-radius:14px;padding:14px 17px;box-shadow:0 14px 30px rgba(243,108,33,.3)}
+    .value-badge strong{display:block;font-family:"Space Grotesk";font-size:1.15rem}
+    .value-badge span{font-size:.72rem;font-weight:700;opacity:.88}
+    .value-copy h2{margin:14px 0 20px}
+    .value-copy>p{font-size:1rem;max-width:600px;margin-bottom:26px}
+    .check-list{display:grid;grid-template-columns:1fr 1fr;gap:13px 18px;margin:26px 0 30px}
+    .check{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;font-weight:700;color:#26384b}
+    .check i{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange);font-style:normal;font-size:.72rem;margin-top:1px}
+
+    /* Industries */
+    .industries{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .industries::before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-180px;top:-180px;box-shadow:0 0 0 60px rgba(255,255,255,.02),0 0 0 130px rgba(255,255,255,.015)}
+    .industries .section-head h2{color:#fff}.industries .section-head p{color:#b8c6d5}
+    .industry-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden}
+    .industry-card{background:var(--navy);padding:34px 28px;min-height:240px;position:relative;transition:.25s ease}
+    .industry-card:hover{background:var(--navy-2)}
+    .industry-icon{width:48px;height:48px;border-radius:12px;background:rgba(243,108,33,.12);display:grid;place-items:center;color:#ff9b5e;margin-bottom:38px}
+    .industry-card h3{margin-bottom:9px}.industry-card p{color:#aebdcb;font-size:.84rem}
+    .industry-index{position:absolute;right:22px;top:18px;font-family:"Space Grotesk";font-size:.8rem;color:#5c7085}
+
+    /* Process */
+    .process{background:#fff}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px}
+    .step{padding:28px 28px 8px;position:relative;border-top:1px solid var(--line)}
+    .step::before{content:"";position:absolute;top:-5px;left:28px;width:10px;height:10px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 7px var(--orange-soft)}
+    .step-num{font-family:"Space Grotesk";font-size:.72rem;font-weight:800;color:var(--orange);letter-spacing:.12em;margin-bottom:14px}
+    .step h3{margin-bottom:8px}.step p{font-size:.83rem}
+
+    /* Project gallery */
+    .projects{background:var(--soft)}
+    .project-layout{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:340px 340px;gap:22px}
+    .project-card{position:relative;border-radius:18px;overflow:hidden;background:var(--navy);box-shadow:var(--shadow-sm)}
+    .project-card:first-child{grid-row:1/3}
+    .project-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(.86) contrast(1.05)}
+    .project-card:hover img{transform:scale(1.045)}
+    .project-overlay{position:absolute;inset:auto 0 0;padding:72px 24px 22px;background:linear-gradient(transparent,rgba(5,22,40,.9));color:#fff}
+    .project-overlay small{color:#ff9b5e;text-transform:uppercase;letter-spacing:.11em;font-weight:800;font-size:.67rem}
+    .project-overlay h3{margin-top:4px}
+
+    /* Team up */
+    .teamup{background:#fff}
+    .teamup-card{
+      position:relative;
+      min-height:680px;
+      padding-inline:0;
+      background:var(--navy);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+    .teamup-media{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      overflow:hidden;
+      background:var(--navy);
+    }
+    .teamup-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      filter:saturate(.86) contrast(1.04);
+      transform:scale(1.002);
+    }
+    .teamup-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg,rgba(7,25,44,.05) 0%,rgba(7,25,44,.06) 38%,rgba(7,25,44,.48) 72%,rgba(7,25,44,.84) 100%);
+    }
+    .teamup-copy{
+      position:absolute;
+      z-index:2;
+      left:34px;
+      right:34px;
+      bottom:34px;
+      width:auto;
+      min-height:0;
+      margin:0;
+      padding:34px 38px 32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:rgba(7,25,44,.88);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:20px;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
+    }
+    .teamup-copy .eyebrow{margin-bottom:10px}
+    .teamup-copy h2{color:#fff;margin:0 0 14px;max-width:900px;font-size:clamp(2.25rem,3.8vw,4.1rem)}
+    .teamup-copy p{color:#c6d2de;margin-bottom:22px;max-width:940px;font-size:.95rem}
+    .teamup-copy .mini-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}
+    .mini-pill{display:flex;align-items:center;min-height:54px;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;color:#e5edf5;background:rgba(255,255,255,.055);font-size:.74rem;font-weight:800;line-height:1.35}
+    .teamup-copy .btn{align-self:flex-start}
+
+    /* FAQ */
+    .faq{background:var(--cream)}
+    .faq-wrap{display:grid;grid-template-columns:.78fr 1.22fr;gap:80px;align-items:start}
+    .faq-intro{position:sticky;top:120px}
+    .faq-intro h2{margin:14px 0 16px}
+    .faq-intro p{margin-bottom:24px}
+    .faq-list{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:23px 0;background:none;border:0;text-align:left;color:var(--ink);font-weight:800}
+    .faq-q span:last-child{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.25s ease;flex:0 0 auto}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-a p{padding:0 50px 22px 0;font-size:.88rem}
+    .faq-item.open .faq-a{max-height:240px}.faq-item.open .faq-q span:last-child{transform:rotate(45deg);background:var(--orange);border-color:var(--orange);color:#fff}
+
+    /* CTA / footer */
+    .cta{padding:0 0 72px;background:var(--cream)}
+    .cta-card{position:relative;overflow:hidden;background:var(--orange);border-radius:22px;padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:30px;color:#fff;transform:translateY(0);z-index:2;box-shadow:0 24px 50px rgba(243,108,33,.22)}
+    .cta-card::after{content:"";position:absolute;right:-70px;top:-120px;width:340px;height:340px;border:46px solid rgba(255,255,255,.1);border-radius:50%}
+    .cta-card h2{font-size:clamp(2rem,3.5vw,3.3rem);max-width:690px;color:#fff;position:relative;z-index:2}
+    .cta-card .btn{background:var(--navy);color:#fff;position:relative;z-index:2;white-space:nowrap}
+    footer{background:var(--navy);color:#fff;padding:112px 0 30px}
+    .footer-grid{display:grid;grid-template-columns:1.5fr .7fr .8fr 1fr;gap:48px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,.12)}
+    .footer-brand img{width:72px;height:64px;object-fit:contain;background:#020202;border-radius:10px;padding:3px}
+    .footer-brand p{color:#9fb0c0;max-width:360px;margin:17px 0}
+    .footer-contact{display:flex;flex-direction:column;gap:7px;color:#dbe4ee;font-size:.84rem}
+    .footer-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#8093a6;margin-bottom:18px}
+    .footer-col a{display:block;color:#d2dce6;font-size:.83rem;margin:10px 0;transition:.2s}
+    .footer-col a:hover{color:#fff;transform:translateX(2px)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:24px;color:#71869a;font-size:.72rem}
+
+    .mobile-call{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:70;box-shadow:0 14px 30px rgba(5,22,40,.28)}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (max-width:1050px){
+      .nav-wrap{grid-template-columns:270px 1fr auto}.brand img{width:64px;height:58px}.brand-lockup strong{font-size:.9rem}.brand-lockup span{font-size:.56rem}.nav-links{gap:18px}.nav-links a{font-size:.8rem}.nav-cta .btn-outline{display:none}
+      .hero-grid{grid-template-columns:minmax(0,1fr) 360px}.hero-copy{padding-left:52px;padding-right:30px}.quote-card{margin-right:34px}.authority-item{padding:22px 18px}
+      .value-grid{gap:40px}.value-main{right:65px}.industry-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1.3fr .7fr .8fr}
+      .footer-col:last-child{display:none}
+    }
+
+    @media (max-width:860px){
+      .topbar-right{display:none}
+      .nav-wrap{height:82px;grid-template-columns:1fr auto}.brand img{width:58px;height:54px}.brand-lockup strong{font-size:.86rem}.brand-lockup span{font-size:.53rem}.nav-links,.nav-cta{display:none}.menu-btn{display:flex}
+      .nav-links.mobile-open{display:flex;position:absolute;left:0;right:0;top:82px;background:#fff;flex-direction:column;align-items:stretch;padding:14px 30px 26px;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(5,22,40,.1);gap:0}
+      .nav-links.mobile-open li a{display:block;padding:14px 0;border-bottom:1px solid #eef1f4}
+      .hero{padding-top:24px}.hero-shell{min-height:auto}.hero-grid{display:block;min-height:auto}.hero-media::before{background:linear-gradient(180deg,rgba(5,22,40,.62) 0%,rgba(5,22,40,.82) 46%,rgba(5,22,40,.98) 74%)}
+      .hero-media img{object-position:58% 34%}.hero-copy{padding:70px 34px 42px;min-height:625px;display:flex;flex-direction:column;justify-content:flex-end}.hero-copy>p{max-width:620px}
+      .quote-card{position:relative;width:calc(100% - 48px);margin:0 auto 24px;justify-self:auto}.authority{padding-top:24px}.authority-grid{grid-template-columns:1fr 1fr}.authority-item:nth-child(2){border-right:0}.authority-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .section{padding:96px 0}.section-head{align-items:start;flex-direction:column}.service-grid{grid-template-columns:1fr 1fr}.value-grid{grid-template-columns:1fr}.value-media{min-height:500px}.check-list{max-width:650px}
+      .process-grid{grid-template-columns:1fr 1fr;row-gap:34px}.project-layout{grid-template-columns:1fr;grid-template-rows:430px 260px 260px}.project-card:first-child{grid-row:auto}
+      .teamup-card{min-height:700px}.teamup-media img{object-position:center center}.teamup-media::after{background:linear-gradient(180deg,rgba(7,25,44,.02) 0%,rgba(7,25,44,.10) 40%,rgba(7,25,44,.72) 82%,rgba(7,25,44,.92) 100%)}.teamup-copy{position:absolute;left:22px;right:22px;bottom:22px;width:auto;min-height:0;margin:0;padding:30px}.teamup-copy h2{font-size:clamp(2rem,6vw,3.4rem)}.teamup-copy .mini-proof{grid-template-columns:1fr 1fr}.teamup-copy .mini-pill:last-child{grid-column:1/-1}
+      .faq-wrap{grid-template-columns:1fr;gap:38px}.faq-intro{position:static}.cta-card{padding:38px 34px}.footer-grid{grid-template-columns:1.3fr 1fr}.footer-col:nth-child(3){display:none}
+    }
+
+    @media (max-width:620px){
+      .container{padding-inline:20px}.topbar .container{min-height:36px}.topbar-left{gap:12px}.topbar-left span:last-child{display:none}
+      .brand img{width:52px;height:48px}.brand-lockup strong{font-size:.78rem}.brand-lockup span{display:none}.hero-shell{border-radius:20px}.hero-copy{padding:46px 22px 32px;min-height:590px}.hero-copy h1{font-size:clamp(2.65rem,13vw,4.2rem)}.hero-copy>p{font-size:.93rem}.hero-proof{gap:14px 20px}.proof-item{font-size:.72rem}
+      .quote-card{padding:22px 18px;border-radius:16px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.authority-grid{grid-template-columns:1fr}.authority-item{border-right:0!important;border-bottom:1px solid var(--line)!important}.authority-item:last-child{border-bottom:0!important}
+      .section{padding:76px 0}.section-head{margin-bottom:38px}.service-grid{grid-template-columns:1fr}.service-card{min-height:320px}.value-grid{gap:28px}.value-media{min-height:410px}.value-main{right:34px;bottom:48px}.value-float{width:175px;height:200px}.value-badge{left:18px;bottom:58px}.check-list{grid-template-columns:1fr}.industry-grid{grid-template-columns:1fr}.industry-card{min-height:200px}.process-grid{grid-template-columns:1fr;gap:18px}.project-layout{grid-template-rows:330px 230px 230px}.teamup-card{min-height:760px;border-radius:20px}.teamup-media{position:absolute;inset:0;height:auto}.teamup-media img{object-fit:cover;object-position:center center}.teamup-copy{position:absolute;left:14px;right:14px;bottom:14px;width:auto;min-height:0;margin:0;padding:24px 20px}.teamup-copy h2{font-size:clamp(1.9rem,9vw,2.65rem)}.teamup-copy p{font-size:.86rem}.teamup-copy .mini-proof{grid-template-columns:1fr}.teamup-copy .mini-pill:last-child{grid-column:auto}.faq-a p{padding-right:0}
+      .cta-card{flex-direction:column;align-items:flex-start;padding:30px 24px;transform:translateY(0)}footer{padding-top:72px}.footer-grid{grid-template-columns:1fr}.footer-col{display:block!important}.footer-col:last-child{display:none!important}.footer-bottom{flex-direction:column;align-items:flex-start}.mobile-call{display:flex}.cta{padding-bottom:52px}
+      body{padding-bottom:72px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.service-card img,.project-card img,.btn{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span style="display:flex;align-items:center;gap:10px"><i class="status-dot"></i><strong>Safety & reliability come first</strong></span>
+        <span>Serving industrial, commercial & institutional facilities</span>
+      </div>
+      <div class="topbar-right">
+        <a href="mailto:dave@smspowertesting.com">dave@smspowertesting.com</a>
+        <a href="tel:+17342165765">734-216-5765</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="SMS Power Testing home">
+        <img src="images/sms-logo.jpg" alt="Switchgear Maintenance Services logo" />
+        <span class="brand-lockup"><strong>SMS Power Testing</strong><span>Switchgear Maintenance Services</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#projects">Field Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-outline" href="tel:+17342165765">Call 734-216-5765</a>
+        <a class="btn btn-primary" href="#contact">Request Service</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-media" aria-hidden="true">
+            <!-- Original project image from the existing SMS Power Testing website -->
+            <img src="images/hero-electrical.jpg" alt="Electrical testing work by Switchgear Maintenance Services" />
+          </div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">NETA accredited electrical testing</span>
+              <h1>Electrical systems that stay <span>safe, reliable</span> and ready.</h1>
+              <p>Testing, commissioning, maintenance and medium-voltage support for facilities and contractors who cannot afford uncertainty around critical electrical equipment.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#contact">Request a project review
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a class="btn btn-outline hero-secondary" href="#services">Explore capabilities</a>
+              </div>
+              <div class="hero-proof">
+                <div class="proof-item"><span class="proof-icon">✓</span> NFPA 70E & 70B support</div>
+                <div class="proof-item"><span class="proof-icon">✓</span> NETA / IEEE / ANSI standards</div>
+                <div class="proof-item"><span class="proof-icon">✓</span> 5kV–69kV cable services</div>
+              </div>
+            </div>
+
+            <aside class="quote-card" id="contact">
+              <span class="kicker">Project inquiry</span>
+              <h3>Talk with our testing team</h3>
+              <p>Tell us what equipment, facility or project you need support with.</p>
+              <form id="leadForm">
+                <div class="form-grid">
+                  <div class="field"><label for="name">Name</label><input id="name" name="name" required placeholder="Your name" /></div>
+                  <div class="field"><label for="company">Company</label><input id="company" name="company" placeholder="Company name" /></div>
+                  <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="(555) 000-0000" /></div>
+                  <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="name@company.com" /></div>
+                  <div class="field full"><label for="service">Service needed</label>
+                    <select id="service" name="service">
+                      <option>Electrical testing / commissioning</option><option>Breaker / switchgear services</option><option>Medium-voltage cable services</option><option>Power studies / arc flash</option><option>Transformer services</option><option>NFPA 70B maintenance program</option><option>Other / not sure</option>
+                    </select>
+                  </div>
+                  <div class="field full"><label for="message">Project details</label><textarea id="message" name="message" placeholder="Facility, voltage, equipment, timeline or issue..."></textarea></div>
+                </div>
+                <button class="btn btn-dark" type="submit">Request a call back
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="form-success" id="formSuccess">Thanks — your request is ready. Connect this form to your email/CRM endpoint for production.</div>
+                <p class="form-note">Or call <a href="tel:+17342165765" style="color:#465a70;font-weight:800">734-216-5765</a></p>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="authority">
+      <div class="container authority-grid reveal">
+        <div class="authority-item"><span>NETA Accredited</span><small>Independent testing company</small></div>
+        <div class="authority-item"><span>NFPA 70E / 70B</span><small>Compliance & maintenance support</small></div>
+        <div class="authority-item"><span>5kV — 69kV</span><small>Medium-voltage cable capability</small></div>
+        <div class="authority-item"><span>Milan, Michigan</span><small>Responsive field support</small></div>
+      </div>
+    </div>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Core capabilities</span><h2>Testing and maintenance built around the equipment that keeps you running.</h2></div>
+          <p>From acceptance testing and commissioning to cable diagnostics, breaker work and NFPA 70B maintenance planning, SMS helps teams reduce electrical risk before it becomes downtime.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_f759a2c550734d63a89009316033991a~mv2.jpg/v1/fill/w_980%2Ch_1307%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/5015ad_f759a2c550734d63a89009316033991a~mv2.jpg" alt="Electrical testing equipment" />
+            <div class="service-content"><span class="service-num">01</span><h3>Acceptance Testing & Commissioning</h3><p>Verification of new and in-service electrical equipment to NETA, IEEE and ANSI standards.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_2398f422f5c94ee79c4d9f803b4de9e8~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_2398f422f5c94ee79c4d9f803b4de9e8~mv2.jpg" alt="Refurbished electrical equipment" />
+            <div class="service-content"><span class="service-num">02</span><h3>Power Breaker & Switchgear Services</h3><p>Primary and secondary injection testing, rebuilds, refurbishing and trip-unit retrofit support.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_e7fb857db82245d2b176343cdfb11ac8~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_e7fb857db82245d2b176343cdfb11ac8~mv2.jpg" alt="Medium voltage cable work" />
+            <div class="service-content"><span class="service-num">03</span><h3>Medium-Voltage Cable Services</h3><p>5kV–69kV splicing, terminations, VLF, Tan Delta, partial discharge and fault locating.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_f11c4e1cdf9a40489a698892d5559e12~mv2.jpg/v1/fill/w_300%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_f11c4e1cdf9a40489a698892d5559e12~mv2.jpg" alt="Electrical equipment showing maintenance issue" />
+            <div class="service-content"><span class="service-num">04</span><h3>Preventive Electrical Maintenance</h3><p>Cleaning, lubrication, testing, repair and NFPA 70B maintenance-program implementation.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_3ccdfae72cc946bcbed262283321e971~mv2.jpg/v1/fill/w_300%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_3ccdfae72cc946bcbed262283321e971~mv2.jpg" alt="Electrical panel inspection" />
+            <div class="service-content"><span class="service-num">05</span><h3>Power Studies & Diagnostics</h3><p>Arc flash, short circuit, load, power quality, harmonics, infrared and ultrasonic detection.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://static.wixstatic.com/media/5015ad_6bd38ef2677644aeb3091a06293a18e3~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_6bd38ef2677644aeb3091a06293a18e3~mv2.jpg" alt="Electrical system condition issue" />
+            <div class="service-content"><span class="service-num">06</span><h3>Transformer & Relay Services</h3><p>Transformer oil testing and conditioning plus testing and commissioning of protective relays.</p><a href="#contact" class="service-link">Discuss your project →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section value" id="about">
+      <div class="container value-grid">
+        <div class="value-media reveal">
+          <div class="value-main"><img src="https://static.wixstatic.com/media/5015ad_19a97c4cb8eb4c148b509beb2f40f86b~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_19a97c4cb8eb4c148b509beb2f40f86b~mv2.jpg" alt="Electrical equipment after maintenance work"></div>
+          <div class="value-float"><img src="https://static.wixstatic.com/media/5015ad_2398f422f5c94ee79c4d9f803b4de9e8~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_2398f422f5c94ee79c4d9f803b4de9e8~mv2.jpg" alt="Refurbished switchgear"></div>
+          <div class="value-badge"><strong>Safety first.</strong><span>Reliability engineered into every job.</span></div>
+        </div>
+        <div class="value-copy reveal">
+          <span class="eyebrow">Why SMS Power Testing</span>
+          <h2>Technical depth without the friction of a giant service provider.</h2>
+          <p>Switchgear Maintenance Services partners with facility teams, contractors and engineering firms that need qualified field support, practical problem solving and clear communication around critical electrical work.</p>
+          <div class="check-list">
+            <div class="check"><i>✓</i><span>Independent electrical testing expertise</span></div>
+            <div class="check"><i>✓</i><span>New and in-service equipment testing</span></div>
+            <div class="check"><i>✓</i><span>Low- and medium-voltage capabilities</span></div>
+            <div class="check"><i>✓</i><span>Commissioning, repair and maintenance</span></div>
+            <div class="check"><i>✓</i><span>Standards-led testing and documentation</span></div>
+            <div class="check"><i>✓</i><span>Consultation for complex installations</span></div>
+          </div>
+          <a href="#contact" class="btn btn-dark">Plan your next test or outage</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section industries" id="industries">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Who we work with</span><h2>One testing partner across projects, facilities and critical infrastructure.</h2></div>
+          <p>SMS supports the types of teams already named on its current site — with a clearer path from technical capability to project inquiry.</p>
+        </div>
+        <div class="industry-grid reveal">
+          <article class="industry-card"><span class="industry-index">01</span><div class="industry-icon">⌁</div><h3>Industrial Facilities</h3><p>Testing, preventive maintenance, diagnostics and reliability work around critical production equipment.</p></article>
+          <article class="industry-card"><span class="industry-index">02</span><div class="industry-icon">⚡</div><h3>Electrical Contractors</h3><p>Specialized field support for medium-voltage installations, commissioning and technical procedures.</p></article>
+          <article class="industry-card"><span class="industry-index">03</span><div class="industry-icon">▦</div><h3>College Campuses</h3><p>Support for institutional electrical systems where safety, uptime and maintenance planning matter.</p></article>
+          <article class="industry-card"><span class="industry-index">04</span><div class="industry-icon">⌬</div><h3>Engineering Firms</h3><p>Testing and field verification that helps engineers close the loop between design and installed performance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">A cleaner project experience</span><h2>From first call to field documentation, the next step should always be clear.</h2></div>
+          <p>A conversion-focused website should make SMS feel organized before the work even begins — especially for contractors and facility teams under schedule pressure.</p>
+        </div>
+        <div class="process-grid reveal">
+          <article class="step"><div class="step-num">STEP 01</div><h3>Scope the Need</h3><p>Share the facility, equipment, voltage level, issue and required timeline.</p></article>
+          <article class="step"><div class="step-num">STEP 02</div><h3>Plan the Work</h3><p>Confirm testing method, standards, access requirements and project coordination.</p></article>
+          <article class="step"><div class="step-num">STEP 03</div><h3>Test & Service</h3><p>Execute field testing, commissioning, maintenance, repair or specialized support.</p></article>
+          <article class="step"><div class="step-num">STEP 04</div><h3>Close with Clarity</h3><p>Document findings, next actions and any equipment conditions that require attention.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Field work, not stock promises</span><h2>Real equipment. Real conditions. Real maintenance outcomes.</h2></div>
+          <p>The existing SMS gallery contains strong proof. This redesign promotes that proof into a visual selling asset instead of hiding it on a separate page.</p>
+        </div>
+        <div class="project-layout reveal">
+          <article class="project-card"><img src="https://static.wixstatic.com/media/5015ad_e7fb857db82245d2b176343cdfb11ac8~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_e7fb857db82245d2b176343cdfb11ac8~mv2.jpg" alt="Electrical cable and terminations"><div class="project-overlay"><small>Medium voltage</small><h3>Cable & termination work</h3></div></article>
+          <article class="project-card"><img src="https://static.wixstatic.com/media/5015ad_f11c4e1cdf9a40489a698892d5559e12~mv2.jpg/v1/fill/w_300%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_f11c4e1cdf9a40489a698892d5559e12~mv2.jpg" alt="Electrical equipment condition issue"><div class="project-overlay"><small>Inspection</small><h3>Finding failure before it escalates</h3></div></article>
+          <article class="project-card"><img src="https://static.wixstatic.com/media/5015ad_19a97c4cb8eb4c148b509beb2f40f86b~mv2.jpg/v1/fill/w_299%2Ch_299%2Cq_75%2Cenc_avif%2Cquality_auto/5015ad_19a97c4cb8eb4c148b509beb2f40f86b~mv2.jpg" alt="Electrical equipment after service"><div class="project-overlay"><small>Maintenance</small><h3>Service that restores confidence</h3></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teamup">
+      <div class="container teamup-card reveal">
+        <div class="teamup-media"><img src="images/teamup-contractor.jpg" alt="Construction manager working on an electrical project"></div>
+        <div class="teamup-copy">
+          <span class="eyebrow">Team up with SMS</span>
+          <h2>Bring in the specialized electrical expertise your project needs.</h2>
+          <p>When a contractor moves into unfamiliar medium-voltage work, SMS can provide consultation and trained field personnel to help make sure installations are correct, safe and ready for the next stage of the project.</p>
+          <div class="mini-proof"><span class="mini-pill">Medium-voltage installation support</span><span class="mini-pill">Technical consultation</span><span class="mini-pill">Trained field personnel</span></div>
+          <div><a href="#contact" class="btn btn-primary">Talk with SMS</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="container faq-wrap">
+        <div class="faq-intro reveal"><span class="eyebrow">Common questions</span><h2>Before you schedule electrical testing.</h2><p>Clear answers reduce friction for technical buyers and make it easier to decide whether SMS is the right fit for a project.</p><a class="btn btn-outline" href="mailto:dave@smspowertesting.com">Email a project question</a></div>
+        <div class="faq-list reveal">
+          <div class="faq-item open"><button class="faq-q"><span>What kinds of electrical equipment can SMS test?</span><span>+</span></button><div class="faq-a"><p>SMS lists acceptance testing and maintenance for low- and medium-voltage electrical equipment, including breakers, transformers, protective relays, medium-voltage cable and related systems.</p></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Do you support NFPA 70B maintenance programs?</span><span>+</span></button><div class="faq-a"><p>Yes. The current service list includes maintenance-plan development, personnel training and plan implementation for NFPA 70B electrical maintenance programs.</p></div></div>
+          <div class="faq-item"><button class="faq-q"><span>What cable testing methods are available?</span><span>+</span></button><div class="faq-a"><p>SMS lists VLF, Tan Delta, partial discharge and DC hipot testing for medium-voltage cable, plus fault locating and repair support.</p></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Can SMS work alongside our electrical contractor?</span><span>+</span></button><div class="faq-a"><p>Yes. SMS explicitly offers consultation and trained personnel to team up with contractors on specialized medium-voltage installations and procedures.</p></div></div>
+          <div class="faq-item"><button class="faq-q"><span>What should I include in a project inquiry?</span><span>+</span></button><div class="faq-a"><p>Include the facility or project location, equipment type, voltage level, the service or issue, site constraints and your desired schedule. That gives the team enough context to start a productive conversation.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-card reveal">
+        <h2>Need electrical testing, maintenance or specialized project support?</h2>
+        <a class="btn" href="tel:+17342165765">Call 734-216-5765</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="gap:14px"><img src="images/sms-logo.jpg" alt="Switchgear Maintenance Services logo" /><span class="brand-lockup"><strong style="color:#fff">SMS Power Testing</strong><span style="color:#8da0b3">Switchgear Maintenance Services</span></span></div>
+          <p>Electrical testing, commissioning, maintenance and medium-voltage support with safety and reliability at the center of every job.</p>
+          <div class="footer-contact"><a href="mailto:dave@smspowertesting.com">dave@smspowertesting.com</a><a href="tel:+17342165765">734-216-5765</a><span>Milan, Michigan</span></div>
+        </div>
+        <div class="footer-col"><h4>Company</h4><a href="#about">About SMS</a><a href="#projects">Field Work</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
+        <div class="footer-col"><h4>Services</h4><a href="#services">Testing & Commissioning</a><a href="#services">Breaker Services</a><a href="#services">Cable Testing</a><a href="#services">NFPA 70B Maintenance</a></div>
+        <div class="footer-col"><h4>Standards</h4><a href="#services">NETA</a><a href="#services">IEEE</a><a href="#services">ANSI</a><a href="#services">NFPA</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Switchgear Maintenance Services. Website redesign concept.</span><span>Safety. Reliability. Precision.</span></div>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary mobile-call" href="tel:+17342165765">Call SMS Power Testing</a>
+
+  <script>
+    const header = document.getElementById('header');
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.getElementById('menuBtn');
+
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('mobile-open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.querySelectorAll('.faq-q').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('open'); });
+        item.classList.toggle('open');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('leadForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const success = document.getElementById('formSuccess');
+      success.classList.add('show');
+      setTimeout(() => success.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

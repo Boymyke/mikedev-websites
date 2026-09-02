@@ -290,6 +290,94 @@
         cursor: not-allowed;
       }
 
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .contact-wrap {
+        position: relative;
+      }
+
+      .contact-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 44px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--accent);
+        color: #ffffff;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(255, 65, 0, 0.18);
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .contact-button:hover {
+        background: var(--accent-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 12px 28px rgba(255, 65, 0, 0.24);
+      }
+
+      .contact-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        z-index: 20;
+        width: min(310px, calc(100vw - 36px));
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface);
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition:
+          opacity 160ms ease,
+          transform 160ms ease,
+          visibility 160ms ease;
+      }
+
+      .contact-menu.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .contact-option {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 11px;
+        text-decoration: none;
+        transition: background 140ms ease;
+      }
+
+      .contact-option:hover {
+        background: #fafaf8;
+      }
+
+      .contact-option strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 13px;
+      }
+
+      .contact-option span {
+        color: var(--muted);
+        font-size: 13px;
+        overflow-wrap: anywhere;
+      }
+
       @media (max-width: 760px) {
         body {
           padding-top: 22px;
@@ -297,6 +385,20 @@
 
         .topbar {
           margin-bottom: 38px;
+          align-items: flex-start;
+        }
+
+        .topbar-actions {
+          gap: 8px;
+        }
+
+        .count {
+          display: none;
+        }
+
+        .contact-button {
+          height: 40px;
+          padding: 0 14px;
         }
 
         .hero {
@@ -330,7 +432,42 @@
           <span class="brand-mark"></span>
           <span>Mike / DIRECTORY</span>
         </div>
-        <div class="count" id="siteCount">0 websites</div>
+        <div class="topbar-actions">
+          <div class="count" id="siteCount">0 websites</div>
+
+          <div class="contact-wrap">
+            <button
+              class="contact-button"
+              id="contactButton"
+              type="button"
+              aria-expanded="false"
+              aria-controls="contactMenu"
+            >
+              Contact
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <div class="contact-menu" id="contactMenu">
+              <a
+                class="contact-option"
+                href="https://wa.me/2348101257107?text=Hello%20Michael%2C%20I%27d%20like%20to%20discuss%20a%20website%20or%20web%20app%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>Chat on WhatsApp</strong>
+                <span>+234 810 125 7107</span>
+              </a>
+
+              <a
+                class="contact-option"
+                href="mailto:osondumichaelcharles@gmail.com"
+              >
+                <strong>Email me</strong>
+                <span>osondumichaelcharles@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </header>
 
       <section class="hero">
@@ -340,9 +477,9 @@
         </div>
 
         <p class="hero-copy">
-          A growing directory of website concepts across different industries,
-          showing the niche, live website and the business impact each
-          experience is designed to create.
+          Have a website or web app idea? Let’s turn it into something that
+          looks great, works smoothly, and helps your business grow. Get in
+          touch to start your project.
         </p>
       </section>
 
@@ -395,6 +532,8 @@
       const emptyState = document.getElementById("emptyState");
       const pagination = document.getElementById("pagination");
       const year = document.getElementById("year");
+      const contactButton = document.getElementById("contactButton");
+      const contactMenu = document.getElementById("contactMenu");
 
       let websites = [];
       let filteredWebsites = [];
@@ -559,6 +698,26 @@
       }
 
       searchInput.addEventListener("input", filterWebsites);
+
+      contactButton.addEventListener("click", () => {
+        const isOpen = contactMenu.classList.toggle("is-open");
+        contactButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".contact-wrap")) {
+          contactMenu.classList.remove("is-open");
+          contactButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          contactMenu.classList.remove("is-open");
+          contactButton.setAttribute("aria-expanded", "false");
+          contactButton.focus();
+        }
+      });
 
       loadWebsites();
     </script>
