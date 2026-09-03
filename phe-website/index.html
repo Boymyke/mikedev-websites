@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Piquette & Howard Electric Service — commercial and industrial electrical service, engineering, electrical construction, crane & hoist, fire alarm, telecommunications and QEMC-qualified electrical maintenance across New England." />
+  <title>Piquette & Howard Electric Service | New England Electrical Experts</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root{
+      --navy:#041d48;
+      --navy-2:#08285f;
+      --navy-3:#0a3475;
+      --gold:#f3c515;
+      --gold-2:#ffd83d;
+      --red:#d8282f;
+      --white:#ffffff;
+      --ink:#111827;
+      --muted:#637083;
+      --line:#e8edf3;
+      --soft:#f5f7fa;
+      --cream:#fffaf0;
+      --shadow:0 22px 60px rgba(2,23,55,.12);
+      --radius:22px;
+      --container:1480px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit}
+    .container{width:min(calc(100% - 32px),var(--container));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-3)}
+    .eyebrow:before{content:"";width:26px;height:3px;border-radius:99px;background:var(--gold)}
+    .section-title{font-size:clamp(2rem,4vw,3.65rem);line-height:1.04;letter-spacing:-.045em;margin:12px 0 18px;color:var(--navy)}
+    .section-title span{color:var(--navy-3)}
+    .section-copy{font-size:1.03rem;color:var(--muted);max-width:660px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 21px;border-radius:12px;font-weight:800;border:1px solid transparent;transition:.28s ease;cursor:pointer}
+    .btn i{width:18px;height:18px;transition:transform .28s ease}
+    .btn-primary{background:var(--gold);color:var(--navy);box-shadow:0 12px 28px rgba(243,197,21,.25)}
+    .btn-primary:hover{transform:translateY(-3px);background:var(--gold-2);box-shadow:0 18px 32px rgba(243,197,21,.32)}
+    .btn-primary:hover i{transform:translateX(3px)}
+    .btn-light{background:#fff;color:var(--navy);border-color:#e8edf3}
+    .btn-light:hover{transform:translateY(-3px);border-color:#ccd7e5;box-shadow:0 12px 30px rgba(4,29,72,.1)}
+    .btn-outline{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(10px)}
+    .btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.11);transform:translateY(-3px)}
+
+    /* top utility */
+    .utility{background:var(--navy);color:#dce6f7;font-size:.8rem}
+    .utility-inner{display:flex;min-height:38px;align-items:center;justify-content:space-between;gap:18px}
+    .utility-left,.utility-right{display:flex;align-items:center;gap:22px}
+    .utility a{display:inline-flex;align-items:center;gap:7px;transition:.2s;color:#e5edf9}
+    .utility a:hover{color:var(--gold)}
+    .utility i{width:14px;height:14px}
+    .utility-badge{font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:8px}
+    .utility-badge i{color:var(--gold)}
+
+    /* nav */
+    header{position:sticky;top:0;z-index:50;background:#002147;backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.09);box-shadow:0 10px 30px rgba(0,33,71,.12)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand img{height:59px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:31px;margin-left:auto}
+    .nav-links a{font-weight:700;color:#aebed4;font-size:.93rem;position:relative;transition:color .25s ease}
+    .nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:-9px;margin:auto;width:0;height:2px;background:var(--gold);transition:.25s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-links a:hover:after{width:100%}
+    .nav-cta{margin-left:10px}
+    .menu-btn{display:none;width:44px;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;align-items:center;justify-content:center;transition:.25s}.menu-btn:hover{background:rgba(255,255,255,.12);color:var(--gold);border-color:rgba(243,197,21,.4)}
+
+    /* hero */
+    .hero-wrap{padding:16px 0 0;background:#fff}
+    .hero{position:relative;overflow:hidden;border-radius:24px;background:
+      radial-gradient(circle at 78% 16%,rgba(26,76,153,.45),transparent 34%),
+      linear-gradient(135deg,#021434 0%,#041d48 58%,#082c68 100%);
+      color:#fff;min-height:690px;box-shadow:0 18px 50px rgba(4,29,72,.16)}
+    .hero:before{content:"";position:absolute;width:380px;height:380px;right:-110px;top:-120px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.018)}
+    .hero-top{display:grid;grid-template-columns:1.08fr .74fr;gap:52px;padding:50px 42px 34px;align-items:end}
+    .hero-eyebrow{color:#ffe99a}
+    .hero-eyebrow:before{background:var(--gold)}
+    .hero h1{font-size:clamp(3rem,6vw,5.6rem);line-height:.94;letter-spacing:-.055em;margin:16px 0 22px;max-width:800px}
+    .hero h1 .gold{color:var(--gold)}
+    .hero-copy{font-size:1.04rem;color:#c9d6e9;max-width:570px;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-aside{align-self:center;padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
+    .hero-aside p{color:#c7d3e6;margin:0 0 22px;font-size:.98rem}
+    .mini-trust{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .mini-trust div{padding:14px;border-radius:12px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1)}
+    .mini-trust strong{display:block;color:#fff;font-size:1rem}
+    .mini-trust span{font-size:.78rem;color:#9fb3d1}
+    .hero-media{position:relative;margin:0 42px 0;height:335px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.15);background:#0f2d59}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+    .hero-media:hover img{transform:scale(1.035)}
+    .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,22,54,.15),transparent 55%,rgba(3,22,54,.18));pointer-events:none}
+    .hero-stat{position:absolute;left:20px;bottom:18px;background:#fff;color:var(--navy);padding:16px 19px;border-radius:14px;min-width:148px;box-shadow:0 16px 38px rgba(0,0,0,.18)}
+    .hero-stat strong{display:block;font-size:1.7rem;line-height:1;font-weight:800}
+    .hero-stat span{font-size:.75rem;color:#6b7280;font-weight:700}
+    .hero-floating{position:absolute;right:22px;top:20px;display:flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:12px 15px;border-radius:12px;font-weight:800;font-size:.82rem;box-shadow:0 14px 26px rgba(0,0,0,.15)}
+    .hero-floating i{width:17px}
+    .hero-bottom{display:grid;grid-template-columns:1.45fr .65fr .65fr;gap:0;margin-top:35px;border-top:1px solid rgba(255,255,255,.12)}
+    .hero-bottom > div{min-height:86px;display:flex;align-items:center;padding:0 26px;border-right:1px solid rgba(255,255,255,.1)}
+    .hero-bottom .trust-copy{gap:24px;color:#9fb3d1;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    .trust-copy span{display:inline-flex;align-items:center;gap:8px}.trust-copy i{width:18px;color:var(--gold)}
+    .metric-card{gap:12px;background:rgba(255,255,255,.035)}
+    .metric-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(243,197,21,.14);color:var(--gold)}
+    .metric-icon i{width:20px}
+    .metric-card strong{display:block;font-size:1.1rem}.metric-card span{font-size:.76rem;color:#9eb2d0}
+
+    /* credentials */
+    .credentials{padding:34px 0}
+    .credential-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .credential{border:1px solid var(--line);border-radius:15px;padding:18px 18px;display:flex;gap:13px;align-items:center;background:#fff;transition:.28s}
+    .credential:hover{transform:translateY(-4px);border-color:#d6deea;box-shadow:0 13px 30px rgba(3,24,61,.07)}
+    .credential-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#fff8d8;color:var(--navy);flex:0 0 auto}
+    .credential-icon i{width:21px}
+    .credential strong{font-size:.92rem;display:block;color:var(--navy)}
+    .credential span{font-size:.78rem;color:var(--muted)}
+
+    /* about */
+    .about{padding:86px 0 104px}
+    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px;align-items:center}
+    .about-collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:228px 228px;gap:14px;position:relative}
+    .about-collage .photo{border-radius:18px;overflow:hidden;background:#e5e7eb;box-shadow:0 12px 34px rgba(4,29,72,.09)}
+    .about-collage .photo:first-child{grid-row:1/3}
+    .about-collage img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+    .about-collage .photo:hover img{transform:scale(1.045)}
+    .year-badge{position:absolute;left:-22px;bottom:34px;width:114px;height:114px;border-radius:50%;background:var(--gold);display:grid;place-items:center;text-align:center;color:var(--navy);font-weight:800;box-shadow:0 18px 40px rgba(4,29,72,.18);border:8px solid #fff;transform:rotate(-8deg)}
+    .year-badge strong{font-size:1.7rem;line-height:1}.year-badge span{display:block;font-size:.68rem;line-height:1.2;margin-top:5px;letter-spacing:.05em}
+    .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:28px 0}
+    .feature{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:#354157;font-weight:600}
+    .feature i{width:18px;color:#d2a900;flex:0 0 auto;margin-top:3px}
+    .about-card{margin-top:28px;padding:20px;border-radius:16px;background:var(--soft);border-left:4px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .about-card strong{display:block;color:var(--navy);font-size:.95rem}.about-card span{font-size:.82rem;color:var(--muted)}
+    .call-link{display:flex;align-items:center;gap:11px;white-space:nowrap;font-weight:800;color:var(--navy)}
+    .call-icon{width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center}.call-icon i{width:18px}
+
+    /* services */
+    .services{padding:98px 0 110px;background:linear-gradient(180deg,#fff9e9 0%,#fffdf8 100%)}
+    .services-head{text-align:center;margin-bottom:40px}.services-head .eyebrow{justify-content:center}.services-head .section-copy{margin-inline:auto}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service-card{background:#fff;border-radius:17px;border:1px solid #f1ead4;overflow:hidden;transition:.3s ease;position:relative;min-height:420px;display:flex;flex-direction:column}
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(92,67,0,.10);border-color:#eadcae}
+    .service-img{height:170px;overflow:hidden;background:#d7deea}
+    .service-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .service-card:hover .service-img img{transform:scale(1.055)}
+    .service-icon{position:absolute;right:18px;top:145px;width:48px;height:48px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--navy);border:5px solid #fff;transition:transform .3s}
+    .service-card:hover .service-icon{transform:rotate(-7deg) scale(1.05)}
+    .service-icon i{width:19px}
+    .service-body{padding:26px 22px 22px;display:flex;flex-direction:column;flex:1}
+    .service-body h3{margin:0 0 9px;color:var(--navy);font-size:1.12rem;line-height:1.25}
+    .service-body p{margin:0;color:var(--muted);font-size:.88rem}
+    .service-link{margin-top:auto;padding-top:18px;color:#9a7c00;font-size:.84rem;font-weight:800;display:inline-flex;align-items:center;gap:7px}
+    .service-link i{width:15px;transition:transform .2s}.service-card:hover .service-link i{transform:translateX(4px)}
+
+    /* maintenance */
+    .maintenance{padding:105px 0;background:#fff}
+    .maintenance-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+    .maintenance-panel{border-radius:22px;background:var(--navy);color:#fff;padding:42px;position:relative;overflow:hidden}
+    .maintenance-panel:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-90px;bottom:-100px;background:rgba(243,197,21,.12);box-shadow:0 0 0 50px rgba(243,197,21,.05)}
+    .maintenance-panel h3{font-size:1.8rem;line-height:1.1;margin:0 0 12px}.maintenance-panel>p{color:#b7c8df;margin:0 0 28px}
+    .maintenance-list{display:grid;gap:13px;position:relative;z-index:1}
+    .maintenance-item{display:flex;gap:14px;padding:15px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.055);border-radius:13px;transition:.25s}
+    .maintenance-item:hover{background:rgba(255,255,255,.09);transform:translateX(5px)}
+    .maintenance-item i{width:20px;color:var(--gold);flex:0 0 auto}.maintenance-item strong{display:block;font-size:.92rem}.maintenance-item span{display:block;color:#a9bdd9;font-size:.79rem;margin-top:2px}
+    .qualification{display:inline-flex;align-items:center;gap:9px;padding:10px 13px;border-radius:999px;background:#fff7cc;color:#725f00;font-weight:800;font-size:.78rem;margin-bottom:20px}.qualification i{width:17px}
+    .check-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 30px}
+    .check-card{padding:17px;border-radius:14px;border:1px solid var(--line);background:#fff;display:flex;gap:11px;align-items:flex-start}
+    .check-card i{width:19px;color:#d0a800;flex:0 0 auto}.check-card strong{font-size:.88rem;color:var(--navy);display:block}.check-card span{font-size:.77rem;color:var(--muted)}
+
+    /* proof */
+    .proof{padding:100px 0;background:var(--soft)}
+    .proof-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:36px}.proof-head .section-copy{max-width:560px}
+    .project-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;gap:16px}
+    .project{position:relative;min-height:390px;border-radius:18px;overflow:hidden;background:#14223b;color:#fff;isolation:isolate;box-shadow:0 14px 32px rgba(4,29,72,.10)}
+    .project img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .55s ease}
+    .project:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,29,72,.06),rgba(4,29,72,.92))}
+    .project:hover img{transform:scale(1.05)}
+    .project-content{position:absolute;left:24px;right:24px;bottom:24px}
+    .project-tag{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(243,197,21,.95);color:var(--navy);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+    .project h3{font-size:1.35rem;line-height:1.15;margin:12px 0 7px}.project p{font-size:.82rem;color:#d2dceb;margin:0}
+    .project-value{margin-top:12px;font-weight:800;color:#fff}.project-value span{color:var(--gold)}
+
+    /* testimonial / CTA */
+    .testimonials{padding:104px 0}
+    .testimonial-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+    .quote-card{padding:35px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);position:relative}
+    .quote-mark{width:48px;height:48px;border-radius:14px;background:var(--gold);color:var(--navy);display:grid;place-items:center;margin-bottom:20px}.quote-mark i{width:22px}
+    blockquote{margin:0;color:#2c384d;font-size:1.06rem;line-height:1.75}
+    .quote-author{margin-top:21px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .quote-author strong{display:block;color:var(--navy)}.quote-author span{font-size:.8rem;color:var(--muted)}
+    .stars{display:flex;gap:3px;color:#d3aa00}.stars i{width:16px;fill:currentColor}
+    .cta-band{margin-top:84px;border-radius:24px;background:linear-gradient(125deg,#041d48,#082f6d);color:#fff;padding:46px 48px;display:flex;align-items:center;justify-content:space-between;gap:38px;position:relative;overflow:hidden}
+    .cta-band:before{content:"";position:absolute;right:-60px;top:-120px;width:330px;height:330px;border-radius:50%;border:60px solid rgba(255,255,255,.04)}
+    .cta-band h3{font-size:clamp(1.9rem,3vw,2.8rem);line-height:1.05;letter-spacing:-.035em;margin:0 0 10px;max-width:660px}.cta-band p{margin:0;color:#bfd0e7;max-width:690px}.cta-actions{display:flex;gap:11px;position:relative;z-index:1;flex:0 0 auto}
+
+    /* footer */
+    footer{background:#031530;color:#c4d1e4;padding:62px 0 22px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .75fr .75fr 1fr;gap:36px}
+    .footer-brand img{height:65px;width:auto;margin-bottom:18px}.footer-brand p{font-size:.86rem;color:#9eb0ca;max-width:320px}
+    .footer-title{font-size:.87rem;color:#fff;font-weight:800;margin-bottom:17px;text-transform:uppercase;letter-spacing:.06em}
+    .footer-links{display:grid;gap:10px}.footer-links a{font-size:.84rem;color:#aebed4;transition:.2s}.footer-links a:hover{color:var(--gold);transform:translateX(3px)}
+    .footer-contact{display:grid;gap:12px}.footer-contact a,.footer-contact div{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;color:#aebed4}.footer-contact i{width:17px;color:var(--gold);margin-top:2px;flex:0 0 auto}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-top:26px;margin-top:38px;border-top:1px solid rgba(255,255,255,.09);font-size:.75rem;color:#7890ae}
+
+    /* animation */
+    [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+    [data-reveal].revealed{opacity:1;transform:none}
+    [data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}[data-delay="3"]{transition-delay:.24s}
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
+
+    @media(max-width:1050px){
+      .nav-links{display:none;position:absolute;left:20px;right:20px;top:91px;background:#002147;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px;box-shadow:0 20px 45px rgba(0,20,48,.28);flex-direction:column;align-items:flex-start;gap:17px}
+      .nav-links.open{display:flex}.nav-links a{width:100%;padding:5px 0}.nav-cta{display:none}.menu-btn{display:flex}
+      .hero-top{grid-template-columns:1fr;gap:30px}.hero-aside{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.13);padding-top:24px}
+      .hero{min-height:auto}.hero-media{height:360px}.hero-bottom{grid-template-columns:1fr 1fr}.hero-bottom>div:first-child{grid-column:1/3}
+      .credential-grid{grid-template-columns:1fr 1fr}.about-grid,.maintenance-grid,.testimonial-grid{grid-template-columns:1fr;gap:46px}
+      .service-grid{grid-template-columns:1fr 1fr}.project-grid{grid-template-columns:1fr 1fr}.project:first-child{grid-column:1/3}.footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:700px){
+      .container{width:min(calc(100% - 24px),var(--container))}.utility-right{display:none}.utility-inner{justify-content:center}.utility-left{width:100%;justify-content:space-between;gap:10px;font-size:.72rem}
+      .nav{height:74px}.brand img{height:49px}
+      .hero-wrap{padding-top:10px}.hero{border-radius:18px}.hero-top{padding:38px 22px 28px}.hero h1{font-size:clamp(2.55rem,13vw,4rem)}.hero-media{margin:0 22px;height:270px}.hero-floating{font-size:.7rem;right:12px;top:12px}.hero-stat{left:12px;bottom:12px;padding:12px 14px;min-width:125px}.hero-stat strong{font-size:1.35rem}.hero-bottom{grid-template-columns:1fr;margin-top:25px}.hero-bottom>div:first-child{grid-column:auto}.hero-bottom>div{border-right:0;border-top:1px solid rgba(255,255,255,.07);padding:18px 22px;min-height:auto}.hero-bottom .trust-copy{flex-wrap:wrap;gap:12px 22px}
+      .credential-grid,.feature-list,.check-cards,.service-grid,.project-grid,.footer-grid{grid-template-columns:1fr}.about{padding:70px 0}.about-collage{grid-template-columns:1fr;grid-template-rows:280px 180px 180px}.about-collage .photo:first-child{grid-row:auto}.year-badge{left:-6px;bottom:148px;width:96px;height:96px}.about-card{align-items:flex-start;flex-direction:column}.section-title{font-size:2.35rem}.services,.maintenance,.proof,.testimonials{padding:78px 0}.service-card{min-height:0}.project:first-child{grid-column:auto}.proof-head{align-items:flex-start;flex-direction:column}.project{min-height:340px}.cta-band{padding:34px 24px;align-items:flex-start;flex-direction:column}.cta-actions{width:100%;flex-direction:column}.cta-actions .btn{width:100%}.footer-bottom{align-items:flex-start;flex-direction:column}.footer-grid{gap:34px}
+    }
+  </style>
+</head>
+<body>
+  <div class="utility">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href="tel:+16033823182"><i data-lucide="phone"></i> (603) 382-3182</a>
+        <a href="mailto:Jim.Cole@phelectric.net"><i data-lucide="mail"></i> Jim.Cole@phelectric.net</a>
+      </div>
+      <div class="utility-right">
+        <span class="utility-badge"><i data-lucide="shield-check"></i> QEMC Qualified</span>
+        <span class="utility-badge"><i data-lucide="map-pin"></i> Serving New England</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Piquette & Howard Electric Service home">
+        <img src="images/ph-electric-logo.png" alt="Piquette & Howard Electric Service logo" />
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#maintenance">QEMC</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="mailto:Jim.Cole@phelectric.net?subject=Project%20Inquiry%20-%20P%26H%20Electric">Request a Consultation <i data-lucide="arrow-up-right"></i></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-wrap" id="home">
+      <div class="container hero">
+        <div class="hero-top">
+          <div data-reveal>
+            <span class="eyebrow hero-eyebrow">Since 1972 • New England</span>
+            <h1>Powering Critical Facilities with <span class="gold">Proven Expertise.</span></h1>
+            <p class="hero-copy">Commercial and industrial electrical construction, engineering, maintenance, crane & hoist, fire alarm and communications services — delivered by a team built around safety, responsiveness and long-term customer relationships.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#services">Explore Services <i data-lucide="arrow-right"></i></a>
+              <a class="btn btn-outline" href="tel:+16033823182"><i data-lucide="phone-call"></i> Call (603) 382-3182</a>
+            </div>
+          </div>
+          <div class="hero-aside" data-reveal data-delay="1">
+            <p>From electrical system maintenance and arc-flash studies to complex construction and critical facility upgrades, P&H supports industrial, commercial and government clients across the region.</p>
+            <div class="mini-trust">
+              <div><strong>QEMC</strong><span>NETA-qualified maintenance company</span></div>
+              <div><strong>SDVOSB</strong><span>Service-Disabled Veteran-Owned</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media" data-reveal data-delay="2">
+          <img src="https://bostonvoyager.com/wp-content/uploads/2017/08/personal_photo-16-1000x600.jpg" alt="Piquette & Howard Electric Service team at the Plaistow headquarters" onerror="this.src='https://media.licdn.com/dms/image/v2/D4D3DAQH7wwsfwYMX3Q/image-scale_325_1920/B4DZ8EXaCIJ4AI-/0/1782484673090/piquette__howard_electric_service_inc__cover?e=2147483647&v=beta'" />
+          <div class="hero-stat"><strong data-counter="50">0+</strong><span>Years of electrical expertise</span></div>
+          <div class="hero-floating"><i data-lucide="badge-check"></i> QEMC / QEMW Program Participant</div>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="trust-copy">
+            <span><i data-lucide="shield-check"></i> Safety-first</span>
+            <span><i data-lucide="hard-hat"></i> In-house engineering</span>
+            <span><i data-lucide="landmark"></i> Federal & state work</span>
+          </div>
+          <div class="metric-card"><div class="metric-icon"><i data-lucide="calendar-check"></i></div><div><strong>1972</strong><span>Founded in New England</span></div></div>
+          <div class="metric-card"><div class="metric-icon"><i data-lucide="map"></i></div><div><strong>2 locations</strong><span>NH & MA regional coverage</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="credentials" aria-label="Company qualifications">
+      <div class="container credential-grid">
+        <div class="credential" data-reveal><div class="credential-icon"><i data-lucide="shield-check"></i></div><div><strong>NETA QEMC Qualified</strong><span>Electrical equipment maintenance</span></div></div>
+        <div class="credential" data-reveal data-delay="1"><div class="credential-icon"><i data-lucide="flag"></i></div><div><strong>SDVOSB</strong><span>Veteran-owned small business</span></div></div>
+        <div class="credential" data-reveal data-delay="2"><div class="credential-icon"><i data-lucide="award"></i></div><div><strong>ABC STEP Awards</strong><span>Recognized safety performance</span></div></div>
+        <div class="credential" data-reveal data-delay="3"><div class="credential-icon"><i data-lucide="building-2"></i></div><div><strong>New England Coverage</strong><span>Commercial, industrial & government</span></div></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-collage" data-reveal>
+          <div class="photo"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Design-Build-Electrical-Engineering-640w.jpg" alt="Electrical design-build project" /></div>
+          <div class="photo"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Crane-Hoist-Service-640w.jpg" alt="Crane and hoist installation project" /></div>
+          <div class="photo"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/01/Fire-ALarm-2-e1483577555697.jpg" alt="Commercial fire alarm system installation" /></div>
+          <div class="year-badge"><div><strong>1972</strong><span>BUILT ON SERVICE</span></div></div>
+        </div>
+        <div data-reveal data-delay="1">
+          <span class="eyebrow">About P&H Electric</span>
+          <h2 class="section-title">A regional electrical partner built to <span>solve problems.</span></h2>
+          <p class="section-copy">Piquette & Howard Electric Service is a Service-Disabled Veteran-Owned Small Business founded in 1972. The company provides electrical and crane & hoist services to industrial, commercial and government customers throughout New England, with a longstanding focus on quality, safety and minimizing disruption to customer operations.</p>
+          <div class="feature-list">
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Commercial & industrial electrical service</span></div>
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Professional engineering & design-build</span></div>
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Preventive electrical maintenance</span></div>
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Crane & hoist inspections and service</span></div>
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Fire alarm & life-safety systems</span></div>
+            <div class="feature"><i data-lucide="circle-check-big"></i><span>Telecommunications & fiber systems</span></div>
+          </div>
+          <div class="about-card">
+            <div><strong>Need to discuss a facility or maintenance challenge?</strong><span>Speak directly with P&H Engineering Field Services.</span></div>
+            <a class="call-link" href="mailto:Jim.Cole@phelectric.net"><span class="call-icon"><i data-lucide="mail"></i></span><span>Jim Cole<br><small>Engineering Field Services</small></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-head" data-reveal>
+          <span class="eyebrow">Our Services</span>
+          <h2 class="section-title">Electrical expertise from <span>design through maintenance.</span></h2>
+          <p class="section-copy">One partner for complex electrical infrastructure, ongoing service, inspections and specialized systems across commercial, industrial and public-sector facilities.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card" data-reveal>
+            <div class="service-img"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Electrical-Construction-services-ptr.jpg" alt="Electrical construction services" /></div>
+            <div class="service-icon"><i data-lucide="zap"></i></div>
+            <div class="service-body"><h3>Commercial & Industrial Electrical</h3><p>Electrical service, upgrades, preventive maintenance, controls, lighting, power generation, infrared testing and troubleshooting.</p><a class="service-link" href="mailto:Jim.Cole@phelectric.net?subject=Commercial%20Industrial%20Electrical%20Inquiry">Discuss a project <i data-lucide="arrow-right"></i></a></div>
+          </article>
+          <article class="service-card" data-reveal data-delay="1">
+            <div class="service-img"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Crane-Hoist-Service-640w.jpg" alt="Crane and hoist services" /></div>
+            <div class="service-icon"><i data-lucide="construction"></i></div>
+            <div class="service-body"><h3>Crane & Hoist Services</h3><p>Inspections, repairs, fabrication, installations, preventive maintenance and OSHA-focused reporting for industrial lifting systems.</p><a class="service-link" href="tel:+16033823182">Call for service <i data-lucide="arrow-right"></i></a></div>
+          </article>
+          <article class="service-card" data-reveal data-delay="2">
+            <div class="service-img"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Design-Build-Electrical-Engineering-640w.jpg" alt="Electrical engineering and design-build project" /></div>
+            <div class="service-icon"><i data-lucide="drafting-compass"></i></div>
+            <div class="service-body"><h3>Engineering & Design-Build</h3><p>In-house electrical engineering for studies, arc flash, short circuit, power quality, design-build and complex facility upgrades.</p><a class="service-link" href="mailto:Jim.Cole@phelectric.net?subject=Engineering%20Design-Build%20Inquiry">Start a conversation <i data-lucide="arrow-right"></i></a></div>
+          </article>
+          <article class="service-card" data-reveal data-delay="3">
+            <div class="service-img"><img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/01/Fire-ALarm-2-e1483577555697.jpg" alt="Fire alarm system" /></div>
+            <div class="service-icon"><i data-lucide="siren"></i></div>
+            <div class="service-body"><h3>Fire Alarm & Communications</h3><p>Fire alarm engineering, installation and testing plus copper, fiber, security, access control and building communications systems.</p><a class="service-link" href="mailto:Jim.Cole@phelectric.net?subject=Fire%20Alarm%20Telecommunications%20Inquiry">Request information <i data-lucide="arrow-right"></i></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="maintenance" id="maintenance">
+      <div class="container maintenance-grid">
+        <div data-reveal>
+          <span class="qualification"><i data-lucide="badge-check"></i> Qualified Electrical Equipment Maintenance Company</span>
+          <span class="eyebrow">QEMC & NFPA 70B</span>
+          <h2 class="section-title">Turn electrical maintenance into a <span>managed safety program.</span></h2>
+          <p class="section-copy">P&H was an early participant in NETA’s QEMC/QEMW qualification program created in response to NFPA 70B maintenance requirements. The program supports facility owners who need qualified maintenance providers and documented worker qualifications.</p>
+          <div class="check-cards">
+            <div class="check-card"><i data-lucide="clipboard-check"></i><div><strong>Maintenance Programs</strong><span>Build structured electrical equipment maintenance plans.</span></div></div>
+            <div class="check-card"><i data-lucide="scan-line"></i><div><strong>Infrared Testing</strong><span>Identify heat-related risk before failures escalate.</span></div></div>
+            <div class="check-card"><i data-lucide="triangle-alert"></i><div><strong>Arc Flash Studies</strong><span>Engineering analysis to support safer work practices.</span></div></div>
+            <div class="check-card"><i data-lucide="file-check-2"></i><div><strong>Qualified Documentation</strong><span>Support compliance records and maintenance decision-making.</span></div></div>
+          </div>
+          <a class="btn btn-primary" href="mailto:Jim.Cole@phelectric.net?subject=QEMC%20Electrical%20Maintenance%20Program">Discuss a Maintenance Program <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="maintenance-panel" data-reveal data-delay="1">
+          <h3>Maintenance that protects uptime, people and assets.</h3>
+          <p>Use P&H as a qualified partner for electrical equipment maintenance, engineering studies and field execution across your facility.</p>
+          <div class="maintenance-list">
+            <div class="maintenance-item"><i data-lucide="shield-check"></i><div><strong>Qualified field support</strong><span>QEMC/QEMW-focused maintenance expertise.</span></div></div>
+            <div class="maintenance-item"><i data-lucide="activity"></i><div><strong>Condition-based insight</strong><span>Testing and reporting to identify emerging risk.</span></div></div>
+            <div class="maintenance-item"><i data-lucide="settings-2"></i><div><strong>Corrective action support</strong><span>Move from findings to repairs, upgrades and ongoing service.</span></div></div>
+            <div class="maintenance-item"><i data-lucide="history"></i><div><strong>Long-term continuity</strong><span>A regional contractor serving New England facilities since 1972.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" id="projects">
+      <div class="container">
+        <div class="proof-head" data-reveal>
+          <div><span class="eyebrow">Selected Project Proof</span><h2 class="section-title">Experience in environments where <span>reliability matters.</span></h2></div>
+          <p class="section-copy">P&H’s portfolio spans healthcare, education, government, commercial and industrial work across New England — including complex power-distribution and life-safety scopes.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project" data-reveal>
+            <img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Electrical-Construction-services-ptr.jpg" alt="Electrical infrastructure project" />
+            <div class="project-content"><span class="project-tag">Federal / Healthcare</span><h3>VA Medical Center — West Haven, CT</h3><p>Essential electrical distribution upgrade including medium-voltage switchgear, transfer switches, emergency electrical rooms and more than 1,000 feet of bus duct.</p><div class="project-value">Project value: <span>$7M</span></div></div>
+          </article>
+          <article class="project" data-reveal data-delay="1">
+            <img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Design-Build-Electrical-Engineering-640w.jpg" alt="Modern education facility" />
+            <div class="project-content"><span class="project-tag">Education</span><h3>St. Mark’s School STEM Facility</h3><p>Power distribution, LED lighting controls, voice evacuation fire alarm and Category 6/fiber telecommunications.</p><div class="project-value"><span>$1.04M</span> contract</div></div>
+          </article>
+          <article class="project" data-reveal data-delay="2">
+            <img src="https://www.phelectricalcontractor.com/wp-content/uploads/2017/03/Crane-Hoist-Service-640w.jpg" alt="Overhead crane project" />
+            <div class="project-content"><span class="project-tag">Crane & Hoist</span><h3>T.H. Glennon — Salisbury, MA</h3><p>Engineered, fabricated and installed a 3-ton overhead bridge crane, rail system and 480V powerbar.</p><div class="project-value"><span>48-ft</span> crane span</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="contact">
+      <div class="container">
+        <div class="testimonial-grid">
+          <div data-reveal>
+            <span class="eyebrow">Why Clients Stay</span>
+            <h2 class="section-title">Safe work. Fair bids. <span>Delivered on schedule.</span></h2>
+            <p class="section-copy">P&H’s current site emphasizes long-term customer retention, responsiveness and professional execution — the practical standards that matter most on active facilities and time-sensitive projects.</p>
+          </div>
+          <div class="quote-card" data-reveal data-delay="1">
+            <div class="quote-mark"><i data-lucide="quote"></i></div>
+            <blockquote>“First and foremost, they are safe. They follow and embrace our safety culture… Beyond that, they have bid projects fairly, met that budget, and done so on schedule.”</blockquote>
+            <div class="quote-author"><div><strong>Plant Engineer</strong><span>Cabot Corp • Haverhill, MA</span></div><div class="stars" aria-label="5 stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div></div>
+          </div>
+        </div>
+
+        <div class="cta-band" data-reveal>
+          <div><h3>Planning an electrical project or maintenance program?</h3><p>Talk with Jim Cole and the P&H Engineering Field Services team about your facility, schedule, compliance needs or upcoming scope.</p></div>
+          <div class="cta-actions"><a class="btn btn-primary" href="mailto:Jim.Cole@phelectric.net?subject=P%26H%20Electric%20Project%20Inquiry">Email Jim Cole <i data-lucide="arrow-up-right"></i></a><a class="btn btn-outline" href="tel:+16033823182"><i data-lucide="phone-call"></i> Call P&H</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/ph-electric-logo.png" alt="Piquette & Howard Electric Service" />
+          <p>Commercial, industrial and government electrical service, engineering, construction, maintenance, crane & hoist, fire alarm and telecommunications across New England.</p>
+        </div>
+        <div><div class="footer-title">Company</div><div class="footer-links"><a href="#about">About P&H</a><a href="#maintenance">QEMC Qualification</a><a href="#projects">Project Experience</a><a href="#contact">Contact</a></div></div>
+        <div><div class="footer-title">Services</div><div class="footer-links"><a href="#services">Electrical Service</a><a href="#services">Engineering / Design-Build</a><a href="#services">Crane & Hoist</a><a href="#services">Fire Alarm & Communications</a></div></div>
+        <div><div class="footer-title">Contact</div><div class="footer-contact"><a href="tel:+16033823182"><i data-lucide="phone"></i><span>(603) 382-3182</span></a><a href="mailto:Jim.Cole@phelectric.net"><i data-lucide="mail"></i><span>Jim.Cole@phelectric.net</span></a><div><i data-lucide="map-pin"></i><span>222 Plaistow Road<br>Plaistow, NH 03865</span></div></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Piquette & Howard Electric Service. Concept redesign.</span><span>Serving New England since 1972.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    }));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    const counter = document.querySelector('[data-counter]');
+    let counted = false;
+    const counterObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting && !counted){
+        counted = true;
+        const target = Number(counter.dataset.counter);
+        const duration = 900;
+        const start = performance.now();
+        const tick = now => {
+          const progress = Math.min((now-start)/duration,1);
+          const eased = 1-Math.pow(1-progress,3);
+          counter.textContent = Math.floor(target*eased) + '+';
+          if(progress<1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, {threshold:.7});
+    if(counter) counterObserver.observe(counter);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Subtle hero parallax on pointer movement for desktop users.
+    const hero = document.querySelector('.hero');
+    const heroImg = document.querySelector('.hero-media img');
+    if(window.matchMedia('(pointer:fine)').matches){
+      hero.addEventListener('mousemove', e => {
+        const r = hero.getBoundingClientRect();
+        const x = ((e.clientX-r.left)/r.width-.5)*5;
+        const y = ((e.clientY-r.top)/r.height-.5)*5;
+        heroImg.style.transform = `scale(1.02) translate(${x}px,${y}px)`;
+      });
+      hero.addEventListener('mouseleave', () => heroImg.style.transform = '');
+    }
+  </script>
+</body>
+</html>

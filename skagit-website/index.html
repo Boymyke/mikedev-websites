@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Skagit Electric is a NETA Accredited electrical engineering, testing and maintenance contractor serving challenging power-system projects from Sedro-Woolley, Washington to locations worldwide." />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Skagit Electric | Electrical Testing, Engineering & Maintenance</title>
+  <link rel="icon" type="image/png" href="images/skagit-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #09090a;
+      --black-2: #111113;
+      --charcoal: #1b1b1d;
+      --graphite: #343436;
+      --gray: #6d6d70;
+      --silver: #a6a6a8;
+      --line: #dddddf;
+      --paper: #f5f5f2;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0,0,0,.14);
+      --radius: 18px;
+      --container: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(calc(100% - 40px), var(--container)); margin: 0 auto; }
+    .section { padding: 108px 0; }
+    .section-sm { padding: 74px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--graphite);
+      margin-bottom: 20px;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1,h2,h3,h4,p { margin-top: 0; }
+    h1,h2,h3,h4 { letter-spacing: -.045em; line-height: 1.04; }
+    h1 { font-size: clamp(48px, 6vw, 86px); margin-bottom: 24px; }
+    h2 { font-size: clamp(36px, 4.2vw, 60px); margin-bottom: 22px; }
+    h3 { font-size: 24px; }
+    p { color: #5d5d60; }
+    .lead { font-size: 18px; line-height: 1.75; max-width: 680px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: #242427; }
+    .btn-light { background: var(--white); color: var(--black); }
+    .btn-outline-light { color: var(--white); border-color: rgba(255,255,255,.32); background: rgba(255,255,255,.04); }
+    .btn-outline-light:hover { background: var(--white); color: var(--black); }
+    .btn-outline-dark { border-color: #cfcfd2; color: var(--black); background: transparent; }
+    .btn-outline-dark:hover { border-color: var(--black); }
+
+    /* Top bar */
+    .topbar {
+      position: relative;
+      z-index: 80;
+      background: var(--black);
+      color: #d8d8da;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .topbar-inner {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 11px;
+    }
+    .topbar-group { display: flex; align-items: center; gap: 18px; min-width: 0; }
+    .topbar a, .topbar span { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+    .topbar svg { width: 14px; height: 14px; flex: 0 0 auto; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 70;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .nav {
+      min-height: 80px;
+      display: grid;
+      grid-template-columns: minmax(215px, auto) minmax(0, 1fr) auto;
+      align-items: center;
+      gap: clamp(18px, 2.4vw, 34px);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand-mark {
+      width: 50px;
+      height: 40px;
+      overflow: hidden;
+      background: #000;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      flex: 0 0 auto;
+    }
+    .brand-mark img { width: 56px; max-width: none; transform: scale(1.06); }
+    .brand-copy { line-height: .95; min-width: 0; }
+    .brand-name { display: block; font-size: 16px; font-weight: 800; letter-spacing: .035em; white-space: nowrap; }
+    .brand-sub { display: block; margin-top: 6px; font-size: 8px; font-weight: 700; color: var(--gray); letter-spacing: .15em; text-transform: uppercase; white-space: nowrap; }
+    .nav-links {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 1.75vw, 28px);
+    }
+    .nav-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 700;
+      color: #333336;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 2px;
+      background: var(--black);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .25s ease;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta {
+      min-height: 46px;
+      padding: 0 17px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .nav-cta svg { width: 18px; height: 18px; }
+    .menu-btn {
+      display: none;
+      justify-self: end;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid #d9d9dc;
+      background: white;
+      color: var(--black);
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-btn svg { width: 21px; height: 21px; }
+
+    /* Mobile / tablet menu is hidden by default on desktop. */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 69;
+      background: rgba(255,255,255,.99);
+      border-top: 1px solid #ececee;
+      border-bottom: 1px solid #dddddf;
+      box-shadow: 0 18px 40px rgba(0,0,0,.12);
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+    }
+    .mobile-nav-inner { padding: 10px 0 22px; }
+    .mobile-nav a:not(.btn) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 58px;
+      padding: 0 2px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .mobile-nav a:not(.btn) svg { width: 17px; height: 17px; color: #77777b; }
+    .mobile-nav .btn { width: 100%; margin-top: 18px; min-height: 50px; }
+
+    /* Hero */
+    .hero { position: relative; min-height: 720px; display: flex; align-items: stretch; background: var(--black); overflow: hidden; }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,7,8,.97) 0%, rgba(7,7,8,.85) 38%, rgba(7,7,8,.38) 68%, rgba(7,7,8,.3) 100%),
+        linear-gradient(0deg, rgba(7,7,8,.55), rgba(7,7,8,0) 50%);
+      z-index: 1;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: contrast(1.03) saturate(1.04); }
+    .hero-grid { position: relative; z-index: 2; min-height: 720px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 50px; }
+    .hero-content { padding: 92px 0; color: var(--white); max-width: 820px; }
+    .hero .eyebrow { color: #d3d3d5; }
+    .hero h1 { max-width: 880px; }
+    .hero h1 span { color: #b7b7ba; }
+    .hero-copy { max-width: 660px; color: #d0d0d2; font-size: 17px; line-height: 1.75; margin-bottom: 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-card {
+      justify-self: end;
+      align-self: end;
+      margin-bottom: 58px;
+      width: min(100%, 345px);
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(12,12,13,.68);
+      backdrop-filter: blur(12px);
+      color: white;
+      padding: 24px;
+      border-radius: 14px;
+    }
+    .hero-card-top { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .hero-card .number { font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -.05em; }
+    .hero-card small { color: #bdbdc0; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; }
+    .hero-card p { color: #d5d5d7; font-size: 13px; margin: 18px 0 0; }
+    .hero-corner {
+      position: absolute; right: 0; bottom: 0; z-index: 2; width: 180px; height: 8px;
+      background: linear-gradient(90deg, #77777b, #f0f0f0);
+    }
+
+    /* Stats */
+    .stats { border-bottom: 1px solid var(--line); background: #fff; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 34px 34px 34px 0; border-right: 1px solid var(--line); }
+    .stat + .stat { padding-left: 34px; }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-size: 28px; line-height: 1; letter-spacing: -.04em; margin-bottom: 10px; }
+    .stat span { display: block; color: #6d6d70; font-size: 12px; line-height: 1.55; }
+
+    /* Intro */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 92px; align-items: center; }
+    .image-collage { position: relative; min-height: 610px; }
+    .image-collage .img-main { position: absolute; left: 0; top: 54px; width: 64%; height: 500px; object-fit: cover; filter: none; border-radius: 16px; }
+    .image-collage .img-top { position: absolute; right: 0; top: 0; width: 43%; height: 280px; object-fit: cover; border-radius: 16px; filter: none; }
+    .image-collage .img-bottom { position: absolute; right: 0; bottom: 0; width: 47%; height: 250px; object-fit: cover; border-radius: 16px; filter: none; }
+    .bolt-badge {
+      position: absolute; z-index: 2; right: 32%; top: 43%; transform: translate(50%,-50%);
+      width: 132px; height: 132px; border-radius: 50%; background: var(--black); color: white; border: 7px solid white;
+      display: grid; place-items: center; box-shadow: var(--shadow);
+    }
+    .bolt-badge svg { width: 38px; height: 38px; }
+    .intro-points { list-style: none; padding: 0; margin: 30px 0 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 13px 18px; }
+    .intro-points li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; font-weight: 700; color: #3b3b3e; }
+    .intro-points svg { width: 17px; height: 17px; flex: 0 0 auto; margin-top: 2px; }
+
+    /* Services */
+    .services { background: var(--black); color: white; position: relative; overflow: hidden; }
+    .services::before { content: ""; position: absolute; inset: 0; opacity: .16; background: radial-gradient(circle at 82% 12%, #777 0, transparent 26%), linear-gradient(135deg, transparent 50%, rgba(255,255,255,.05) 50%); }
+    .services .container { position: relative; z-index: 1; }
+    .services-head { display: flex; align-items: end; justify-content: space-between; gap: 50px; margin-bottom: 44px; }
+    .services-head p { color: #bdbdc0; max-width: 500px; margin-bottom: 6px; }
+    .services .eyebrow { color: #d3d3d5; }
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .service-card {
+      min-height: 345px;
+      background: #fff;
+      color: var(--black);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, background .3s ease;
+    }
+    .service-card:hover { transform: translateY(-8px); background: #f4f4f1; }
+    .service-icon { width: 48px; height: 48px; border-radius: 9px; display: grid; place-items: center; background: #ececee; margin-bottom: 46px; }
+    .service-icon svg { width: 22px; height: 22px; }
+    .service-card h3 { margin-bottom: 13px; }
+    .service-card p { font-size: 13px; line-height: 1.7; margin-bottom: 22px; }
+    .service-list { list-style: none; padding: 18px 0 0; margin: auto 0 0; border-top: 1px solid #e2e2e3; }
+    .service-list li { font-size: 12px; font-weight: 700; color: #57575a; padding: 5px 0; }
+
+    /* Capabilities */
+    .capabilities-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 80px; align-items: start; }
+    .sticky-copy { position: sticky; top: 120px; }
+    .capability-list { border-top: 1px solid var(--line); }
+    .cap-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 24px; align-items: center; min-height: 106px; border-bottom: 1px solid var(--line); }
+    .cap-num { font-size: 12px; font-weight: 800; color: #99999c; }
+    .cap-row h3 { font-size: 20px; margin: 0; letter-spacing: -.025em; }
+    .cap-row p { margin: 4px 0 0; font-size: 12px; }
+    .cap-row svg { width: 19px; height: 19px; color: #8f8f92; }
+
+    /* Challenge section */
+    .challenge { position: relative; min-height: 650px; overflow: hidden; display: grid; align-items: stretch; background: #0a0a0b; color: white; }
+    .challenge-bg { position: absolute; inset: 0; }
+    .challenge-bg img { width: 100%; height: 100%; object-fit: cover; filter: none; }
+    .challenge-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,6,.95), rgba(5,5,6,.78) 52%, rgba(5,5,6,.35)); }
+    .challenge .container { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: 90px; padding-top: 95px; padding-bottom: 95px; }
+    .challenge .eyebrow { color: #d0d0d2; }
+    .challenge p { color: #c6c6c9; }
+    .challenge-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .challenge-card { background: rgba(17,17,19,.78); border: 1px solid rgba(255,255,255,.15); backdrop-filter: blur(10px); padding: 24px; min-height: 170px; border-radius: 12px; }
+    .challenge-card svg { width: 24px; height: 24px; margin-bottom: 32px; }
+    .challenge-card strong { display: block; font-size: 15px; margin-bottom: 6px; }
+    .challenge-card span { font-size: 12px; color: #bfbfc2; line-height: 1.6; }
+
+    /* Why */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+    .why-image { position: relative; }
+    .why-image img { height: 620px; object-fit: cover; border-radius: 16px; filter: none; }
+    .why-overlay { position: absolute; left: 22px; right: 22px; bottom: 22px; padding: 24px; background: rgba(10,10,11,.85); backdrop-filter: blur(10px); color: white; border-radius: 10px; }
+    .why-overlay span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: #bfbfc1; margin-bottom: 8px; font-weight: 800; }
+    .why-overlay strong { font-size: 20px; line-height: 1.25; }
+    .why-list { margin-top: 30px; }
+    .why-item { display: grid; grid-template-columns: 46px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+    .why-item:last-child { border-bottom: 1px solid var(--line); }
+    .why-item-icon { width: 42px; height: 42px; border-radius: 8px; background: #f0f0ed; display: grid; place-items: center; }
+    .why-item-icon svg { width: 19px; height: 19px; }
+    .why-item h3 { font-size: 18px; margin: 0 0 6px; }
+    .why-item p { font-size: 13px; margin: 0; }
+
+    /* Work gallery */
+    .work { background: var(--paper); }
+    .work-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 38px; }
+    .work-head p { max-width: 470px; margin-bottom: 7px; }
+    .work-grid { display: grid; grid-template-columns: 1.25fr .75fr .75fr; grid-template-rows: 280px 280px; gap: 14px; }
+    .work-card { position: relative; overflow: hidden; border-radius: 14px; background: #ddd; }
+    .work-card:first-child { grid-row: 1 / span 2; }
+    .work-card img { height: 100%; object-fit: cover; filter: none; transition: transform .5s ease, filter .5s ease; }
+    .work-card:hover img { transform: scale(1.045); filter: saturate(1.06); }
+    .work-label { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 14px 15px; background: rgba(9,9,10,.78); color: white; backdrop-filter: blur(7px); border-radius: 8px; }
+    .work-label strong { display: block; font-size: 13px; }
+    .work-label span { font-size: 11px; color: #c9c9cb; }
+
+    /* Industries */
+    .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .industry-card { min-height: 250px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; }
+    .industry-card svg { width: 25px; height: 25px; margin-bottom: 72px; }
+    .industry-card h3 { font-size: 19px; margin-bottom: 10px; }
+    .industry-card p { font-size: 12px; margin: 0; }
+
+    /* Quote */
+    .quote { background: #111113; color: white; }
+    .quote-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 90px; align-items: start; }
+    .quote .eyebrow { color: #d0d0d2; }
+    .quote blockquote { margin: 0; font-size: clamp(30px, 3.5vw, 50px); line-height: 1.18; letter-spacing: -.04em; font-weight: 600; }
+    .quote blockquote span { color: #96969a; }
+    .quote-attrib { margin-top: 34px; color: #bcbcc0; font-size: 13px; }
+
+    /* CTA / Contact */
+    .contact-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 70px; align-items: start; }
+    .contact-cards { display: grid; gap: 12px; margin-top: 34px; }
+    .contact-card { display: flex; align-items: center; gap: 15px; padding: 17px; border: 1px solid var(--line); border-radius: 10px; }
+    .contact-card-icon { width: 42px; height: 42px; border-radius: 7px; background: #efefec; display: grid; place-items: center; flex: 0 0 auto; }
+    .contact-card-icon svg { width: 18px; height: 18px; }
+    .contact-card small { display: block; font-size: 10px; text-transform: uppercase; color: #8b8b8e; letter-spacing: .1em; font-weight: 800; }
+    .contact-card strong { font-size: 13px; }
+    .contact-form { background: var(--black); color: white; padding: 38px; border-radius: 16px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 11px; color: #c6c6c8; font-weight: 800; letter-spacing: .04em; }
+    .field input, .field textarea, .field select {
+      width: 100%; border: 1px solid #3a3a3d; background: #171719; color: white; border-radius: 7px; outline: none; padding: 14px 15px; font: inherit; font-size: 13px; transition: border-color .2s ease;
+    }
+    .field textarea { min-height: 128px; resize: vertical; }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: #8b8b8e; }
+    .contact-form .btn { margin-top: 18px; width: 100%; }
+    .form-note { font-size: 10px; color: #8d8d91; margin: 12px 0 0; text-align: center; }
+
+    /* Footer */
+    .footer { background: #070708; color: white; padding: 72px 0 26px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr 1fr; gap: 50px; padding-bottom: 50px; }
+    .footer-brand p { color: #aaaabd; max-width: 340px; font-size: 12px; margin-top: 20px; }
+    .footer .brand-name { color: white; }
+    .footer .brand-sub { color: #929296; }
+    .footer h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 18px; color: #bdbdc0; }
+    .footer-links { display: grid; gap: 10px; }
+    .footer-links a { color: #dedee0; font-size: 12px; }
+    .footer-links a:hover { color: white; }
+    .footer-contact { font-size: 12px; color: #d8d8da; display: grid; gap: 12px; }
+    .footer-contact a, .footer-contact span { display: flex; gap: 9px; align-items: flex-start; }
+    .footer-contact svg { width: 15px; height: 15px; margin-top: 2px; flex: 0 0 auto; }
+    .footer-bottom { padding-top: 22px; border-top: 1px solid #252527; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #77777b; font-size: 10px; }
+    .footer-badge { display: inline-flex; align-items: center; gap: 8px; color: #bdbdc0; font-weight: 700; }
+    .footer-badge svg { width: 15px; height: 15px; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1180px) {
+      .nav { grid-template-columns: minmax(175px, auto) minmax(0, 1fr) auto; gap: 16px; }
+      .brand-sub { display: none; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      .nav-cta { padding: 0 14px; font-size: 12px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-card { justify-self: start; align-self: start; margin: -45px 0 60px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .capabilities-grid, .why-grid, .contact-grid { gap: 54px; }
+      .industry-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+      .footer-grid > :last-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 1024px) {
+      .topbar-inner { justify-content: center; }
+      .topbar-address { display: none !important; }
+      .nav { min-height: 76px; grid-template-columns: 1fr auto; gap: 20px; }
+      .brand-sub { display: block; }
+      .nav-links, .nav-cta { display: none; }
+      .menu-btn { display: inline-flex; }
+      .mobile-nav.open { display: block; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--line); }
+      .intro-grid, .capabilities-grid, .why-grid, .contact-grid, .quote-grid, .challenge .container { grid-template-columns: 1fr; }
+      .image-collage { max-width: 700px; }
+      .sticky-copy { position: static; }
+      .challenge .container { gap: 45px; }
+      .work-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 360px 260px 260px; }
+      .work-card:first-child { grid-column: 1 / -1; grid-row: auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > :last-child { grid-column: auto; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .section { padding: 78px 0; }
+      .section-sm { padding: 56px 0; }
+      .topbar-inner { min-height: 34px; }
+      .topbar-group { justify-content: center; gap: 14px; }
+      .topbar-email { display: none !important; }
+      .nav { min-height: 70px; }
+      .brand-mark { width: 46px; height: 36px; }
+      .brand-mark img { width: 52px; }
+      .brand-name { font-size: 15px; }
+      .brand-sub { font-size: 7px; letter-spacing: .12em; }
+      .mobile-nav-inner { padding-top: 6px; }
+      .mobile-nav a:not(.btn) { min-height: 54px; }
+      .hero, .hero-grid { min-height: 690px; }
+      .hero-media img { object-position: 62% center; }
+      .hero-media::before { background: linear-gradient(90deg, rgba(7,7,8,.97), rgba(7,7,8,.78)), linear-gradient(0deg, rgba(7,7,8,.65), transparent 50%); }
+      .hero-content { padding: 84px 0 60px; }
+      .hero-copy { font-size: 15px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-card { width: 100%; margin-top: -30px; }
+      .hero-corner { width: 92px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat, .stat + .stat { padding: 24px 0; border-right: 0; border-top: 1px solid var(--line); }
+      .stat:first-child { border-top: 0; }
+      .intro-grid { gap: 42px; }
+      .image-collage { min-height: 470px; }
+      .image-collage .img-main { top: 38px; height: 390px; width: 70%; }
+      .image-collage .img-top { height: 190px; }
+      .image-collage .img-bottom { height: 190px; }
+      .bolt-badge { width: 92px; height: 92px; right: 29%; }
+      .bolt-badge svg { width: 28px; }
+      .intro-points { grid-template-columns: 1fr; }
+      .services-head, .work-head { display: block; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 310px; }
+      .service-icon { margin-bottom: 34px; }
+      .cap-row { grid-template-columns: 42px 1fr auto; gap: 12px; min-height: 100px; }
+      .cap-row p { display: none; }
+      .challenge-cards { grid-template-columns: 1fr; }
+      .why-image img { height: 490px; }
+      .work-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 280px); }
+      .work-card:first-child { grid-column: auto; }
+      .industry-grid { grid-template-columns: 1fr; }
+      .industry-card { min-height: 200px; }
+      .industry-card svg { margin-bottom: 45px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 24px; }
+      .field.full { grid-column: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > :last-child { grid-column: auto; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 430px) {
+      .topbar-group:first-child { display: none; }
+      .topbar-inner { justify-content: center; }
+      .topbar-group:last-child { width: 100%; justify-content: center; }
+      .nav { gap: 12px; }
+      .brand-mark { width: 42px; height: 34px; }
+      .brand-mark img { width: 48px; }
+      .brand-name { font-size: 13px; }
+      .brand-sub { display: none; }
+      .menu-btn { width: 42px; height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-group">
+        <a class="topbar-email" href="mailto:info@skagitelectric.com"><i data-lucide="mail"></i> info@skagitelectric.com</a>
+        <span class="topbar-address"><i data-lucide="map-pin"></i> 530 W. State St., Sedro-Woolley, WA 98284</span>
+      </div>
+      <div class="topbar-group">
+        <span><i data-lucide="shield-check"></i> NETA Accredited Company</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Skagit Electric home">
+        <span class="brand-mark"><img src="images/skagit-mark.png" alt="Skagit Electric mark" /></span>
+        <span class="brand-copy">
+          <span class="brand-name">SKAGIT ELECTRIC</span>
+          <span class="brand-sub">Engineering · Testing · Maintenance</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#why-skagit">Why Skagit</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-dark nav-cta" href="tel:+13602008765"><i data-lucide="phone"></i> Call 360.200.8765</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <div class="container mobile-nav-inner">
+        <a href="#home">Home <i data-lucide="arrow-up-right"></i></a>
+        <a href="#services">Services <i data-lucide="arrow-up-right"></i></a>
+        <a href="#capabilities">Capabilities <i data-lucide="arrow-up-right"></i></a>
+        <a href="#why-skagit">Why Skagit <i data-lucide="arrow-up-right"></i></a>
+        <a href="#work">Work <i data-lucide="arrow-up-right"></i></a>
+        <a href="#contact">Contact <i data-lucide="arrow-up-right"></i></a>
+        <a class="btn btn-dark" href="tel:+13602008765"><i data-lucide="phone"></i> Call 360.200.8765</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-media">
+        <img src="images/skagit-hero.png" alt="Skagit Electric technicians reviewing substation equipment" />
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">NETA Accredited Company · 2026</div>
+          <h1>Power systems built for <span>confidence.</span></h1>
+          <p class="hero-copy">Full-service electrical engineering, testing, maintenance, troubleshooting and commissioning for facilities that cannot afford shortcuts.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-light">Request a Service Call <i data-lucide="arrow-up-right"></i></a>
+            <a href="#services" class="btn btn-outline-light">Explore Capabilities <i data-lucide="arrow-down"></i></a>
+          </div>
+        </div>
+        <aside class="hero-card reveal" aria-label="Company accreditation highlight">
+          <div class="hero-card-top">
+            <div>
+              <small>Accredited</small>
+              <div class="number">NETA</div>
+            </div>
+            <i data-lucide="shield-check"></i>
+          </div>
+          <p>Independent testing discipline, experienced personnel and a commitment to doing the work correctly the first time.</p>
+        </aside>
+      </div>
+      <div class="hero-corner"></div>
+    </section>
+
+    <section class="stats" aria-label="Skagit Electric highlights">
+      <div class="container stats-grid">
+        <div class="stat reveal"><strong>20+ yrs</strong><span>Experience held by key personnel</span></div>
+        <div class="stat reveal"><strong>2026</strong><span>NETA Accredited Company milestone</span></div>
+        <div class="stat reveal"><strong>TS-level</strong><span>Security-cleared personnel available</span></div>
+        <div class="stat reveal"><strong>Local → Global</strong><span>Skagit County roots with international reach</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container intro-grid">
+        <div class="image-collage reveal" aria-label="Electrical service imagery">
+          <img class="img-main" src="images/skagit-testing.png" alt="Electrical technician testing industrial switchgear" />
+          <img class="img-top" src="images/skagit-field-service.png" alt="Field technician servicing power infrastructure" />
+          <img class="img-bottom" src="images/skagit-switchgear.png" alt="Industrial switchgear and control equipment" />
+          <div class="bolt-badge"><i data-lucide="zap"></i></div>
+        </div>
+
+        <div class="reveal">
+          <div class="eyebrow">About Skagit Electric</div>
+          <h2>Full-service expertise without the handoffs.</h2>
+          <p class="lead">Skagit Electric combines electrical engineering and field services under one accountable team—supporting testing, maintenance, power studies, troubleshooting, commissioning, repairs and replacement work.</p>
+          <ul class="intro-points">
+            <li><i data-lucide="circle-check"></i> Difficult sites & complex challenges</li>
+            <li><i data-lucide="circle-check"></i> Government & commercial clients</li>
+            <li><i data-lucide="circle-check"></i> New and existing facilities</li>
+            <li><i data-lucide="circle-check"></i> Small projects to major scopes</li>
+          </ul>
+          <a href="#contact" class="btn btn-dark">Discuss Your Project <i data-lucide="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="services-head reveal">
+          <div>
+            <div class="eyebrow">Core Services</div>
+            <h2>Complete electrical support from testing to replacement.</h2>
+          </div>
+          <p>One team to help identify risk, validate system performance, resolve issues and keep critical electrical infrastructure operating reliably.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i data-lucide="activity"></i></div>
+            <h3>Testing & Maintenance</h3>
+            <p>Verify condition, performance and readiness with structured testing and preventive maintenance.</p>
+            <ul class="service-list">
+              <li>Acceptance & maintenance testing</li>
+              <li>Commissioning</li>
+              <li>Thermographic surveying</li>
+              <li>Preventive maintenance</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i data-lucide="wrench"></i></div>
+            <h3>Troubleshooting & Repairs</h3>
+            <p>Find the fault, determine the cause and move quickly toward a practical resolution.</p>
+            <ul class="service-list">
+              <li>Onsite & remote troubleshooting</li>
+              <li>Accurate diagnosis</li>
+              <li>Immediate repair support</li>
+              <li>Future recommendations</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i data-lucide="file-chart-column"></i></div>
+            <h3>Power Studies & Designs</h3>
+            <p>Engineering studies that support safer operation, coordination and informed system decisions.</p>
+            <ul class="service-list">
+              <li>Short-circuit studies</li>
+              <li>Coordination studies</li>
+              <li>Arc-flash studies</li>
+              <li>Electrical designs</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i data-lucide="cable"></i></div>
+            <h3>Replacement & Installation</h3>
+            <p>Assess replacement needs and execute upgrades across critical power-system components.</p>
+            <ul class="service-list">
+              <li>Condition assessment</li>
+              <li>Cables & terminations</li>
+              <li>Distribution equipment</li>
+              <li>Replacement installations</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="container capabilities-grid">
+        <div class="sticky-copy reveal">
+          <div class="eyebrow">Equipment Capabilities</div>
+          <h2>Experienced across critical power systems.</h2>
+          <p class="lead">Field technicians work across a wide range of low- and medium-voltage equipment, from distribution systems to generation and protection.</p>
+          <a href="#contact" class="btn btn-outline-dark">Ask About Your Equipment <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="capability-list reveal">
+          <div class="cap-row"><span class="cap-num">01</span><div><h3>Transformers</h3><p>Testing, maintenance, condition assessment and troubleshooting.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">02</span><div><h3>Generators & Transfer Switches</h3><p>Critical standby power and automatic transfer-system support.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">03</span><div><h3>MV & LV Switchgear</h3><p>Testing, inspection, maintenance and commissioning support.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">04</span><div><h3>Protective Relays</h3><p>Relay testing, settings verification and protection-system support.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">05</span><div><h3>MV & LV Cables</h3><p>Cable and termination testing for system integrity and reliability.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">06</span><div><h3>Switchboards, Switches & UPS</h3><p>Field services for distribution and critical power equipment.</p></div><i data-lucide="arrow-up-right"></i></div>
+          <div class="cap-row"><span class="cap-num">07</span><div><h3>Voltage Regulators & Grounding</h3><p>Testing and evaluation supporting stable, safe operation.</p></div><i data-lucide="arrow-up-right"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="challenge" id="challenge">
+      <div class="challenge-bg">
+        <img src="images/skagit-field-service.png" alt="Skagit Electric field technician servicing a substation" />
+      </div>
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Built For Difficult Work</div>
+          <h2>When the project is complicated, remote or security-sensitive, call us.</h2>
+          <p class="lead">Skagit Electric is known for taking on challenging work other contractors may decline—bringing a practical, can-do approach to unusual sites and demanding requirements.</p>
+          <a href="#contact" class="btn btn-light">Talk With Our Team <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="challenge-cards reveal">
+          <div class="challenge-card"><i data-lucide="mountain"></i><strong>Difficult project sites</strong><span>Support for challenging locations and unusual site constraints.</span></div>
+          <div class="challenge-card"><i data-lucide="shield"></i><strong>Security-cleared personnel</strong><span>Personnel with clearances available up to the TS level.</span></div>
+          <div class="challenge-card"><i data-lucide="lightbulb"></i><strong>Creative problem solving</strong><span>Practical thinking focused on getting to a workable resolution.</span></div>
+          <div class="challenge-card"><i data-lucide="globe-2"></i><strong>Broad service reach</strong><span>Headquartered in Washington and equipped to support work beyond the region.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-skagit">
+      <div class="container why-grid">
+        <div class="why-image reveal">
+          <img src="images/skagit-commissioning.png" alt="Electrical professionals inspecting switchgear" />
+          <div class="why-overlay"><span>Our Standard</span><strong>Clear communication. Correct work. No shortcuts.</strong></div>
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">Why Skagit Electric</div>
+          <h2>Reliability starts with how the work gets done.</h2>
+          <p class="lead">Technical capability matters. So does listening, communicating clearly and staying accountable from the first conversation through completion.</p>
+          <div class="why-list">
+            <div class="why-item"><div class="why-item-icon"><i data-lucide="messages-square"></i></div><div><h3>We listen first</h3><p>Scope, priorities and expectations are clarified before work begins.</p></div></div>
+            <div class="why-item"><div class="why-item-icon"><i data-lucide="badge-check"></i></div><div><h3>Do it right the first time</h3><p>Experienced personnel, disciplined procedures and no shortcuts.</p></div></div>
+            <div class="why-item"><div class="why-item-icon"><i data-lucide="handshake"></i></div><div><h3>Relationships over transactions</h3><p>Projects of any size are approached as an opportunity to build long-term trust.</p></div></div>
+            <div class="why-item"><div class="why-item-icon"><i data-lucide="circle-check-big"></i></div><div><h3>Finish with confidence</h3><p>The job is not considered complete until the client is satisfied with the result.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="work-head reveal">
+          <div>
+            <div class="eyebrow">Field Work</div>
+            <h2>Hands-on support for the systems that keep facilities running.</h2>
+          </div>
+          <p>Representative categories of the testing, inspection and power-system work Skagit Electric performs.</p>
+        </div>
+        <div class="work-grid">
+          <figure class="work-card reveal">
+            <img src="images/skagit-diagnostics.png" alt="Electrical technician performing diagnostic testing" />
+            <figcaption class="work-label"><strong>Electrical testing</strong><span>Control panels, breakers and distribution equipment</span></figcaption>
+          </figure>
+          <figure class="work-card reveal">
+            <img src="images/skagit-field-service.png" alt="Outdoor substation maintenance service" />
+            <figcaption class="work-label"><strong>Transformer services</strong><span>Testing, maintenance and condition assessment</span></figcaption>
+          </figure>
+          <figure class="work-card reveal">
+            <img src="images/skagit-hero.png" alt="Skagit Electric technicians at a power substation" />
+            <figcaption class="work-label"><strong>Power infrastructure</strong><span>Field support across critical electrical systems</span></figcaption>
+          </figure>
+          <figure class="work-card reveal">
+            <img src="images/skagit-switchgear.png" alt="Technician inspecting industrial switchgear" />
+            <figcaption class="work-label"><strong>Distribution equipment</strong><span>Inspection, troubleshooting and replacement support</span></figcaption>
+          </figure>
+          <figure class="work-card reveal">
+            <img src="images/skagit-testing.png" alt="Electrical technician testing distribution equipment" />
+            <figcaption class="work-label"><strong>Onsite problem solving</strong><span>Experienced field personnel where the work happens</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="container">
+        <div class="reveal" style="max-width:760px; margin-bottom:40px;">
+          <div class="eyebrow">Where We Work</div>
+          <h2>Electrical support for demanding facilities and project environments.</h2>
+        </div>
+        <div class="industry-grid">
+          <article class="industry-card reveal"><i data-lucide="landmark"></i><h3>Government & Secure Facilities</h3><p>Support for projects where access, documentation and security requirements matter.</p></article>
+          <article class="industry-card reveal"><i data-lucide="building-2"></i><h3>Commercial Facilities</h3><p>Testing, maintenance and engineering support for operational electrical systems.</p></article>
+          <article class="industry-card reveal"><i data-lucide="factory"></i><h3>Industrial Sites</h3><p>Field services for complex equipment, shutdowns, maintenance and troubleshooting.</p></article>
+          <article class="industry-card reveal"><i data-lucide="battery-charging"></i><h3>Critical Power Environments</h3><p>Services focused on reliability, protection, backup power and distribution systems.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote">
+      <div class="container quote-grid">
+        <div class="reveal">
+          <div class="eyebrow">How We Work</div>
+          <p>Availability. Creativity. Commitment. Reliability.</p>
+        </div>
+        <div class="reveal">
+          <blockquote>“Listen closely. Do the work right the first time. <span>Stay accountable until the client is satisfied.</span>”</blockquote>
+          <div class="quote-attrib">— The service standard behind Skagit Electric</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="eyebrow">Start A Conversation</div>
+          <h2>Have a project, outage or service need?</h2>
+          <p class="lead">Tell us what you are dealing with. Skagit Electric can help evaluate the scope, identify the right next step and schedule the appropriate field or engineering support.</p>
+
+          <div class="contact-cards">
+            <a class="contact-card" href="tel:+13602008765"><span class="contact-card-icon"><i data-lucide="phone"></i></span><span><small>Call us</small><strong>360.200.8765</strong></span></a>
+            <a class="contact-card" href="mailto:info@skagitelectric.com"><span class="contact-card-icon"><i data-lucide="mail"></i></span><span><small>Email</small><strong>info@skagitelectric.com</strong></span></a>
+            <div class="contact-card"><span class="contact-card-icon"><i data-lucide="map-pin"></i></span><span><small>Headquarters</small><strong>530 W. State St., Sedro-Woolley, WA 98284</strong></span></div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">NAME</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+            <div class="field"><label for="company">COMPANY</label><input id="company" name="company" type="text" placeholder="Company name" /></div>
+            <div class="field"><label for="phone">PHONE</label><input id="phone" name="phone" type="tel" placeholder="Phone number" /></div>
+            <div class="field"><label for="email">EMAIL</label><input id="email" name="email" type="email" placeholder="you@company.com" required /></div>
+            <div class="field full"><label for="service">SERVICE NEEDED</label>
+              <select id="service" name="service">
+                <option>Electrical Testing & Maintenance</option>
+                <option>Troubleshooting & Repairs</option>
+                <option>Power Studies & Designs</option>
+                <option>Replacement & Installation</option>
+                <option>Commissioning</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="field full"><label for="message">PROJECT DETAILS</label><textarea id="message" name="message" placeholder="Tell us about the site, equipment, timing and what you need help with." required></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-light">Send Project Details <i data-lucide="send"></i></button>
+          <p class="form-note">Submitting opens your email client with the project information addressed to Skagit Electric.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand">
+            <span class="brand-mark"><img src="images/skagit-mark.png" alt="Skagit Electric mark" /></span>
+            <span class="brand-copy"><span class="brand-name">SKAGIT ELECTRIC</span><span class="brand-sub">Engineering · Testing · Maintenance</span></span>
+          </a>
+          <p>A licensed small-business electrical engineering and electrical contractor providing testing, maintenance, studies, troubleshooting, commissioning, repairs and replacement services.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links"><a href="#about">About</a><a href="#why-skagit">Why Skagit</a><a href="#work">Field Work</a><a href="#contact">Contact</a></div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="footer-links"><a href="#services">Testing & Maintenance</a><a href="#services">Troubleshooting</a><a href="#services">Power Studies</a><a href="#services">Replacement</a></div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <a href="tel:+13602008765"><i data-lucide="phone"></i><span>360.200.8765</span></a>
+            <a href="mailto:info@skagitelectric.com"><i data-lucide="mail"></i><span>info@skagitelectric.com</span></a>
+            <span><i data-lucide="map-pin"></i><span>530 W. State St.<br>Sedro-Woolley, WA 98284</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Skagit Electric. All rights reserved.</span>
+        <span class="footer-badge"><i data-lucide="shield-check"></i> NETA Accredited Company</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const navIcon = () => {
+        menuBtn.innerHTML = mobileNav.classList.contains('open')
+          ? '<i data-lucide="x"></i>'
+          : '<i data-lucide="menu"></i>';
+        if (window.lucide) lucide.createIcons();
+      };
+
+      menuBtn.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        document.body.classList.toggle('menu-open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        navIcon();
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        navIcon();
+      }));
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024 && mobileNav.classList.contains('open')) {
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('menu-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          navIcon();
+        }
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const navLinks = [...document.querySelectorAll('.nav-links a')];
+      const sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + visible.target.id));
+      }, { threshold: [0.3, 0.55], rootMargin: '-110px 0px -40% 0px' });
+      sections.forEach(s => sectionObserver.observe(s));
+
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const subject = encodeURIComponent('Project Inquiry - ' + (data.get('company') || data.get('name')));
+        const body = encodeURIComponent(
+          `Name: ${data.get('name')}\nCompany: ${data.get('company')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email')}\nService: ${data.get('service')}\n\nProject Details:\n${data.get('message')}`
+        );
+        window.location.href = `mailto:info@skagitelectric.com?subject=${subject}&body=${body}`;
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

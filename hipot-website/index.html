@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HiPot Engineering delivers independent, standards-based electrical testing, maintenance, commissioning and power-system engineering services across Puerto Rico." />
+  <meta name="theme-color" content="#102129" />
+  <title>HiPot Engineering | Power System Testing & Maintenance</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root{
+      --ink:#102129;
+      --ink-2:#172d36;
+      --ink-3:#223943;
+      --teal:#59bbc1;
+      --teal-deep:#319ca5;
+      --teal-soft:#e7f7f7;
+      --gold:#f4b24b;
+      --gold-deep:#db8d25;
+      --cream:#f8faf8;
+      --white:#fff;
+      --line:#dfe7e6;
+      --muted:#607079;
+      --shadow:0 24px 60px rgba(11,30,38,.14);
+      --shadow-sm:0 12px 32px rgba(11,30,38,.10);
+      --radius:22px;
+      --container:min(1320px, calc(100% - 40px));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:94px}
+    body{margin:0;font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+    a{color:inherit;text-decoration:none}
+    .container{width:var(--container);margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep)}
+    .eyebrow::before{content:"";width:23px;height:2px;background:var(--gold);border-radius:99px}
+    .section{padding:108px 0}
+    .section-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:64px;align-items:end;margin-bottom:48px}
+    .section-head h2,.split-copy h2,.contact-copy h2{font-size:clamp(36px,4.4vw,60px);line-height:1.02;letter-spacing:-.045em;margin:13px 0 0;font-weight:800}
+    .section-head p,.split-copy>p,.contact-copy>p{margin:0;color:var(--muted);font-size:16px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:9px;border:1px solid transparent;font-weight:800;font-size:14px;transition:.25s ease;cursor:pointer}
+    .btn svg{width:17px;height:17px}
+    .btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 10px 26px rgba(244,178,75,.18)}
+    .btn-primary:hover{background:#ffc25e;transform:translateY(-2px)}
+    .btn-teal{background:var(--teal);color:var(--ink)}
+    .btn-teal:hover{background:#6acbd0;transform:translateY(-2px)}
+    .btn-ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.23);color:#fff;backdrop-filter:blur(12px)}
+    .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+
+    /* Header */
+    .site-header{position:fixed;inset:0 0 auto;z-index:100;padding:18px 0;transition:.3s ease}
+    .nav-shell{width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:11px 12px 11px 19px;border:1px solid rgba(255,255,255,.13);border-radius:13px;background:rgba(14,30,38,.64);backdrop-filter:blur(18px);box-shadow:0 10px 35px rgba(0,0,0,.12)}
+    .site-header.scrolled{padding:10px 0}
+    .site-header.scrolled .nav-shell{background:rgba(16,33,41,.94);border-color:rgba(255,255,255,.07)}
+    .brand img{width:124px;height:auto;display:block}
+    .nav-links{display:flex;align-items:center;gap:31px;color:#edf5f6;font-size:13px;font-weight:600}
+    .nav-links a{position:relative;opacity:.88}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s}
+    .nav-links a:hover{opacity:1}.nav-links a:hover::after{width:100%}
+    .nav-cta{min-height:44px;padding-inline:18px}
+    .menu-toggle{display:none;width:44px;height:44px;border:0;border-radius:8px;background:rgba(255,255,255,.08);color:#fff;align-items:center;justify-content:center;cursor:pointer}
+
+    /* Hero */
+    .hero{position:relative;min-height:620px;color:#fff;background:
+      linear-gradient(90deg,rgba(8,20,27,.93) 0%,rgba(8,20,27,.74) 43%,rgba(8,20,27,.2) 76%,rgba(8,20,27,.36) 100%),
+      url('https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&q=88&w=2200') center/cover no-repeat;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 40%,rgba(89,187,193,.19),transparent 28%),linear-gradient(180deg,rgba(12,29,37,.05),rgba(12,29,37,.2));pointer-events:none}
+    .hero::after{content:"";position:absolute;width:480px;height:480px;border:1px solid rgba(89,187,193,.24);border-radius:50%;right:-170px;top:180px;box-shadow:0 0 0 80px rgba(89,187,193,.025),0 0 0 160px rgba(89,187,193,.015)}
+    .hero-content{position:relative;z-index:2;padding-top:150px;padding-bottom:94px;max-width:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px 8px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(10,28,36,.54);backdrop-filter:blur(12px);font-size:12px;font-weight:800;color:#eaf7f7;margin-bottom:18px}
+    .hero-badge span:first-child{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--teal);color:var(--ink)}
+    .hero-badge svg{width:15px;height:15px}
+    h1{font-size:clamp(48px,5.2vw,68px);line-height:1.02;letter-spacing:-.05em;margin:0 0 16px;font-weight:800;max-width:720px}
+    h1 .accent{color:var(--teal)}
+    .hero-lede{font-size:clamp(15px,1.35vw,18px);line-height:1.55;max-width:610px;color:#d9e4e7;margin:0 0 22px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{display:flex;align-items:center;gap:10px;margin-top:18px;color:#c7d5d8;font-size:13px;font-weight:600}
+    .hero-note svg{width:17px;color:var(--gold)}
+
+    .service-floats{position:relative;z-index:4;width:var(--container);margin:-68px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .float-card{position:relative;min-height:190px;padding:27px;border-radius:18px;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 30px 60px rgba(6,21,28,.24);overflow:hidden;border:1px solid rgba(255,255,255,.6)}
+    .float-card::after{content:"";position:absolute;width:80px;height:80px;border-radius:50%;background:var(--teal-soft);right:-24px;top:-26px}
+    .float-icon{display:grid;place-items:center;width:45px;height:45px;border-radius:12px;background:var(--ink);color:#fff;margin-bottom:20px;position:relative;z-index:1}
+    .float-card:nth-child(2) .float-icon{background:var(--teal);color:var(--ink)}
+    .float-card:nth-child(3) .float-icon{background:var(--gold);color:var(--ink)}
+    .float-icon svg{width:22px;height:22px}
+    .float-card h3{margin:0 0 7px;font-size:18px;letter-spacing:-.02em}
+    .float-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+    /* Trust strip */
+    .trust-section{padding:64px 0 42px;background:#fff}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:17px;overflow:hidden}
+    .trust-item{padding:25px 26px;display:flex;gap:14px;align-items:center;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .trust-item i{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:11px;background:var(--teal-soft);color:var(--teal-deep)}
+    .trust-item svg{width:20px;height:20px}
+    .trust-item strong{display:block;font-size:15px;line-height:1.2}
+    .trust-item span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+
+    /* Services */
+    .services{background:linear-gradient(180deg,#fff 0%,#f7faf9 100%)}
+    .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .service-card{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:.28s ease;position:relative;overflow:hidden;min-height:315px}
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:#cbdad9}
+    .service-no{position:absolute;right:22px;top:18px;font-weight:800;font-size:55px;line-height:1;color:#edf2f1;letter-spacing:-.06em}
+    .service-icon{display:grid;place-items:center;width:50px;height:50px;border-radius:13px;background:var(--ink);color:#fff;margin-bottom:45px}
+    .service-card:nth-child(2) .service-icon,.service-card:nth-child(4) .service-icon{background:var(--teal);color:var(--ink)}
+    .service-card h3{font-size:23px;letter-spacing:-.025em;margin:0 0 10px}
+    .service-card p{font-size:14px;color:var(--muted);margin:0 0 17px;max-width:520px}
+    .tag-list{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{padding:6px 9px;border-radius:7px;background:#f2f6f5;color:#42545d;font-size:11px;font-weight:700}
+
+    /* NETA banner */
+    .neta-band{padding:0 0 108px;background:#f7faf9}
+    .neta-card{position:relative;overflow:hidden;border-radius:25px;background:var(--ink);color:#fff;padding:58px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;box-shadow:var(--shadow)}
+    .neta-card::after{content:"";position:absolute;right:-180px;top:-240px;width:570px;height:570px;border-radius:50%;background:radial-gradient(circle,rgba(89,187,193,.27),rgba(89,187,193,0) 65%)}
+    .neta-card .eyebrow{color:#89dbe0}.neta-card h2{font-size:clamp(36px,4.3vw,58px);line-height:1.04;letter-spacing:-.045em;margin:13px 0 18px;position:relative;z-index:1}
+    .neta-card p{color:#c7d4d8;margin:0;max-width:650px;position:relative;z-index:1}
+    .neta-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+    .neta-fact{padding:22px;border-radius:14px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(8px)}
+    .neta-fact svg{width:20px;color:var(--gold);margin-bottom:16px}
+    .neta-fact strong{display:block;font-size:14px}.neta-fact span{display:block;font-size:11px;color:#9fb0b5;margin-top:5px}
+
+    /* About */
+    .about{background:#fff}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
+    .media-stack{position:relative;min-height:600px}
+    .main-photo{position:absolute;inset:0 74px 60px 0;border-radius:24px;overflow:hidden;background:#dde7e7;box-shadow:var(--shadow-sm)}
+    .main-photo img{width:100%;height:100%;object-fit:cover}
+    .small-photo{position:absolute;width:52%;height:240px;right:0;bottom:0;border:10px solid #fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm)}
+    .small-photo img{width:100%;height:100%;object-fit:cover}
+    .year-card{position:absolute;left:-20px;bottom:100px;padding:18px 19px;border-radius:15px;background:var(--gold);color:var(--ink);box-shadow:var(--shadow-sm)}
+    .year-card strong{display:block;font-size:29px;line-height:1;font-weight:800}.year-card span{font-size:11px;font-weight:800}
+    .split-copy h2{margin-bottom:20px}
+    .principle{margin:26px 0;padding:21px 23px;border-left:3px solid var(--teal);background:var(--teal-soft);border-radius:0 12px 12px 0;font-weight:700;color:#24434a}
+    .check-list{display:grid;gap:13px;margin:28px 0 32px}
+    .check-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#34464e}
+    .check-item i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;flex:0 0 24px;margin-top:1px}
+    .check-item svg{width:13px;height:13px}
+
+    /* Equipment */
+    .equipment{background:var(--cream)}
+    .equipment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+    .equipment-card{min-height:190px;padding:22px;border:1px solid var(--line);border-radius:17px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+    .equipment-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+    .equipment-card svg{width:24px;height:24px;color:var(--teal-deep)}
+    .equipment-card strong{font-size:15px;line-height:1.35}.equipment-card span{font-size:11px;color:var(--muted);display:block;margin-top:4px}
+
+    /* Emergency band */
+    .emergency{position:relative;min-height:520px;background:linear-gradient(90deg,rgba(10,26,33,.95),rgba(10,26,33,.62)),url('https://images.unsplash.com/photo-1775519519950-9c48495b5488?auto=format&fit=crop&q=88&w=2200') center/cover no-repeat;color:#fff;display:flex;align-items:center}
+    .emergency-grid{display:grid;grid-template-columns:1fr .8fr;gap:80px;align-items:center;padding:90px 0}
+    .emergency h2{font-size:clamp(41px,5.2vw,68px);line-height:1.01;letter-spacing:-.05em;margin:12px 0 19px;max-width:700px}.emergency p{color:#d2dfe2;max-width:610px;margin:0 0 26px}
+    .emergency-card{padding:28px;border-radius:19px;border:1px solid rgba(255,255,255,.16);background:rgba(16,33,41,.64);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+    .phone-row{display:flex;align-items:center;gap:17px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.13)}
+    .phone-row i{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--gold);color:var(--ink)}
+    .phone-row svg{width:22px}.phone-row span{display:block;font-size:11px;color:#a9b8bd}.phone-row strong{font-size:22px;letter-spacing:-.02em}
+    .emergency-card ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:#d4e0e2;font-size:13px}
+    .emergency-card li{display:flex;gap:9px;align-items:center}.emergency-card li svg{width:15px;color:var(--teal)}
+
+    /* Process */
+    .process{background:#fff}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step}
+    .step{position:relative;padding:0 28px 0 0;counter-increment:step}
+    .step:not(:last-child)::after{content:"";position:absolute;top:26px;left:66px;right:15px;border-top:1px dashed #bfcfcd}
+    .step-no{position:relative;z-index:1;display:grid;place-items:center;width:53px;height:53px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:13px;margin-bottom:24px;box-shadow:0 0 0 7px #fff}
+    .step-no::before{content:"0" counter(step)}
+    .step h3{font-size:17px;margin:0 0 8px}.step p{font-size:13px;color:var(--muted);margin:0}
+
+    /* Field visuals */
+    .field{background:var(--cream)}
+    .gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:260px 260px;gap:14px}
+    .gallery-card{position:relative;overflow:hidden;border-radius:19px;background:#ccd9d8;min-height:200px}
+    .gallery-card:first-child{grid-row:1/3}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .gallery-card:hover img{transform:scale(1.045)}
+    .gallery-overlay{position:absolute;inset:auto 0 0;padding:52px 18px 17px;background:linear-gradient(transparent,rgba(8,20,27,.84));color:#fff}
+    .gallery-overlay strong{display:block;font-size:15px}.gallery-overlay span{display:block;font-size:11px;color:#cedbdd;margin-top:2px}
+
+    /* Quote */
+    .quote-wrap{padding:0 0 108px;background:var(--cream)}
+    .quote-card{display:grid;grid-template-columns:90px 1fr auto;gap:26px;align-items:center;padding:37px 42px;border-radius:21px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+    .quote-mark{display:grid;place-items:center;width:67px;height:67px;border-radius:50%;background:var(--teal-soft);color:var(--teal-deep)}
+    .quote-mark svg{width:28px;height:28px}.quote-card blockquote{margin:0;font-size:clamp(20px,2.3vw,31px);line-height:1.25;letter-spacing:-.035em;font-weight:700}.quote-card cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:10px}.quote-logo{width:155px;opacity:.92}
+
+    /* Contact */
+    .contact{background:var(--ink);color:#fff;padding:108px 0 0;position:relative;overflow:hidden}
+    .contact::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(89,187,193,.13),transparent 67%);right:-250px;top:-140px}
+    .contact-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:78px;align-items:start;position:relative;z-index:1}
+    .contact-copy .eyebrow{color:#86d9de}.contact-copy h2{margin-bottom:18px}.contact-copy>p{color:#acbec3}
+    .contact-details{display:grid;gap:15px;margin-top:32px}
+    .contact-detail{display:flex;align-items:center;gap:14px;color:#e2ebed;font-size:13px}
+    .contact-detail i{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.07);color:var(--gold)}
+    .contact-detail svg{width:18px;height:18px}
+    .contact-form{background:#fff;color:var(--ink);padding:34px;border-radius:23px;box-shadow:0 30px 65px rgba(0,0,0,.2)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .field-group{margin-bottom:13px}.field-group label{display:block;font-size:11px;font-weight:800;color:#44565e;margin-bottom:7px}.field-group input,.field-group textarea,.field-group select{width:100%;border:1px solid #d9e4e2;background:#fbfcfc;border-radius:9px;padding:13px 14px;outline:none;color:var(--ink);transition:.2s}.field-group textarea{min-height:118px;resize:vertical}.field-group input:focus,.field-group textarea:focus,.field-group select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(89,187,193,.12)}
+    .form-note{font-size:10px;color:#74848a;margin-top:10px}
+
+    .footer{margin-top:90px;border-top:1px solid rgba(255,255,255,.09);padding:42px 0 26px;position:relative;z-index:1}
+    .footer-main{display:grid;grid-template-columns:1.15fr .7fr .7fr .8fr;gap:48px;padding-bottom:36px}
+    .footer-logo{width:175px;margin-bottom:18px}.footer-brand p{color:#95a8ae;font-size:12px;max-width:330px;margin:0}.footer h4{font-size:12px;margin:0 0 14px}.footer-links{display:grid;gap:8px}.footer-links a,.footer-links span{font-size:11px;color:#94a8ae}.footer-links a:hover{color:#fff}.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:20px;color:#7f949a;font-size:10px}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      :root{--container:min(100% - 32px, 1320px)}
+      .nav-links{display:none;position:absolute;top:78px;left:17px;right:17px;padding:18px;border-radius:13px;background:#102129;flex-direction:column;align-items:stretch;gap:6px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+      .nav-links.open{display:flex}.nav-links a{padding:11px}.nav-links a::after{display:none}.menu-toggle{display:flex}.nav-cta{display:none}
+      .hero{min-height:590px}.hero-content{padding-top:136px;padding-bottom:68px}.service-floats{margin-top:-54px;grid-template-columns:repeat(3,1fr)}
+      .trust-section{padding-top:54px}.trust-grid{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .section-head,.split,.contact-grid,.neta-card,.emergency-grid{grid-template-columns:1fr;gap:36px}
+      .section-head{align-items:start}.media-stack{min-height:520px}.equipment-grid{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr 1fr;gap:44px 20px}.step::after{display:none}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:300px 240px 240px}.gallery-card:first-child{grid-column:1/3;grid-row:auto}.quote-card{grid-template-columns:70px 1fr}.quote-logo{display:none}.footer-main{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:700px){
+      :root{--container:min(100% - 24px, 1320px)}
+      .section{padding:78px 0}.site-header{padding:12px 0}.nav-shell{padding:8px 9px 8px 12px}.brand img{width:110px}
+      .hero{min-height:auto;background-position:63% center}.hero-content{padding-top:120px;padding-bottom:44px}.hero::after{display:none}h1{font-size:42px;line-height:1.03}.hero-lede{font-size:15px;line-height:1.5}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{width:100%}
+      .service-floats{margin-top:-18px;grid-template-columns:1fr;gap:10px}.float-card{min-height:auto;padding:20px}.float-icon{margin-bottom:12px}
+      .trust-section{padding-top:34px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0!important;border-bottom:1px solid var(--line)!important}.trust-item:last-child{border-bottom:0!important}
+      .section-head{gap:18px;margin-bottom:32px}.section-head h2,.split-copy h2,.contact-copy h2{font-size:38px}.service-grid{grid-template-columns:1fr}.service-card{min-height:0}.neta-band{padding-bottom:78px}.neta-card{padding:34px 24px}.neta-facts{grid-template-columns:1fr}
+      .media-stack{min-height:440px}.main-photo{inset:0 35px 50px 0}.small-photo{height:180px;width:56%;border-width:7px}.year-card{left:-4px;bottom:82px}.equipment-grid{grid-template-columns:1fr 1fr}.equipment-card{min-height:160px;padding:18px}.emergency{background-position:60% center}.emergency-grid{padding:76px 0}.steps{grid-template-columns:1fr;gap:32px}.gallery{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(5,260px)}.gallery-card:first-child{grid-column:auto}.quote-wrap{padding-bottom:78px}.quote-card{grid-template-columns:1fr;padding:28px}.quote-mark{width:52px;height:52px}.form-row{grid-template-columns:1fr}.contact{padding-top:78px}.contact-grid{gap:42px}.contact-form{padding:24px}.footer{margin-top:70px}.footer-main{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:1/3}.footer-bottom{flex-direction:column}
+    }
+    @media(max-width:430px){.equipment-grid{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.main-photo{inset:0 18px 58px 0}.small-photo{width:64%;height:165px}h1{font-size:38px}.hero-content{padding-top:114px;padding-bottom:42px}}
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="HiPot Engineering home"><img src="images/logo-light.webp" alt="HiPot Engineering" /></a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#qemc">QEMC</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#contact">Request Service <i data-lucide="arrow-up-right"></i></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="hero-badge reveal"><span><i data-lucide="badge-check"></i></span> Puerto Rico's first NETA Qualified Electrical Equipment Maintenance Company</div>
+        <h1 class="reveal">Power systems built for <span class="accent">reliability.</span></h1>
+        <p class="hero-lede reveal">Independent electrical testing, maintenance, commissioning and engineering for critical facilities — with capabilities across substation equipment up to 115 kV.</p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-primary">Request Service <i data-lucide="arrow-right"></i></a>
+          <a href="tel:+17876068078" class="btn btn-ghost"><i data-lucide="phone-call"></i> 24/7 Emergency: (787) 606-8078</a>
+        </div>
+        <div class="hero-note reveal"><i data-lucide="shield-check"></i> Safety, integrity and precision in every test, report and recommendation.</div>
+      </div>
+    </section>
+
+      <div class="service-floats">
+        <article class="float-card reveal">
+          <div class="float-icon"><i data-lucide="activity"></i></div>
+          <h3>Electrical Testing</h3>
+          <p>Transformers, cables, switchgear, breakers, relays, grounding and infrared diagnostics.</p>
+        </article>
+        <article class="float-card reveal">
+          <div class="float-icon"><i data-lucide="clipboard-check"></i></div>
+          <h3>Commissioning & Acceptance</h3>
+          <p>Independent verification before energization, turnover and critical system startup.</p>
+        </article>
+        <article class="float-card reveal">
+          <div class="float-icon"><i data-lucide="wrench"></i></div>
+          <h3>Maintenance & Reliability</h3>
+          <p>Standards-based maintenance and repair services designed to reduce risk and protect uptime.</p>
+        </article>
+      </div>
+
+    <section class="trust-section">
+      <div class="container trust-grid reveal">
+        <div class="trust-item"><i><i data-lucide="badge-check"></i></i><div><strong>NETA QEMC</strong><span>Qualified maintenance company</span></div></div>
+        <div class="trust-item"><i><i data-lucide="zap"></i></i><div><strong>Up to 115 kV</strong><span>Substation equipment capability</span></div></div>
+        <div class="trust-item"><i><i data-lucide="clock-3"></i></i><div><strong>24/7 Response</strong><span>Emergency electrical support</span></div></div>
+        <div class="trust-item"><i><i data-lucide="map-pin"></i></i><div><strong>Puerto Rico</strong><span>Cidra-based engineering team</span></div></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Core services</span><h2>Testing, engineering and maintenance under one standard.</h2></div>
+          <p>HiPot supports asset owners and critical facilities with disciplined field testing, practical engineering insight and maintenance services built around system reliability.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal"><span class="service-no">01</span><div class="service-icon"><i data-lucide="test-tubes"></i></div><h3>Testing & Diagnostics</h3><p>Condition and performance testing across the equipment that keeps your distribution system operating safely.</p><div class="tag-list"><span class="tag">Transformers</span><span class="tag">Power Cables</span><span class="tag">Switchgear & MCC</span><span class="tag">Grounding</span><span class="tag">Breakers</span><span class="tag">Relays</span><span class="tag">Infrared</span></div></article>
+          <article class="service-card reveal"><span class="service-no">02</span><div class="service-icon"><i data-lucide="badge-check"></i></div><h3>Commissioning & Acceptance</h3><p>Structured testing and validation for new or modified electrical systems before operational handoff.</p><div class="tag-list"><span class="tag">Substations</span><span class="tag">Switchgear</span><span class="tag">MCC</span><span class="tag">Panelboards</span><span class="tag">ATS</span><span class="tag">MV Motor Starters</span></div></article>
+          <article class="service-card reveal"><span class="service-no">03</span><div class="service-icon"><i data-lucide="chart-no-axes-combined"></i></div><h3>Power System Studies</h3><p>Engineering analysis that helps teams understand system behavior, risk, coordination and operating limits.</p><div class="tag-list"><span class="tag">Protection Coordination</span><span class="tag">Short Circuit</span><span class="tag">Arc Flash</span><span class="tag">Power Quality</span><span class="tag">Load Studies</span><span class="tag">Safety Assessments</span></div></article>
+          <article class="service-card reveal"><span class="service-no">04</span><div class="service-icon"><i data-lucide="settings"></i></div><h3>Maintenance & Repairs</h3><p>Hands-on maintenance services that help restore equipment condition and extend the useful life of critical assets.</p><div class="tag-list"><span class="tag">Transformer Repairs</span><span class="tag">Switchgear Reconditioning</span><span class="tag">Breaker Retrofit</span><span class="tag">Oil Analysis</span><span class="tag">Cable Splicing</span><span class="tag">3M Certified Technicians</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="neta-band" id="qemc">
+      <div class="container">
+        <div class="neta-card reveal">
+          <div><span class="eyebrow">A new benchmark in Puerto Rico</span><h2>NETA QEMC recognition strengthens the standard behind the work.</h2><p>HiPot Engineering joined NETA's Qualified Electrical Equipment Maintenance Company program in 2026 — reinforcing its focus on recognized maintenance practices, qualified workers and consistent technical execution.</p></div>
+          <div class="neta-facts">
+            <div class="neta-fact"><i data-lucide="shield-check"></i><strong>Third-party framework</strong><span>Recognition aligned with NETA's QEMC program.</span></div>
+            <div class="neta-fact"><i data-lucide="book-open-check"></i><strong>NFPA 70B support</strong><span>Maintenance qualification built for today's standards environment.</span></div>
+            <div class="neta-fact"><i data-lucide="user-check"></i><strong>Qualified personnel</strong><span>Focused on worker knowledge, consistency and safety.</span></div>
+            <div class="neta-fact"><i data-lucide="file-check-2"></i><strong>Defensible results</strong><span>Clear documentation and disciplined test execution.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="media-stack reveal">
+          <div class="main-photo"><img src="https://images.unsplash.com/photo-1780396140802-52309c205050?auto=format&fit=crop&q=88&w=1400" alt="Electrical substation equipment" loading="lazy" /></div>
+          <div class="small-photo"><img src="https://images.unsplash.com/photo-1775519519950-9c48495b5488?auto=format&fit=crop&q=88&w=1000" alt="Industrial electrical control panel" loading="lazy" /></div>
+          <div class="year-card"><strong>2022</strong><span>Founded in Puerto Rico</span></div>
+        </div>
+        <div class="split-copy reveal">
+          <span class="eyebrow">About HiPot Engineering</span>
+          <h2>Built around disciplined electrical work — not shortcuts.</h2>
+          <p>Founded by Miguel A. Morales, P.E., a licensed Professional Electrical Engineer in Puerto Rico, HiPot Engineering was created after years of engineering and leadership experience in pharmaceutical and industrial facilities.</p>
+          <div class="principle">The principle is simple: do the work the right way to protect people, assets and critical operations.</div>
+          <div class="check-list">
+            <div class="check-item"><i><i data-lucide="check"></i></i><span>Licensed engineers, engineers and certified electricians working as one technical team.</span></div>
+            <div class="check-item"><i><i data-lucide="check"></i></i><span>Independent, standards-based testing and maintenance for highly regulated environments.</span></div>
+            <div class="check-item"><i><i data-lucide="check"></i></i><span>Calibrated equipment, accountable execution and clear technical reporting.</span></div>
+          </div>
+          <a class="btn btn-teal" href="#contact">Talk to an Engineer <i data-lucide="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section equipment" id="capabilities">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Equipment expertise</span><h2>Focused on the assets that matter most to system reliability.</h2></div>
+          <p>From incoming substations to facility distribution, HiPot's testing and maintenance capabilities cover the equipment where small problems can become major interruptions.</p>
+        </div>
+        <div class="equipment-grid">
+          <div class="equipment-card reveal"><i data-lucide="boxes"></i><div><strong>Transformers</strong><span>Testing, oil analysis and repair support.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="panel-top"></i><div><strong>Switchgear & MCC</strong><span>Inspection, testing and reconditioning.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="toggle-left"></i><div><strong>MV & LV Breakers</strong><span>Testing, maintenance and retrofit work.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="cable"></i><div><strong>Power Cables</strong><span>Testing, splicing and terminations.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="radio-tower"></i><div><strong>Protective Relays</strong><span>Functional verification and coordination.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="git-branch"></i><div><strong>Grounding Systems</strong><span>Ground integrity and performance testing.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="thermometer-sun"></i><div><strong>Infrared Inspection</strong><span>Thermal visibility into developing issues.</span></div></div>
+          <div class="equipment-card reveal"><i data-lucide="shuffle"></i><div><strong>Automatic Transfer Switches</strong><span>Acceptance, function and maintenance checks.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="emergency">
+      <div class="container emergency-grid">
+        <div class="reveal"><span class="eyebrow" style="color:#8bdce0">24/7 emergency service</span><h2>When power reliability becomes urgent, response matters.</h2><p>For unexpected equipment issues, testing needs or urgent maintenance support, HiPot Engineering provides a direct line to an experienced electrical team.</p><a href="tel:+17876068078" class="btn btn-primary"><i data-lucide="phone"></i> Call Emergency Service</a></div>
+        <aside class="emergency-card reveal">
+          <div class="phone-row"><i><i data-lucide="phone-call"></i></i><div><span>Emergency line</span><strong>(787) 606-8078</strong></div></div>
+          <ul><li><i data-lucide="check-circle-2"></i> Fast technical triage</li><li><i data-lucide="check-circle-2"></i> Testing and diagnostic support</li><li><i data-lucide="check-circle-2"></i> Maintenance and repair coordination</li><li><i data-lucide="check-circle-2"></i> Puerto Rico-based response team</li></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">How we work</span><h2>Clear scope. Disciplined execution. Useful results.</h2></div><p>A straightforward field-to-report process helps facility teams understand what was tested, what was found and what should happen next.</p></div>
+        <div class="steps">
+          <div class="step reveal"><div class="step-no"></div><h3>Define the scope</h3><p>Understand the system, equipment, outage window, operating constraints and desired outcome.</p></div>
+          <div class="step reveal"><div class="step-no"></div><h3>Prepare safely</h3><p>Coordinate access, test plans, calibrated equipment, procedures and field safety requirements.</p></div>
+          <div class="step reveal"><div class="step-no"></div><h3>Test & verify</h3><p>Perform disciplined testing, inspection, maintenance or commissioning against the agreed scope.</p></div>
+          <div class="step reveal"><div class="step-no"></div><h3>Document & advise</h3><p>Deliver clear findings, defensible results and practical recommendations for next steps.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section field">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">Capabilities in the field</span><h2>Technical work for real-world power systems.</h2></div><p>Representative imagery highlighting the types of equipment, environments and reliability work supported by HiPot Engineering.</p></div>
+        <div class="gallery">
+          <div class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&q=88&w=1400" alt="Technician testing electrical equipment" loading="lazy"><div class="gallery-overlay"><strong>Electrical Testing</strong><span>Diagnostics & verification</span></div></div>
+          <div class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1744113511604-235e7010981f?auto=format&fit=crop&q=88&w=1000" alt="Power substation" loading="lazy"><div class="gallery-overlay"><strong>Substations</strong><span>Equipment up to 115 kV</span></div></div>
+          <div class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1775519519950-9c48495b5488?auto=format&fit=crop&q=88&w=1000" alt="Electrical control panel" loading="lazy"><div class="gallery-overlay"><strong>Switchgear</strong><span>Maintenance & inspection</span></div></div>
+          <div class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1777734794648-2bd10e93f0b2?auto=format&fit=crop&q=88&w=1000" alt="Electrical substation infrastructure" loading="lazy"><div class="gallery-overlay"><strong>Power Distribution</strong><span>Reliability-focused support</span></div></div>
+          <div class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1780396140802-52309c205050?auto=format&fit=crop&q=88&w=1000" alt="Substation transformer equipment" loading="lazy"><div class="gallery-overlay"><strong>Critical Infrastructure</strong><span>Standards-based execution</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-wrap">
+      <div class="container">
+        <div class="quote-card reveal">
+          <div class="quote-mark"><i data-lucide="quote"></i></div>
+          <div><blockquote>“We operate in an industry where precision protects lives.”</blockquote><cite>Miguel A. Morales, P.E. — Founder, HiPot Engineering</cite></div>
+          <img class="quote-logo" src="images/logo-dark.webp" alt="HiPot Engineering" />
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal"><span class="eyebrow">Request service</span><h2>Tell us what your power system needs.</h2><p>Whether you're planning maintenance, commissioning new equipment, investigating a problem or responding to an urgent issue, start with a direct conversation.</p>
+          <div class="contact-details">
+            <a class="contact-detail" href="tel:+17876068078"><i><i data-lucide="phone"></i></i><span>(787) 606-8078</span></a>
+            <a class="contact-detail" href="mailto:service@hipoteng.com"><i><i data-lucide="mail"></i></i><span>service@hipoteng.com</span></a>
+            <div class="contact-detail"><i><i data-lucide="map-pin"></i></i><span>Cidra, Puerto Rico 00739</span></div>
+            <div class="contact-detail"><i><i data-lucide="clock"></i></i><span>Office hours: 8:00 AM – 5:00 PM · Emergency service 24/7</span></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="serviceForm">
+          <div class="form-row">
+            <div class="field-group"><label for="name">NAME</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+            <div class="field-group"><label for="company">COMPANY</label><input id="company" name="company" type="text" placeholder="Company / facility"></div>
+          </div>
+          <div class="form-row">
+            <div class="field-group"><label for="email">EMAIL</label><input id="email" name="email" type="email" placeholder="you@company.com" required></div>
+            <div class="field-group"><label for="phone">PHONE</label><input id="phone" name="phone" type="tel" placeholder="(787) 000-0000"></div>
+          </div>
+          <div class="field-group"><label for="service">SERVICE NEEDED</label><select id="service" name="service"><option>Electrical Testing & Diagnostics</option><option>Commissioning & Acceptance</option><option>Power System Study</option><option>Maintenance & Repairs</option><option>24/7 Emergency Support</option><option>Other / Not Sure</option></select></div>
+          <div class="field-group"><label for="message">PROJECT DETAILS</label><textarea id="message" name="message" placeholder="Equipment, voltage level, location, schedule, symptoms or other useful details..."></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send Service Request <i data-lucide="send"></i></button>
+          <div class="form-note">This demo form opens your email client with the project details pre-filled for service@hipoteng.com.</div>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-main">
+            <div class="footer-brand"><img class="footer-logo" src="images/logo-light.webp" alt="HiPot Engineering"><p>Independent, standards-based electrical engineering, testing and maintenance services that protect people, assets and critical operations.</p></div>
+            <div><h4>Services</h4><div class="footer-links"><a href="#services">Electrical Testing</a><a href="#services">Commissioning</a><a href="#services">Power Studies</a><a href="#services">Maintenance & Repairs</a></div></div>
+            <div><h4>Company</h4><div class="footer-links"><a href="#about">About HiPot</a><a href="#qemc">NETA QEMC</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a></div></div>
+            <div><h4>Contact</h4><div class="footer-links"><a href="tel:+17876068078">(787) 606-8078</a><a href="mailto:service@hipoteng.com">service@hipoteng.com</a><span>Cidra, PR 00739</span><span>24/7 Emergency Service</span></div></div>
+          </div>
+          <div class="footer-bottom"><span>© <span id="year"></span> HiPot Engineering LLC. All rights reserved.</span><span>Power system reliability · Safety · Integrity · Precision</span></div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById('siteHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 24), {passive:true});
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuToggle.innerHTML = navLinks.classList.contains('open') ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    }));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${Math.min(i * 45, 180)}ms`;
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    document.getElementById('serviceForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(this);
+      const subject = encodeURIComponent(`HiPot Service Request — ${data.get('service')}`);
+      const body = encodeURIComponent(
+`Name: ${data.get('name') || ''}
+Company: ${data.get('company') || ''}
+Email: ${data.get('email') || ''}
+Phone: ${data.get('phone') || ''}
+Service: ${data.get('service') || ''}
+
+Project details:
+${data.get('message') || ''}`
+      );
+      window.location.href = `mailto:service@hipoteng.com?subject=${subject}&body=${body}`;
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
