@@ -72,7 +72,7 @@
     :root{--red:#c9232b;--red-hover:#ad1720;--ink:#202123;--dark:#191a1c;--muted:#67686b;--paper:#fff;--soft:#f3f3f3;--line:#dcdcdf;--line-light:rgba(255,255,255,.22);--display:'Space Grotesk',Arial,sans-serif;--body:'Inter',Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1);--page:1370px;--gutter:30px}
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:96px}
-    body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
     body.menu-open{overflow:hidden}
     ::selection{background:var(--red);color:#fff}
     h1,h2,h3,h4,p,figure{margin:0}
@@ -88,14 +88,14 @@
     img{display:block;max-width:100%;height:auto}
     svg{display:block}
     button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:6px}
-    .container{width:100%;max-width:var(--page);padding-inline:var(--gutter);margin-inline:auto;position:relative}
+    .container{width:100%;max-width:var(--page);padding-inline:var(--gutter);margin-inline:auto;position:relative}.container>*{min-width:0}
     .section{padding-block:96px}
     .eyebrow{font:600 14px/1.5 var(--display);text-transform:uppercase;letter-spacing:1.2px;display:flex;align-items:center;gap:10px}
     .eyebrow::before{content:'';height:7px;width:7px;flex-shrink:0;background:var(--red)}
     .eyebrow.light::before{background:#fff}
     .eyebrow+.section-title{margin-top:20px}
     .icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:22px;min-height:53px;padding:15px 20px;background:var(--red);border:1px solid transparent;border-radius:2px;color:#fff;font:600 14px/1.5 var(--display);text-transform:uppercase;letter-spacing:.25px;flex-shrink:0;transition:background .3s,color .3s,transform .3s var(--ease);width:fit-content}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:22px;min-height:53px;max-width:100%;padding:15px 20px;background:var(--red);border:1px solid transparent;border-radius:2px;color:#fff;font:600 14px/1.5 var(--display);text-transform:uppercase;letter-spacing:.25px;flex-shrink:0;transition:background .3s,color .3s,transform .3s var(--ease);width:fit-content;text-align:center}
     .button:hover{background:var(--red-hover);transform:translateY(-2px)}
     .button.white{background:#fff;color:var(--ink)}
     .button.white:hover{background:var(--red);color:#fff}
@@ -225,11 +225,14 @@
     /* ENGINEERING — oversized image panels, stacked like Modera projects. */
     .engineering-header{max-width:760px;margin-bottom:50px}
     .engineering-header h2{margin-top:20px}
-    .engineering-stack{display:flex;flex-direction:column;gap:28px}
-    .engineering-card{position:relative;overflow:hidden;min-height:485px;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;padding:42px;color:#fff;background:#3c4147}
-    .engineering-card>img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease);filter:saturate(.45)}
+    .engineering-stack{display:flex;flex-direction:column;gap:28px;position:relative;padding-bottom:8px}
+    .engineering-card{position:sticky;top:104px;overflow:hidden;min-height:485px;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;padding:42px;color:#fff;background:#3c4147;transform:scale(var(--stack-scale,1));transform-origin:top center;box-shadow:0 18px 48px rgba(10,12,16,.08);will-change:transform}
+    .engineering-card:nth-child(1){top:104px;z-index:1}
+    .engineering-card:nth-child(2){top:118px;z-index:2}
+    .engineering-card:nth-child(3){top:132px;z-index:3}
+    .engineering-card>img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;transition:transform .35s var(--ease),filter .35s var(--ease);transform:scale(calc(var(--stack-image-scale,1) + var(--hover-scale,0)));filter:saturate(.45) brightness(var(--stack-brightness,1))}
     .engineering-card::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(12,17,23,.9),rgba(12,17,23,.1) 85%)}
-    .engineering-card:hover>img{transform:scale(1.025)}
+    .engineering-card:hover{--hover-scale:.025}
     .engineering-badge{position:absolute;top:30px;left:35px;font:500 13px/1.5 var(--display);text-transform:uppercase;letter-spacing:1px;border:1px solid #ffffff70;padding:6px 12px;background:#11111125;backdrop-filter:blur(6px)}
     .engineering-index{position:absolute;top:34px;right:36px;font:500 14px/1.3 var(--display);letter-spacing:1px}
     .engineering-content{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
@@ -330,11 +333,16 @@
       .hero{padding-top:78px;min-height:840px}.hero-main{padding-top:50px}.hero-heading{max-width:670px}.hero h1{font-size:64px}.hero-actions p{font-size:16px}.hero-actions{max-width:610px;gap:26px}.hero-accreditation{width:280px}.hero-assurance{gap:15px}.hero-assurance strong{font-size:17px}.hero-assurance>.icon{width:42px;height:42px}
       .section{padding-block:76px}.about-top{grid-template-columns:1fr;gap:27px}.about-aside{flex-direction:row}.quality-seal{display:none}.about-statement{font-size:45px}.about-mosaic{grid-template-columns:.85fr 1.1fr;gap:15px}.about-tiles{gap:15px}.about-tile{padding:23px;min-height:220px}.about-photo{min-height:455px}.tile-photo{min-height:220px}.tile-value{font-size:46px}.tile-value.smaller{font-size:28px}.tile-value.license{font-size:30px}
       .principles{padding-bottom:65px}.principles-list{gap:17px}.principles-list>div{font-size:15px;gap:8px}.principles-list .icon{width:24px;height:24px}
-      .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card{min-height:345px}.service-card h3{font-size:31px}.engineering-content{flex-direction:column;align-items:flex-start;gap:25px}.engineering-card{min-height:510px;padding:32px}.engineering-content h3{font-size:37px}
+      .principles-list{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin-inline:auto}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card{min-height:345px}.service-card h3{font-size:31px}.engineering-content{flex-direction:column;align-items:flex-start;gap:25px}.engineering-card{min-height:clamp(470px,calc(100svh - 150px),540px);padding:32px}.engineering-card:nth-child(1){top:94px}.engineering-card:nth-child(2){top:106px}.engineering-card:nth-child(3){top:118px}.engineering-content h3{font-size:37px}
       .why-top{flex-direction:column;gap:26px}.why-top>.button{margin-top:0}.why-grid{margin-top:105px;gap:13px}.why-card{padding:23px}.why-card h3{font-size:19px}.why-card p{font-size:14px}.why-card>.icon{margin-bottom:22px}
       .testing-layout{grid-template-columns:1fr;gap:45px}.testing-intro{position:static;max-width:630px}.testing-intro>p:not(.eyebrow){max-width:590px}.commitment-layout{grid-template-columns:1fr;gap:25px}.commitment-aside>.icon{display:none}
       .contact-cta{padding-block:76px 65px;flex-direction:column;align-items:flex-start;gap:30px}.contact-cta>div:last-child{max-width:560px}.contact-cta p:not(.eyebrow){max-width:560px}.footer-main{grid-template-columns:1fr 1fr;gap:42px;padding-block:55px}.footer-brand{grid-column:1/-1}.footer-brand>p{max-width:540px}.footer-bottom{align-items:flex-start}.footer-wordmark{margin-top:30px}
     }
+    /* SMALL TABLET / LARGE PHONE — prevent cramped two-column layouts. */
+    @media(max-width:760px) and (min-width:601px){
+      :root{--gutter:22px}.hero h1{font-size:clamp(48px,8.2vw,58px)}.hero-bottom-row{flex-direction:column;align-items:stretch}.hero-assurance{max-width:100%;padding-block:28px}.hero-accreditation{width:100%;min-height:190px}.about-mosaic{grid-template-columns:1fr}.about-photo{min-height:430px}.about-tiles{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr;margin-top:68px}.why-card{padding:28px}.engineering-card{min-height:clamp(455px,calc(100svh - 130px),515px)}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}
+    }
+
     /* MOBILE */
     @media(max-width:600px){
       :root{--gutter:20px}html{scroll-padding-top:96px}h2{font-size:35px;letter-spacing:-1px}.eyebrow{font-size:12px;letter-spacing:1px}.nav-row{height:74px}.mobile-nav:not([hidden]){top:74px}.brand img{height:40px;width:40px}.brand-type strong{font-size:26px}.brand-type span{font-size:12px}.menu-toggle{width:42px;height:42px}
@@ -343,11 +351,14 @@
       .section{padding-block:62px}.about-top{gap:22px;margin-bottom:35px}.about-statement{font-size:34px;line-height:1.18;letter-spacing:-1px}.about-features{grid-template-columns:1fr;gap:27px;margin-top:31px}.feature-title{margin-bottom:12px}.feature-title h3{font-size:20px}.about-features p{font-size:15px}.about-mosaic{grid-template-columns:1fr;gap:13px}.about-photo{min-height:390px}.about-photo>img{object-position:center 37%}.about-tiles{gap:13px}.about-tile{min-height:190px;padding:22px 20px}.tile-photo{min-height:190px}.tile-label{font-size:12px}.tile-value{font-size:47px}.tile-value.smaller{font-size:28px}.tile-value.license{font-size:30px}.photo-caption{left:17px;right:17px;bottom:17px;font-size:10px;letter-spacing:.5px}
       .principles{padding-bottom:55px}.principles-heading{font-size:14px;gap:12px}.principles-list{grid-template-columns:1fr 1fr;gap:27px 20px;padding-top:32px}.principles-list>div{justify-content:flex-start;font-size:16px}
       .section-heading.center{margin-bottom:35px;text-align:left}.section-heading.center .eyebrow{justify-content:flex-start}.section-heading h2{margin-top:16px}.service-grid{grid-template-columns:1fr}.service-card{min-height:300px;padding:28px;gap:42px}.service-card h3{font-size:31px;max-width:330px}.service-top>.icon{width:42px;height:42px}.service-card p{max-width:100%;font-size:15px}.services-bottom{margin-top:33px;align-items:flex-start;justify-content:flex-start;gap:20px}.services-bottom p{font-size:15px}
-      .engineering-header{margin-bottom:34px}.engineering-header h2{margin-top:16px}.engineering-stack{gap:17px}.engineering-card{min-height:510px;padding:26px}.engineering-content{gap:24px}.engineering-content h3{font-size:32px;letter-spacing:-.8px}.engineering-content p{font-size:15px}.engineering-content .button{font-size:12px}.engineering-badge{left:23px;top:23px;font-size:11px;letter-spacing:.6px}.engineering-index{top:31px;right:24px;font-size:12px}
+      .engineering-header{margin-bottom:34px}.engineering-header h2{margin-top:16px}.engineering-stack{gap:14px}.engineering-card{min-height:clamp(440px,calc(100svh - 112px),510px);padding:24px 22px}.engineering-card:nth-child(1){top:86px}.engineering-card:nth-child(2){top:96px}.engineering-card:nth-child(3){top:106px}.engineering-content{gap:22px}.engineering-content h3{font-size:clamp(27px,8vw,32px);letter-spacing:-.8px}.engineering-content p{font-size:14px;line-height:1.65}.engineering-content .button{font-size:11px;min-height:49px;padding:13px 16px}.engineering-badge{left:20px;top:20px;font-size:10px;letter-spacing:.5px;max-width:60%}.engineering-index{top:27px;right:20px;font-size:11px}
       .why{padding-block:62px 30px}.why-grid{grid-template-columns:1fr;margin-top:65px;gap:14px}.why-card{padding:28px;display:grid;grid-template-columns:35px 1fr;column-gap:20px}.why-card>.icon{height:33px;width:33px;margin:0;grid-row:1/3}.why-card h3{font-size:21px;margin-bottom:10px}.why-card p{font-size:15px}.why h2{margin-top:17px}.why-background{object-position:67% center}
       .testing-layout{gap:31px}.testing-intro h2{margin-top:17px;margin-bottom:22px}.testing-intro>p:not(.eyebrow){font-size:15px;margin-bottom:23px}.testing-list summary{gap:16px;padding-block:25px}.testing-list summary h3{font-size:21px}.testing-list summary .num{font-size:12px}.testing-list ul{padding-left:32px;padding-right:13px}.testing-list li{font-size:15px}
       .commitment{padding-block:58px}.commitment h2{font-size:34px}.commitment p.description{font-size:16px;margin-top:21px}.commitment-signature{font-size:12px;letter-spacing:.2px}
-      .contact-cta{padding-block:64px 52px;gap:27px}.contact-cta h2{font-size:41px;letter-spacing:-1.3px}.contact-cta p:not(.eyebrow){font-size:16px}.footer-main{grid-template-columns:1fr;gap:33px;padding-block:43px}.footer-brand{grid-column:auto}.footer-label{margin-bottom:18px}.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:13px 20px}.footer-contact a{margin-bottom:18px}.footer-wordmark{font-size:27vw;margin-top:18px}.footer-bottom{font-size:11px;flex-wrap:wrap;gap:13px;padding-block:22px}.footer-bottom a{margin-left:auto}.footer-bottom>p:first-child{flex-basis:100%}
+      .contact-cta{padding-block:64px 52px;gap:27px}.contact-cta h2{font-size:41px;letter-spacing:-1.3px}.contact-cta p:not(.eyebrow){font-size:16px}.footer-main{grid-template-columns:1fr;gap:33px;padding-block:43px}.footer-brand{grid-column:auto}.footer-label{margin-bottom:18px}.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:13px 20px}.footer-contact a{margin-bottom:18px}.footer-wordmark{font-size:27vw;margin-top:18px}.footer-bottom{font-size:11px;flex-wrap:wrap;gap:13px;padding-block:22px}.footer-bottom a{margin-left:auto}.footer-bottom>p:first-child{flex-basis:100%}.button{white-space:normal}.photo-caption{gap:12px;flex-wrap:wrap}.principles-list>div{min-width:0}.service-card,.why-card,.about-tile{min-width:0}
+    }
+    @media(max-width:420px){
+      :root{--gutter:17px}.brand-type strong{font-size:23px}.brand-type span{font-size:10px;letter-spacing:1px}.hero h1{font-size:clamp(36px,11vw,46px)}.hero-actions .button,.services-bottom .button,.contact-cta .button{width:100%}.about-tiles{grid-template-columns:1fr}.principles-list{grid-template-columns:1fr}.footer-links{grid-template-columns:1fr}.engineering-card{padding-inline:19px}.engineering-badge{left:18px}.engineering-index{right:18px}.testing-list summary h3{font-size:19px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.motion-ready [data-reveal]{opacity:1!important;transform:none!important}.hero-background img{transform:none!important}}
     @media print{.site-header,.hero-background,.hero::before,.hero-tail,.button,.why-background,.contact::before,.footer-wordmark{display:none!important}body,.services,.why,.contact,.about-tile{background:#fff!important;color:#111!important}.hero{min-height:0;padding:0;color:#111}.section{padding:25px 0}.hero-accreditation{background:#eee;color:#111}.hero-actions p,.why-card p,.footer-main p,.footer-contact a,.footer-bottom{color:#333}.engineering-card{min-height:330px}.motion-ready [data-reveal]{opacity:1;transform:none}.testing-intro{position:static}}
@@ -497,9 +508,9 @@
       <div class="container">
         <div class="engineering-header" data-reveal><p class="eyebrow">Engineering & design</p><h2 id="engineering-title">Thoughtful engineering.<br>Practical solutions.</h2></div>
         <div class="engineering-stack">
-          <article class="engineering-card" data-reveal><img src="images/substation.webp" width="1586" height="992" loading="lazy" decoding="async" alt="Illustrative electrical substation at dusk"><span class="engineering-badge">Power-system design</span><span class="engineering-index">01 / 03</span><div class="engineering-content"><div><h3>Designed for your<br>power requirements.</h3><p>Commercial and industrial power design, substation and control upgrades, and as-built engineering drawings.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Power%20system%20design%20enquiry">Discuss your project <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
-          <article class="engineering-card" data-reveal><img src="images/switchgear.webp" width="1513" height="1039" loading="lazy" decoding="async" alt="Illustration of switchgear and protection cabinets in a power distribution room"><span class="engineering-badge">Protection & upgrades</span><span class="engineering-index">02 / 03</span><div class="engineering-content"><div><h3>Modernize the systems<br>you depend on.</h3><p>Protective relay upgrades, circuit-breaker retrofits, and control-system design tailored to your existing infrastructure.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Electrical%20system%20upgrade%20enquiry">Plan an upgrade <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
-          <article class="engineering-card" data-reveal><img src="images/engineer.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Illustrative electrical inspection in an industrial control room" style="object-position:center 40%"><span class="engineering-badge">Analysis & coordination</span><span class="engineering-index">03 / 03</span><div class="engineering-content"><div><h3>Understand your system.<br>Make informed decisions.</h3><p>Arc-flash calculations, short-circuit analysis, and coordination studies to inform your electrical protection strategy.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Power%20system%20study%20enquiry">Request a study <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
+          <article class="engineering-card"><img src="images/substation.webp" width="1586" height="992" loading="lazy" decoding="async" alt="Illustrative electrical substation at dusk"><span class="engineering-badge">Power-system design</span><span class="engineering-index">01 / 03</span><div class="engineering-content"><div><h3>Designed for your<br>power requirements.</h3><p>Commercial and industrial power design, substation and control upgrades, and as-built engineering drawings.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Power%20system%20design%20enquiry">Discuss your project <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
+          <article class="engineering-card"><img src="images/switchgear.webp" width="1513" height="1039" loading="lazy" decoding="async" alt="Illustration of switchgear and protection cabinets in a power distribution room"><span class="engineering-badge">Protection & upgrades</span><span class="engineering-index">02 / 03</span><div class="engineering-content"><div><h3>Modernize the systems<br>you depend on.</h3><p>Protective relay upgrades, circuit-breaker retrofits, and control-system design tailored to your existing infrastructure.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Electrical%20system%20upgrade%20enquiry">Plan an upgrade <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
+          <article class="engineering-card"><img src="images/engineer.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Illustrative electrical inspection in an industrial control room" style="object-position:center 40%"><span class="engineering-badge">Analysis & coordination</span><span class="engineering-index">03 / 03</span><div class="engineering-content"><div><h3>Understand your system.<br>Make informed decisions.</h3><p>Arc-flash calculations, short-circuit analysis, and coordination studies to inform your electrical protection strategy.</p></div><a class="button white" href="mailto:hermin@gigaelectricalca.com?subject=Power%20system%20study%20enquiry">Request a study <span class="arrow-window" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></a></div></article>
         </div>
       </div>
     </section>
@@ -560,6 +571,7 @@
       const hero = document.querySelector('.hero');
       const heroImage = document.getElementById('hero-image');
       const navLinks = [...document.querySelectorAll('.desktop-nav a')];
+      const engineeringCards = [...document.querySelectorAll('.engineering-card')];
       let scrollQueued = false;
 
       // Mobile menu: Escape closes it; keyboard focus stays within the open menu.
@@ -609,8 +621,30 @@
         document.querySelectorAll('[data-reveal]').forEach(element => revealObserver.observe(element));
       }
 
-      // Scrolled navigation and a small, frame-limited desktop parallax movement.
+      // Scroll-stack animation for the engineering cards. The cards remain sticky on every viewport;
+      // this only adds the subtle scale/image-depth effect as the next card arrives.
+      function updateEngineeringStack() {
+        engineeringCards.forEach((card, index) => {
+          const nextCard = engineeringCards[index + 1];
+          if (!nextCard || reducedMotion.matches) {
+            card.style.setProperty('--stack-scale', '1');
+            card.style.setProperty('--stack-image-scale', '1');
+            card.style.setProperty('--stack-brightness', '1');
+            return;
+          }
+          const stickyTop = parseFloat(getComputedStyle(card).top) || 0;
+          const nextTop = nextCard.getBoundingClientRect().top;
+          const range = Math.min(210, Math.max(150, window.innerHeight * 0.22));
+          const progress = Math.max(0, Math.min(1, (stickyTop + range - nextTop) / range));
+          card.style.setProperty('--stack-scale', (1 - progress * 0.035).toFixed(4));
+          card.style.setProperty('--stack-image-scale', (1 + progress * 0.02).toFixed(4));
+          card.style.setProperty('--stack-brightness', (1 - progress * 0.16).toFixed(4));
+        });
+      }
+
+      // Scrolled navigation, engineering card stacking, and a small frame-limited desktop parallax movement.
       function updateScroll() {
+        updateEngineeringStack();
         header.classList.toggle('scrolled', window.scrollY > 40);
         if (!reducedMotion.matches && desktop.matches && window.scrollY < hero.offsetHeight) {
           heroImage.style.translate = '0 ' + Math.min(window.scrollY * 0.12, 90) + 'px';
